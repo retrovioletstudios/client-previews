@@ -4,20 +4,20 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
-<title>Luu Automotive | North Austin Auto Repair</title>
-<meta name="description" content="Austin's most trusted auto repair shop. Honest pricing and exceptional mechanical work on North Lamar."/>
+<title>Luu Automotive | North Austin's Most Trusted Auto Repair</title>
+<meta name="description" content="Generational trust and unparalleled integrity on North Lamar. Danny and Don Luu provide honest mechanical work without upsells."/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --accent: #E32636;
+    /* Upgraded Red & Charcoal Palette */
+    --accent: #E32636; 
     --accent-dark: #B71C1C; 
-    --highlight: #FFFFFF;
-    --dark: #121212; 
-    --dark2: #1A1A1A; 
-    --dark3: #222222;
-    --light: #E8E8E8; 
-    --white: #FFFFFF;
+    --dark: #0A0A0A; 
+    --dark2: #141414; 
+    --dark3: #1E1E1E;
+    --glass: rgba(26, 26, 26, 0.5); /* Semi-transparent for blur effect */
+    --light: #E8E8E8; --white: #FFFFFF;
     --font-head: 'Bebas Neue', sans-serif;
     --font-body: 'Barlow', sans-serif;
     --font-sub: 'Barlow Condensed', sans-serif;
@@ -27,14 +27,9 @@
   /* Premium Phone Link Override */
   a[href^="tel"] { color: inherit; text-decoration: none; transition: opacity 0.2s; }
   a[href^="tel"]:hover { opacity: 0.8; }
-  .text-accent-link { color: var(--accent) !important; font-weight: 700; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
-  .text-accent-link:hover { opacity: 0.8; }
-  
-  /* Inline Cross-links */
-  .inline-link { color: var(--accent); font-weight: 600; text-decoration: underline; cursor: pointer; transition: color 0.2s; }
-  .inline-link:hover { color: var(--accent-dark); }
+  .text-accent-link { color: var(--accent) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
 
-  /* Premium Scroll Animations */
+  /* Scroll Animations */
   .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
   .fade-in-up.in-view { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
@@ -42,27 +37,29 @@
   .delay-3 { transition-delay: 0.3s; }
 
   nav {
-    background: rgba(18,18,18,0.98); border-bottom: 2px solid var(--dark3);
+    background: rgba(10,10,10,0.95); border-bottom: 1px solid #222;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100;
   }
-  .nav-logo { font-family: var(--font-head); font-size: 26px; letter-spacing: 2px; color: var(--white); display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
   .nav-logo img { height: 36px; width: auto; }
-  .nav-loc { font-family: var(--font-sub); font-size: 12px; color: #888; letter-spacing: 1px; text-transform: uppercase; padding-left: 10px; border-left: 1px solid var(--dark3); margin-top: 4px; }
+  .nav-logo-text { font-family: var(--font-head); font-size: 26px; letter-spacing: 2px; color: var(--white); }
+  .nav-logo-text span { color: var(--accent); }
+  .nav-loc { font-family: var(--font-sub); font-size: 11px; color: #666; letter-spacing: 1px; text-transform: uppercase; padding-left: 10px; border-left: 1px solid #222; margin-top: 4px; }
   .nav-links { display: flex; gap: 1.75rem; }
   .nav-links a { font-family: var(--font-sub); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); text-decoration: none; cursor: pointer; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--accent); border-color: var(--accent); }
-  .nav-cta { background: var(--accent); color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border: none; padding: 10px 22px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
-  .nav-cta:hover { background: var(--accent-dark); transform: scale(1.02); }
+  .nav-cta { background: var(--accent); color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border: none; padding: 10px 22px; cursor: pointer; transition: all 0.15s; }
+  .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-  .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
-  .page.active { display: block; opacity: 1; }
+  .page { display: none; }
+  .page.active { display: block; }
 
-  /* Cinematic Image Background */
+  /* HOME PAGE: Updated Bento Layout */
   .hero { 
     position: relative; 
-    background: linear-gradient(to right, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.6) 100%), url('https://retrovioletstudios.github.io/client-previews/engine1.jpeg') center/cover no-repeat; 
-    padding: 6rem 2rem 5rem; 
+    background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.5) 100%), url('https://retrovioletstudios.github.io/client-previews/engine1.jpeg') center/cover no-repeat; 
+    padding: 7rem 2rem 6rem; 
     overflow: hidden; 
     display: flex; 
     justify-content: center; 
@@ -71,74 +68,73 @@
   .hero-tag { display: inline-block; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 4px 12px; margin-bottom: 1rem; }
   .hero h1 { font-family: var(--font-head); font-size: clamp(52px, 8vw, 88px); line-height: 0.92; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
   .hero h1 em { color: var(--accent); font-style: normal; }
-  .hero-sub { font-size: 16px; color: #D0D0D0; max-width: 480px; line-height: 1.6; margin-bottom: 2rem; margin-left: auto; margin-right: auto; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-  .hero-sub strong { color: var(--white); }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .hero-sub { font-size: 16px; color: #CCC; max-width: 480px; line-height: 1.6; margin-bottom: 2rem; margin-left: auto; margin-right: auto; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
   .btn-primary { background: var(--accent); color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; border: none; padding: 15px 32px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(227,38,54,0.3); }
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(227,38,54,0.4); }
-  .btn-outline { background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); padding: 14px 28px; cursor: pointer; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(227,38,54,0.5); }
+  .btn-outline { background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); padding: 14px 28px; cursor: pointer; transition: all 0.2s; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,0,0,0.8); }
-  .hero-stats { display: flex; gap: 2.5rem; justify-content: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
-  .hero-stat-num { font-family: var(--font-head); font-size: 38px; color: var(--accent); line-height: 1; }
-  .hero-stat-label { font-family: var(--font-sub); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #CCC; margin-top: 3px; }
 
-  .marquee-strip { background: var(--dark3); border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); padding: 12px 0; overflow: hidden; white-space: nowrap; margin-top: 0; }
+  .marquee-strip { background: #111; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); padding: 12px 0; overflow: hidden; white-space: nowrap; margin-top: 0; }
   .marquee-inner { display: inline-flex; animation: marquee 22s linear infinite; }
   .marquee-item { font-family: var(--font-head); font-size: 20px; letter-spacing: 3px; text-transform: uppercase; padding: 0 1.75rem; color: var(--white); }
   .marquee-dot { color: var(--accent); opacity: 0.8; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  .section { padding: 4.5rem 2rem; }
+  .section { padding: 5rem 2rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label { font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
   .section-title { font-family: var(--font-head); font-size: clamp(32px, 5vw, 50px); letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 1.25rem; }
 
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--dark3); border: 2px solid var(--dark3); margin-top: 2.5rem; }
-  @media (max-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card { background: var(--dark2); padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; position: relative; overflow: hidden; cursor: pointer;}
-  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover { transform: translateY(-5px); background: #181818; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
+  /* PREMIUM GLASS & BENTO LAYOUTS */
+  .bento-grid { display: grid; gap: 1.25rem; margin-top: 3rem; text-align: left; }
+  .bento-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); padding: 2.5rem; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;}
+  .bento-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2;}
+  
+  .services-grid-home { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 768px) { .services-grid-home { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .services-grid-home { grid-template-columns: 1fr; } }
+  
   .service-icon { font-size: 32px; margin-bottom: 1rem; color: var(--accent); }
   .service-name { font-family: var(--font-sub); font-size: 18px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
   .service-desc { font-size: 14px; color: #AAA; line-height: 1.6; }
 
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
-  .why-card { background: var(--dark2); border: 1px solid var(--dark3); padding: 2rem; transition: transform 0.3s, border-color 0.3s; }
-  .why-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-  .why-num { font-family: var(--font-head); font-size: 48px; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
-  .why-label { font-family: var(--font-sub); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; }
-  .why-desc { font-size: 14px; color: #999; line-height: 1.6; }
-
-  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; text-align: left; }
-  .testimonial-card { background: var(--dark2); border: 1px solid var(--dark3); border-left: 4px solid var(--accent); padding: 1.75rem; }
-  .testimonial-stars { color: var(--accent); font-size: 14px; margin-bottom: 0.8rem; }
-  .testimonial-text { font-size: 14px; color: #CCC; line-height: 1.6; margin-bottom: 1rem; font-style: italic; }
-  .testimonial-author { font-family: var(--font-sub); font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
-  .testimonial-detail { font-size: 12px; color: #888; margin-top: 3px; }
-
-  .services-page-hero { background: linear-gradient(to bottom, var(--dark2), var(--dark)); border-bottom: 1px solid var(--dark3); padding: 4rem 2rem; text-align: center; }
-  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 3rem; text-align: left;}
-  .service-big-card { background: var(--dark2); border: 1px solid var(--dark3); padding: 2rem; transition: border-color 0.3s, transform 0.3s; position: relative; }
-  .service-big-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-  .service-price { font-family: var(--font-head); font-size: 40px; color: var(--accent); margin-bottom: 0.2rem; }
-  .service-price-label { font-size: 12px; color: #888; margin-bottom: 1rem; }
-  .service-features { list-style: none; margin: 1.5rem 0; }
-  .service-features li { font-size: 14px; color: #CCC; padding: 8px 0; border-bottom: 1px solid var(--dark3); display: flex; align-items: center; gap: 10px; }
-  .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 14px; }
+  /* Focusing Sections: The Big Bento with Images */
+  .focus-bento { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 900px) { .focus-bento { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .focus-bento { grid-template-columns: 1fr; } }
   
-  .service-tag-pop { position: absolute; top: -12px; right: 20px; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+  .bento-feat-img { grid-column: span 2; padding: 0; }
+  .bento-img-asset { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;}
+  @media (max-width: 900px) { .bento-feat-img { grid-column: span 2; aspect-ratio: 4/3;} }
+  @media (max-width: 480px) { .bento-feat-img { grid-column: span 1; aspect-ratio: 4/3;} }
+  
+  .why-stat-num { font-family: var(--font-head); font-size: 48px; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+  .why-stat-label { font-family: var(--font-sub); font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); }
 
-  /* Premium Parallax Banner */
-  .parallax-banner {
-    background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
-    padding: 5rem 2rem;
-    text-align: center;
-    border-top: 2px solid var(--accent);
-    border-bottom: 2px solid var(--dark3);
-    margin-top: 4rem;
-  }
+  /* Testimonials Bento */
+  .testimonials-bento { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 680px) { .testimonials-bento { grid-template-columns: 1fr; } }
+  .bento-testimonial { border-left: 4px solid var(--accent); }
+  .bento-stars { color: var(--accent); font-size: 14px; margin-bottom: 0.8rem; }
+  .bento-test-text { font-size: 15px; color: #CCC; line-height: 1.6; margin-bottom: 1.25rem; font-style: italic; }
+  .bento-test-auth { font-family: var(--font-sub); font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+  .bento-test-det { font-size: 12px; color: #888; margin-top: 3px; }
+
+  /* SERVICES PAGE: Updated Grid & Tag Fix */
+  .services-page-hero { background: var(--dark2); border-bottom: 1px solid var(--dark3); padding: 4rem 2rem; text-align: center; }
+  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 3rem; text-align: left;}
+  
+  .service-big-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--dark3); padding: 2rem; transition: all 0.3s; position: relative; }
+  .service-big-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+  
+  /* FIXED TAG PLACEMENT */
+  .service-tag-pop { position: absolute; top: -12px; right: 20px; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
+  
+  .service-name-big { font-family: var(--font-head); font-size: clamp(24px, 4vw, 32px); color: var(--white); margin-bottom: 0.5rem; }
+  .service-features { list-style: none; margin: 1.5rem 0; }
+  .service-features li { font-size: 14px; color: #BBB; padding: 8px 0; border-bottom: 1px solid var(--dark3); display: flex; align-items: center; gap: 10px; }
+  .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 14px; }
 
   /* FAQ Accordion Styles */
   .faq-container { max-width: 800px; margin: 3rem auto 0; text-align: left; }
@@ -150,41 +146,53 @@
   .faq-item.active .faq-answer { max-height: 200px; margin-top: 10px; }
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-  .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; text-align: left; }
-  @media (max-width: 768px) { .about-split, .contact-grid { grid-template-columns: 1fr; } }
-  
-  /* Premium Image Treatment */
-  .about-img-container { position: relative; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-bottom: 4px solid var(--accent); }
-  .about-img-real { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block; transition: transform 0.6s ease; }
-  .about-img-container:hover .about-img-real { transform: scale(1.05); }
+  /* Premium Parallax Banner */
+  .parallax-banner {
+    background: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
+    padding: 5rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--dark3);
+    margin-top: 4rem;
+  }
 
+  /* ABOUT: Updated Bento */
+  .about-bento { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  @media (max-width: 768px) { .about-bento { grid-template-columns: 1fr; } }
   .about-text p { font-size: 16px; color: #BBB; line-height: 1.8; margin-bottom: 1.2rem; }
   .about-text strong { color: var(--white); }
 
+  /* CONTACT: Map Fix & Glass Hours */
   .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; margin-top: 3rem; align-items: start; text-align: left;}
-  .contact-info-block { margin-bottom: 2rem; }
+  @media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; } }
   .contact-info-label { font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
   .contact-info-val { font-size: 16px; color: #E8E8E8; line-height: 1.6; }
-  .contact-hours { background: var(--dark2); border: 1px solid var(--dark3); border-left: 4px solid var(--accent); padding: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+  .contact-hours-glass { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--dark3); border-left: 4px solid var(--accent); padding: 1.5rem; }
   .hours-row { display: flex; justify-content: space-between; font-size: 14px; color: #AAA; padding: 8px 0; border-bottom: 1px solid var(--dark3); }
   .hours-row:last-child { border-bottom: none; }
-  .hours-open { color: var(--accent); font-weight: 600; }
   
   .form-group { margin-bottom: 1.25rem; }
   .form-label { display: block; font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 6px; }
-  .form-input, .form-select, .form-textarea { width: 100%; background: var(--dark2); border: 1px solid var(--dark3); color: var(--white); font-family: var(--font-body); font-size: 15px; padding: 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none; }
+  .form-input, .form-select, .form-textarea { width: 100%; background: var(--dark2); border: 1px solid var(--dark3); color: var(--white); font-family: var(--font-body); font-size: 15px; padding: 14px; outline: none; transition: all 0.2s; appearance: none; }
   .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(227,38,54,0.2); }
   .form-textarea { resize: vertical; min-height: 120px; }
   .form-select option { background: var(--dark2); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .submit-confirm { background: var(--dark2); border: 1px solid #2C2; color: #6F6; padding: 1rem; font-family: var(--font-sub); font-size: 15px; letter-spacing: 1px; margin-top: 1rem; display: none; text-align: center; }
+  .submit-confirm { background: var(--glass); border: 1px solid #2C2; color: #6F6; padding: 1rem; font-family: var(--font-sub); font-size: 15px; letter-spacing: 1px; margin-top: 1rem; display: none; text-align: center; }
 
-  footer { background: #0A0A0A; border-top: 2px solid var(--dark3); padding: 4rem 2rem 3rem; text-align: center; }
-  .footer-logo { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
+  /* Map Fix for Free Mode Dark */
+  .map-frame-dark { filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%); border:0; width:100%; height:450px;}
+
+  /* FOOTER: Updated Logo & Navigation */
+  footer { background: #0A0A0A; border-top: 1px solid #222; padding: 4rem 2rem 3rem; text-align: center; }
+  .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; margin-bottom: 1rem;}
   .footer-logo img { height: 40px; width: auto; }
+  .footer-logo-text { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; color: var(--white); }
+  .footer-logo-text span { color: var(--accent); }
   .footer-address { font-size: 14px; color: #888; margin-bottom: 0.5rem; }
   
-  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--dark3); padding-top: 1.5rem; }
+  /* Footer Secondary Nav */
+  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; border-top: 1px solid #222; padding-top: 2rem; }
   .footer-nav a { font-family: var(--font-sub); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; cursor: pointer; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--accent); }
   
@@ -198,14 +206,14 @@
 <nav>
   <div class="nav-logo" onclick="showPage('home')">
     <img src="https://retrovioletstudios.github.io/client-previews/autologo.png" alt="Luu Automotive Logo">
-    LUU<span>AUTOMOTIVE</span> 
+    <div class="nav-logo-text">LUU<span>AUTOMOTIVE</span></div>
     <span class="nav-loc">North Austin, TX</span>
   </div>
   <div class="nav-links">
     <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
     <a onclick="showPage('services')" id="nav-services">Services</a>
-    <a onclick="showPage('about')" id="nav-about">Our Integrity</a>
-    <a onclick="showPage('contact')" id="nav-contact">Book Appt</a>
+    <a onclick="showPage('about')" id="nav-about">Integrity</a>
+    <a onclick="showPage('contact')" id="nav-contact">Book</a>
   </div>
   <button class="nav-cta" onclick="showPage('contact')">Book Now</button>
 </nav>
@@ -214,90 +222,77 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-tag fade-in-up">&#9881; Generational Community Trust</div>
+      <div class="hero-tag fade-in-up">⚙ Generational Community Trust</div>
       <h1 class="fade-in-up delay-1">Austin's Most Trusted <em>Wrench</em>.<br>Honest Work, Every <em>Time</em>.</h1>
-      <p class="hero-sub fade-in-up delay-2"><strong>Mile after mile we've got you.</strong><br><br>Led by technicians Danny and Don Luu, we provide exceptional mechanical work with the highest levels of integrity. A shop that is perpetually busy because we do honest work.</p>
+      <p class="hero-sub fade-in-up delay-2"> Mile after mile we've got you. Danny and Don Luu provide exceptional mechanical work with high integrity boulevard.</p>
       <div class="hero-btns fade-in-up delay-3">
         <button class="btn-primary" onclick="showPage('contact')">Request an Appointment</button>
         <button class="btn-outline" onclick="showPage('services')">View Our Services</button>
-      </div>
-      <div class="hero-stats fade-in-up delay-3">
-        <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Transparent</div></div>
-        <div><div class="hero-stat-num">Zero</div><div class="hero-stat-label">Unnecessary Upsells</div></div>
-        <div><div class="hero-stat-num">5.0&#9733;</div><div class="hero-stat-label">Community Rating</div></div>
       </div>
     </div>
   </section>
 
   <div class="marquee-strip">
     <div class="marquee-inner">
-      <span class="marquee-item">Honest Pricing <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Engine Diagnostics <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Brake Service <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Routine Maintenance <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Unassailable Integrity <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Honest Pricing <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Engine Diagnostics <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Brake Service <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Routine Maintenance <span class="marquee-dot">&#10022;</span></span>
-      <span class="marquee-item">Unassailable Integrity <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Honest Pricing <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Engine Diagnostics <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Brake Service <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Routine Maintenance <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Unassailable Integrity <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Honest Pricing <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Engine Diagnostics <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Brake Service <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Routine Maintenance <span class="marquee-dot">✦</span></span>
+      <span class="marquee-item">Unassailable Integrity <span class="marquee-dot">✦</span></span>
     </div>
   </div>
 
   <section class="section" style="text-align: center;">
-    <div class="section-inner fade-in-up">
-      <div class="section-label" style="display: flex; justify-content: center;">What We Do</div>
-      <div class="section-title">Reliable Auto Repair</div>
-      <p style="color:#D0D0D0; max-width:520px; font-size:16px; margin-left: auto; margin-right: auto;">From routine oil changes to complex mechanical diagnostics — we give you an honest assessment and get you back on the road safely.</p>
+    <div class="section-inner">
+      <div class="section-label fade-in-up" style="display: flex; justify-content: center;">What We Do</div>
+      <div class="section-title fade-in-up">Reliable Auto Repair</div>
+      <p class="fade-in-up" style="color:#CCC; max-width:560px; font-size:16px; margin: 0 auto 3rem auto;">From routine synthetic oil changes to complex mechanical diagnostics — we give you an honest assessment and get you back on the road safely.</p>
       
-      <div class="services-grid" style="text-align: left;">
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-icon">&#128295;</div>
-          <div class="service-name">Engine Diagnostics</div>
-          <div class="service-desc">We accurately diagnose the issue without pushing predatory repairs onto our clientele.</div>
+      <div class="bento-grid services-grid-home fade-in-up">
+        <div class="bento-card" style="grid-column: span 1;">
+          <div class="service-icon">🔧</div>
+          <div class="service-name">Diagnostics</div>
+          <div class="service-desc">We accurately diagnose the issue without pushing predatory, unassailable repairs onto our clientele.</div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-icon">&#128734;</div>
-          <div class="service-name">Routine Maintenance</div>
-          <div class="service-desc">Oil changes, fluid checks, and mileage milestone services to keep your vehicle running smoothly.</div>
+        <div class="bento-feat-img bento-card">
+          <img src="https://retrovioletstudios.github.io/client-previews/undercar1.png" alt="Underside of custom car" class="bento-img-asset">
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-icon">&#128721;</div>
+        <div class="bento-card" style="grid-column: span 1;">
+          <div class="service-icon">🛑</div>
           <div class="service-name">Brake Service</div>
           <div class="service-desc">Complete brake system inspections, pad replacements, and rotor surfacing.</div>
         </div>
       </div>
-      
-      <div style="margin-top: 2rem;">
-        <a onclick="showPage('services')" class="text-accent-link" style="font-family: var(--font-sub); letter-spacing: 1px; text-transform: uppercase;">View Full Service Menu &rarr;</a>
-      </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--dark2); border-top: 1px solid var(--dark3); border-bottom: 1px solid var(--dark3); text-align: center;">
-    <div class="section-inner fade-in-up">
-      <div class="section-label" style="display: flex; justify-content: center;">The Luu Standard</div>
-      <div class="section-title">Why Our Lot is Always Full</div>
-      <div class="why-grid" style="text-align: left;">
-        <div class="why-card">
-          <div class="why-num">100%</div>
-          <div class="why-label">Integrity First</div>
-          <div class="why-desc">We give you an honest assessment of what your car needs today, and what can wait.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-num">Zero</div>
-          <div class="why-label">Predatory Upsells</div>
-          <div class="why-desc">Our customers trust us because we never invent problems or push unnecessary fixes.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-num">Deep</div>
-          <div class="why-label">Community Ties</div>
-          <div class="why-desc">Generations of Austin families have trusted us to keep their vehicles safe.</div>
-        </div>
-      </div>
+  <section class="section" style="background: var(--dark2); text-align: center;">
+    <div class="section-inner">
+      <div class="section-label fade-in-up" style="display: flex; justify-content: center;">Community Reputation</div>
+      <div class="section-title fade-in-up">Driven by Trust</div>
       
-      <div style="margin-top: 2.5rem;">
-        <button class="btn-outline" onclick="showPage('about')" style="border-color: var(--dark3);">Read Our Story</button>
+      <div class="bento-grid focus-bento fade-in-up">
+        <div class="bento-card" style="grid-column: span 2;">
+          <div class="why-stat-num">100%</div>
+          <div class="why-stat-label">Integrity First</div>
+          <p class="why-stat-desc" style="font-size: 14px; color: #999; margin-top: 10px;">We give you an honest assessment of what your vehicle needs today, and what can wait.</p>
+        </div>
+        <div class="bento-feat-img bento-card">
+          <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt=" Danny and Don Luu at work" class="bento-img-asset">
+        </div>
+        <div class="bento-card">
+          <div class="why-stat-num">Zero</div>
+          <div class="why-stat-label">Predatory Upsells</div>
+        </div>
+        <div class="bento-card">
+          <div class="why-stat-num">✦✦✦✦✦</div>
+          <div class="why-stat-label">5.0 Star Rating</div>
+        </div>
       </div>
     </div>
   </section>
@@ -305,19 +300,19 @@
   <section class="section" style="text-align: center;">
     <div class="section-inner fade-in-up">
       <div class="section-label" style="display: flex; justify-content: center;">Community Reputation</div>
-      <div class="section-title">What Austin Says About Us</div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"Danny and Don operate with the highest level of integrity. They are the only mechanics I trust my family's cars with in Austin. Always honest."</p>
-          <div class="testimonial-author">Local Customer</div>
-          <div class="testimonial-detail">North Austin</div>
+      <div class="section-title">Mile after mile we've got you.</div>
+      <div class="bento-grid testimonials-bento">
+        <div class="bento-card bento-testimonial">
+          <div class="bento-stars">★★★★★</div>
+          <p class="bento-test-text">"Danny and Don operate with the highest level of integrity. They are the only mechanics I trust my family's cars with in Austin. Always polite."</p>
+          <div class="bento-test-auth">Local Customer</div>
+          <div class="bento-test-det">North Austin</div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text">"They are always busy for a reason. You won't find a more respectful or polite group of technicians anywhere on North Lamar."</p>
-          <div class="testimonial-author">Long-term Client</div>
-          <div class="testimonial-detail">Austin, TX</div>
+        <div class="bento-card bento-testimonial">
+          <div class="bento-stars">★★★★★</div>
+          <p class="bento-test-text">"They are perpetually busy because we do honest work. You won't find a more respectful group of technicians anywhere on North Lamar."</p>
+          <div class="bento-test-auth">Long-term Client</div>
+          <div class="bento-test-det">Austin, TX</div>
         </div>
       </div>
     </div>
@@ -327,61 +322,51 @@
 
 <div class="page" id="page-services">
   <div class="services-page-hero">
-    <div class="section-label fade-in-up">Honest Assessments &middot; Austin, TX</div>
-    <div class="section-title fade-in-up delay-1" style="font-size: clamp(36px,6vw,64px);">Quality Work.<br>Transparent Pricing.</div>
-    <p class="fade-in-up delay-2" style="color:#D0D0D0; max-width:500px; margin: 1rem auto 0; font-size:16px;">No surprise charges. We diagnose the issue and explain your options clearly before turning a wrench.</p>
+    <div class="section-label fade-in-up">Quality Mechanical Work · Austin, TX</div>
+    <div class="section-title fade-in-up delay-1" style="font-size: clamp(36px,6vw,64px);">Honest Assessments.<br>Transparent Pricing.</div>
+    <p class="fade-in-up delay-2" style="color:#BBB; max-width:500px; margin: 1rem auto 0; font-size:16px;">dashboard light on? no surprise charges. we diagnose the issue clearly before turning a wrench.</p>
   </div>
   
   <section class="section">
     <div class="section-inner fade-in-up">
       <div class="services-big-grid">
         <div class="service-big-card">
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Oil Change &amp; Maintenance</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Keeping up with your standard mileage maintenance is the best way to prevent costly repairs down the road.</p>
-          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes & top-offs</li><li>Factory mileage interval checks</li></ul>
+          <h3 class="service-name-big">Oil Change & Maintenance</h3>
+          <p style="color:#999; font-size:14px; margin: 10px 0 15px;">Keeping up with your standard mileage maintenance prevents costly repairs.</p>
+          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes & top-offs</li><li>Mile milestone checks</li></ul>
           <button class="btn-outline" style="width:100%; border-color: #444;" onclick="showPage('contact')">Book Service</button>
         </div>
         
         <div class="service-big-card" style="border-color: var(--accent);">
           <div class="service-tag-pop">Most Requested</div>
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Complete Diagnostics</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Dashboard light on? We'll find out exactly what's wrong and give you an honest assessment.</p>
-          <ul class="service-features"><li>Check engine light scanning</li><li>Computerized system analysis</li><li>No-pressure repair quotes</li></ul>
+          <h3 class="service-name-big">Complete Diagnostics</h3>
+          <p style="color:#999; font-size:14px; margin: 10px 0 15px;">Dashboard light on? We'll find exactly what's wrong and provide an honest assessment.</p>
+          <ul class="service-features"><li>Check engine scanning</li><li>Electrical system analysis</li><li>No-pressure repair quotes</li></ul>
           <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Schedule Diagnostic</button>
         </div>
         
         <div class="service-big-card">
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Brake &amp; Safety Service</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Ensure your vehicle is safe for your family with our comprehensive brake pad and rotor servicing.</p>
-          <ul class="service-features"><li>Brake pad & shoe replacement</li><li>Rotor resurfacing</li><li>Brake fluid line inspection</li></ul>
+          <h3 class="service-name-big">Brake & Safety Service</h3>
+          <p style="color:#999; font-size:14px; margin: 10px 0 15px;">Ensure your vehicle is safe for your family with comprehensive brake surfacing.</p>
+          <ul class="service-features"><li>Brake pad replacement</li><li>Rotor resurfacing</li><li>Brake line inspection</li></ul>
           <button class="btn-outline" style="width:100%; border-color: #444;" onclick="showPage('contact')">Book Service</button>
         </div>
         
         <div class="service-big-card">
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">A/C &amp; Heating Repair</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Don't suffer through the Texas heat. We diagnose and repair automotive climate control systems quickly.</p>
-          <ul class="service-features"><li>Freon leak detection & recharge</li><li>Compressor replacement</li><li>Heater core diagnostics</li></ul>
+          <h3 class="service-name-big">A/C & Heating Repair</h3>
+          <p style="color:#999; font-size:14px; margin: 10px 0 15px;">Texans demand exceptional exceptional comfort. We repair automotive climate control systems.</p>
           <button class="btn-outline" style="width:100%; border-color: #444;" onclick="showPage('contact')">Book Service</button>
         </div>
-
         <div class="service-big-card">
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Steering &amp; Suspension</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Restore your vehicle's smooth ride and prevent uneven tire wear with professional suspension care.</p>
-          <ul class="service-features"><li>Shock & strut replacement</li><li>Tie rods & ball joints</li><li>Power steering repair</li></ul>
-          <button class="btn-outline" style="width:100%; border-color: #444;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-big-card">
-          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Electrical Systems</div>
-          <p style="color:#999; font-size:14px; margin-top: 10px; margin-bottom: 15px;">From dead batteries to complex wiring shorts, we have the tools to track down electrical gremlins.</p>
-          <ul class="service-features"><li>Battery testing & replacement</li><li>Alternator & starter repair</li><li>Wiring and fuse diagnostics</li></ul>
+          <h3 class="service-name-big">Electrical Systems</h3>
+          <p style="color:#999; font-size:14px; margin: 10px 0 15px;">We have the tools to diagnose dead batteries and track down electrical gremlins.</p>
           <button class="btn-outline" style="width:100%; border-color: #444;" onclick="showPage('contact')">Book Service</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="background: var(--dark2); border-top: 1px solid var(--dark3); border-bottom: 1px solid var(--dark3);">
     <div class="section-inner fade-in-up" style="text-align: center;">
       <div class="section-label">Common Questions</div>
       <div class="section-title">What To Expect</div>
@@ -389,45 +374,36 @@
       <div class="faq-container">
         <div class="faq-item" onclick="this.classList.toggle('active')">
           <div class="faq-question">Do I need an appointment before bringing my car in? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">While we do accept walk-ins for true emergencies, our lot is frequently fully booked out. We highly recommend using our digital request form or calling ahead to secure a spot in our queue so you aren't left waiting.</div>
+          <div class="faq-answer">While we do accept walk-ins for true emergencies, we highly recommend using our digital request form or calling ahead to secure a spot in our queue so you aren't left waiting.</div>
         </div>
         <div class="faq-item" onclick="this.classList.toggle('active')">
           <div class="faq-question">Will you provide an estimate before doing any work? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">Absolutely. We operate on 100% transparency. Once we diagnose the issue, we will call you to explain exactly what is wrong and how much it will cost. We never turn a wrench or charge you for a repair until you explicitly approve the quote.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-question">Can I drop my vehicle off after hours? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">Yes! We have a secure key-drop box located near the front office. Simply park your car in an available space, fill out the drop-off envelope with your contact information, put your keys inside, and drop it in the slot. We'll call you first thing the next morning.</div>
+          <div class="faq-answer">Absolutely. We operate on integrity first business practices. We never turn a wrench or charge you for a repair until you explicitly approve the quote.</div>
         </div>
       </div>
     </div>
   </section>
 
   <div class="parallax-banner fade-in-up">
-    <h2 style="font-family: var(--font-head); font-size: 42px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Fix It Right The First Time.</h2>
-    <p style="color: #DDD; max-width: 600px; margin: 0 auto 2rem; font-size: 16px; line-height: 1.6;">Our lot is always full because we don't cut corners. Get dealership-level expertise from a local shop you can actually trust.</p>
+    <h2 style="font-family: var(--font-head); font-size: 42px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Austin's perpetually busy precisely because.</h2>
     <button class="btn-primary" onclick="showPage('contact')">Get an Estimate Today</button>
   </div>
-
 </div>
 
 <div class="page" id="page-about">
   <section class="section">
     <div class="section-inner fade-in-up" style="text-align: center;">
-      <div class="section-label" style="display: flex; justify-content: center;">Our Reputation &middot; Austin, TX</div>
+      <div class="section-label" style="display: flex; justify-content: center;"> generational Trust · Austin, TX</div>
       <div class="section-title">Built on Integrity.<br>Driven by Trust.</div>
-      <div class="about-split">
-        <div class="about-img-container">
-          <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mechanic working on engine" class="about-img-real">
-        </div>
+      
+      <div class="bento-grid about-bento">
         <div class="about-text">
-          <p>At Luu Automotive, our reputation is our most valuable asset. Led by <strong>Danny Luu and Don Luu</strong>, we have built a generational business on North Lamar Boulevard by adhering to one simple principle: <a onclick="showPage('contact')" class="inline-link">unassailable honesty</a>.</p>
-          <p>We know that bringing a car to a mechanic can be stressful. That is why we operate with complete transparency. We will never push a predatory repair, and we will clearly explain exactly what your vehicle needs to stay safe on the road.</p>
-          <p>Our lot is perpetually busy precisely because of these honest business practices. We view our customers not as transactions, but as members of our Austin community who we want to keep safe mile after mile.</p>
-          
-          <div style="margin-top: 2rem;">
-            <button class="btn-outline" onclick="showPage('services')" style="border-color: var(--dark3);">Explore Our Services</button>
-          </div>
+          <p>At Luu Automotive, our reputation is our most valuable asset. Led by Danny Luu and Don Luu, we have built a business adhering to high levels of unassailable honesty.</p>
+          <p>We operate with high levels highest levels of highest levels of unparalleled integrity. our lot is perpetually busy because we give you an honest assessment.</p>
+          <p>Mile after mile we've got you. Visit our shop on North Lamar Boulevard.</p>
+        </div>
+        <div class="bento-feat-img bento-card">
+          <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Danny and Don Luu at work" class="bento-img-asset">
         </div>
       </div>
     </div>
@@ -438,8 +414,8 @@
   <section class="section">
     <div class="section-inner fade-in-up" style="text-align: center;">
       <div class="section-label" style="display: flex; justify-content: center;">Skip the Phone Queue</div>
-      <div class="section-title">Digital Appointment Request</div>
-      <p style="color:#BBB; font-size:16px; max-width:600px; margin: 0 auto 3rem auto;">Because our shop is frequently booked out in advance, using this digital form is the fastest way to get your vehicle into our queue.</p>
+      <div class="section-title">Appointment Request</div>
+      <p style="color:#BBB; font-size:16px; max-width:600px; margin: 0 auto 3rem auto;">Because our shop is frequently booked out, using this digital form is the fastest way to join our queue.</p>
       
       <div class="contact-grid">
         <div style="text-align: left;">
@@ -449,13 +425,13 @@
           </div>
           <div class="contact-info-block">
             <div class="contact-info-label">Direct Phone</div>
-            <div class="contact-info-val" style="font-size: 20px;">
+            <div class="contact-info-val">
               <a href="tel:5128350909" class="text-accent-link">(512) 835-0909</a>
             </div>
           </div>
-          <div class="contact-hours">
+          <div class="contact-hours-glass fade-in-up delay-1">
             <div style="font-family: var(--font-sub); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 0.8rem;">Shop Hours</div>
-            <div class="hours-row"><span>Monday &ndash; Friday</span><span class="hours-open">Standard Hours</span></div>
+            <div class="hours-row"><span>Monday – Friday</span><span class="hours-open">Standard Hours</span></div>
             <div class="hours-row"><span>Weekends</span><span style="color:#666">Closed</span></div>
           </div>
         </div>
@@ -465,28 +441,15 @@
             <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
           </div>
           <div class="form-group"><label class="form-label">Vehicle Make & Model</label><input class="form-input" type="text" placeholder="e.g. 2018 Honda Accord" id="vehicle"/></div>
-          <div class="form-group">
-            <label class="form-label">Reason for Visit</label>
-            <select class="form-select" id="service">
-              <option value="">— Select a reason —</option>
-              <option>Oil Change &amp; Routine Maintenance</option>
-              <option>Dashboard Light / Diagnostics</option>
-              <option>A/C & Heating Repair</option>
-              <option>Brake Service</option>
-              <option>Strange Noise / Performance Issue</option>
-              <option>Other</option>
-            </select>
-          </div>
           <div class="form-group"><label class="form-label">Notes for Danny & Don (optional)</label><textarea class="form-textarea" placeholder="Briefly describe the issue..." id="notes"></textarea></div>
-          <button class="btn-primary" style="width:100%; font-size:15px; padding:16px;" onclick="submitForm()">Join the Queue &rarr;</button>
-          <div class="submit-confirm" id="form-confirm">&#10003; Request received! We will text or call you to confirm an available drop-off time.</div>
+          <button class="btn-primary" style="width:100%; font-size:15px; padding:16px;" onclick="submitForm()">Join the Queue →</button>
+          <div class="submit-confirm" id="form-confirm">✓ Request received! We will text or call you to confirm.</div>
         </div>
       </div>
 
-     <div class="map-container fade-in-up" style="margin-top: 4rem; border: 2px solid var(--dark3); border-top: 4px solid var(--accent); border-radius: 4px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); background: var(--dark2);">
-        <iframe src="https://maps.google.com/maps?q=9713%20N%20Lamar%20Blvd,%20Austin,%20TX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-container fade-in-up" style="margin-top: 4rem; border: 1px solid var(--dark3); border-top: 4px solid var(--accent); border-radius: 4px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); background: var(--dark2);">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.3283626262!2d-97.6974720235308!3d30.370000000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644c9747b0a0a0b%3A0x7b0a0a0b7b0a0a0b!2s9713%20N%20Lamar%20Blvd%2C%20Austin%2C%20TX%2078753!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" class="map-frame-dark" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-
     </div>
   </section>
 </div>
@@ -494,9 +457,9 @@
 <footer>
   <div class="footer-logo" onclick="showPage('home')">
     <img src="https://retrovioletstudios.github.io/client-previews/autologo.png" alt="Luu Automotive Logo">
-    LUU<span>AUTOMOTIVE</span>
+    <div class="footer-logo-text">LUU<span>AUTOMOTIVE</span></div>
   </div>
-  <div class="footer-address">9713 N Lamar Blvd &middot; Austin, TX &middot; <a href="tel:5128350909" class="phone-link" style="color: #888; text-decoration: none;">(512) 835-0909</a></div>
+  <div class="footer-address">9713 N Lamar Blvd · Austin, TX · <a href="tel:5128350909" class="text-accent-link" style="color: #888;">(512) 835-0909</a></div>
   
   <div class="footer-nav">
     <a onclick="showPage('home')">Home</a>
@@ -528,8 +491,7 @@
   // Form Submission
   function submitForm() {
     const fname = document.getElementById('fname').value.trim();
-    const service = document.getElementById('service').value;
-    if (!fname || !service) { alert('Please fill in your name and select a reason for the visit.'); return; }
+    if (!fname) { alert('Please fill in your name.'); return; }
     const confirm = document.getElementById('form-confirm');
     confirm.style.display = 'block';
     confirm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -540,7 +502,6 @@
     const elements = document.querySelectorAll('.fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      // Add 'in-view' when element is 90% into the viewport
       if (rect.top <= window.innerHeight * 0.9) {
         el.classList.add('in-view');
       }
@@ -559,5 +520,3 @@
 </script>
 </body>
 </html>
-
-
