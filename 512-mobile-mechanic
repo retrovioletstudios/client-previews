@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>512 Mobile Mechanic | 24/7 Roadside & Mobile Auto Repair</title>
+<meta name="description" content="We come to you. 24/7 emergency roadside assistance and comprehensive mobile auto repair in Austin, TX."/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    /* Warning Yellow & Asphalt Black Palette */
+    --accent: #F8DE22; 
+    --accent-dark: #D4B910; 
+    --highlight: #FFFFFF;
+    --dark: #080616; 
+    --dark2: #120F26; 
+    --dark3: #1A1635;
+    --light: #E8E8E8; --white: #FFFFFF;
+    --font-head: 'Bebas Neue', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-sub: 'Barlow Condensed', sans-serif;
+  }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+  nav {
+    background: rgba(8,6,22,0.97); border-bottom: 3px solid var(--accent);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 56px; position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { font-family: var(--font-head); font-size: 26px; letter-spacing: 2px; color: var(--white); display: flex; align-items: center; gap: 10px; }
+  .nav-logo span { color: var(--accent); }
+  .nav-loc { font-family: var(--font-sub); font-size: 12px; color: #888; letter-spacing: 1px; text-transform: uppercase; padding-left: 10px; border-left: 1px solid #2A2A2A; }
+  .nav-links { display: flex; gap: 1.75rem; }
+  .nav-links a { font-family: var(--font-sub); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); text-decoration: none; cursor: pointer; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); border-color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--dark); font-family: var(--font-sub); font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border: none; padding: 9px 20px; cursor: pointer; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--accent-dark); }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .hero { position: relative; background: var(--dark); padding: 4rem 2rem 2.5rem; overflow: hidden; display: flex; justify-content: center; }
+  .hero-bg-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(248,222,34,0.03) 40px, rgba(248,222,34,0.03) 41px); }
+  .hero-accent { position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: var(--accent); clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%); opacity: 0.07; }
+  .hero-content { position: relative; z-index: 2; max-width: 660px; text-align: center; }
+  .hero-tag { display: inline-block; background: var(--accent); color: var(--dark); font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 4px 12px; margin-bottom: 1rem; }
+  .hero h1 { font-family: var(--font-head); font-size: clamp(52px, 8vw, 88px); line-height: 0.92; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub { font-size: 16px; color: #AAA; max-width: 480px; line-height: 1.6; margin-bottom: 1.75rem; margin-left: auto; margin-right: auto; }
+  .hero-sub strong { color: var(--white); }
+  
+  /* Upgraded Mobile Call Button for Emergency Response */
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+  .btn-primary { background: var(--accent); color: var(--dark); font-family: var(--font-sub); font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; border: none; padding: 16px 36px; cursor: pointer; transition: background 0.2s, transform 0.15s; text-decoration: none; display: inline-block;}
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  
+  .btn-outline { background: transparent; color: var(--white); font-family: var(--font-sub); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border: 2px solid #444; padding: 14px 28px; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  
+  .hero-stats { display: flex; gap: 2.5rem; justify-content: center; padding-top: 1.5rem; border-top: 1px solid #1A1A1A; }
+  .hero-stat-num { font-family: var(--font-head); font-size: 38px; color: var(--accent); line-height: 1; }
+  .hero-stat-label { font-family: var(--font-sub); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #777; margin-top: 3px; }
+
+  .marquee-strip { background: var(--accent); padding: 12px 0; overflow: hidden; white-space: nowrap; margin-top: 2rem; }
+  .marquee-inner { display: inline-flex; animation: marquee 22s linear infinite; }
+  .marquee-item { font-family: var(--font-head); font-size: 20px; letter-spacing: 3px; text-transform: uppercase; padding: 0 1.75rem; color: var(--dark); }
+  .marquee-dot { color: var(--dark); opacity: 0.5; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .section { padding: 3.5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: var(--font-sub); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .section-title { font-family: var(--font-head); font-size: clamp(32px, 5vw, 50px); letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 1.25rem; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: #1A1A1A; border: 1.5px solid #1A1A1A; margin-top: 2rem; }
+  @media (max-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  .service-card { background: var(--dark2); padding: 1.75rem 1.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { background: var(--dark3); }
+  .service-icon { font-size: 28px; margin-bottom: 0.75rem; }
+  .service-name { font-family: var(--font-sub); font-size: 16px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .service-desc { font-size: 13px; color: #888; line-height: 1.5; }
+
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .why-card { background: var(--dark2); border: 1.5px solid #222; padding: 1.5rem; }
+  .why-num { font-family: var(--font-head); font-size: 44px; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+  .why-label { font-family: var(--font-sub); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 0.4rem; }
+  .why-desc { font-size: 13px; color: #777; line-height: 1.5; }
+
+  .services-page-hero { background: var(--dark2); border-bottom: 3px solid var(--accent); padding: 3rem 2rem 2.5rem; text-align: center; }
+  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-top: 2.5rem; text-align: left;}
+  .service-big-card { background: var(--dark2); border: 1.5px solid #222; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; position: relative; }
+  .service-big-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .service-price { font-family: var(--font-head); font-size: 32px; color: var(--accent); margin-bottom: 0.2rem; }
+  .service-price-label { font-size: 12px; color: #666; margin-bottom: 1rem; }
+  .service-features { list-style: none; margin: 1rem 0; }
+  .service-features li { font-size: 13px; color: #AAA; padding: 6px 0; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; gap: 8px; }
+  .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 12px; }
+
+  /* New Dispatch Areas Formatting */
+  .areas-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; justify-content: center;}
+  .area-pill { font-family: var(--font-sub); font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--dark); background: var(--accent); padding: 8px 16px; border-radius: 2px;}
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3.5rem; margin-top: 2.5rem; align-items: start; text-align: left;}
+  .contact-info-block { margin-bottom: 1.75rem; }
+  .contact-info-label { font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .contact-info-val { font-size: 15px; color: #CCC; line-height: 1.6; }
+  .contact-hours { background: var(--dark2); border: 1.5px solid #222; border-left: 4px solid var(--accent); padding: 1.25rem; }
+  .hours-row { display: flex; justify-content: space-between; font-size: 13px; color: #AAA; padding: 5px 0; border-bottom: 1px solid #1A1A1A; }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-open { color: var(--accent); font-weight: 600; }
+  
+  .form-group { margin-bottom: 1rem; }
+  .form-label { display: block; font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 5px; }
+  .form-input, .form-select, .form-textarea { width: 100%; background: var(--dark2); border: 1.5px solid #333; color: var(--white); font-family: var(--font-body); font-size: 14px; padding: 11px 13px; outline: none; transition: border-color 0.2s; appearance: none; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-select option { background: var(--dark2); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-confirm { background: var(--dark2); border: 1.5px solid #2C2; color: #6F6; padding: 0.9rem 1.25rem; font-family: var(--font-sub); font-size: 14px; letter-spacing: 1px; margin-top: 0.75rem; display: none; }
+
+  footer { background: #05040A; border-top: 3px solid var(--accent); padding: 2rem; text-align: center; }
+  .footer-logo { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; margin-bottom: 0.25rem; }
+  .footer-logo span { color: var(--accent); }
+  .footer-address { font-size: 13px; color: #555; margin-bottom: 0.3rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+</style>
+</head>
+<body>
+
+<h2 class="sr-only">512 Mobile Mechanic — We come to you. 24/7 Roadside and Home Repair in Austin.</h2>
+
+<nav>
+  <div class="nav-logo">512<span>MOBILE</span> <span class="nav-loc">Austin Dispatch</span></div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+    <a onclick="showPage('services')" id="nav-services">Mobile Capabilities</a>
+    <a onclick="showPage('contact')" id="nav-contact">Dispatch Request</a>
+  </div>
+  <a href="tel:2107695262" class="nav-cta" style="text-decoration: none;">Call 210-769-5262</a>
+</nav>
+
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-content">
+      <div class="hero-tag">&#9888; 24/7 Emergency Dispatch Available</div>
+      <h1>We Come To You.<br><em>Roadside</em> &amp; Home Repair.</h1>
+      <p class="hero-sub"><strong>Don't wait for trouble—fix it before it starts.</strong><br><br>Skip the tow truck. Our fully equipped mobile vans and ASE-certified technicians provide comprehensive auto repair wherever your vehicle is parked in Austin.</p>
+      <div class="hero-btns">
+        <a href="tel:2107695262" class="btn-primary">&#128222; Call For Immediate Dispatch</a>
+        <button class="btn-outline" onclick="showPage('services')">View Mobile Services</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">24/7</div><div class="hero-stat-label">Roadside Rescue</div></div>
+        <div><div class="hero-stat-num">ASE</div><div class="hero-stat-label">Certified Techs</div></div>
+        <div><div class="hero-stat-num">12mo</div><div class="hero-stat-label">Repair Warranty</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span class="marquee-item">Check Engine Diagnostics <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Mobile Diesel Service <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">RV Maintenance <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Alternator Replacement <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Radiator Leaks <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Check Engine Diagnostics <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Mobile Diesel Service <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">RV Maintenance <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Alternator Replacement <span class="marquee-dot">&#10022;</span></span>
+      <span class="marquee-item">Radiator Leaks <span class="marquee-dot">&#10022;</span></span>
+    </div>
+  </div>
+
+  <section class="section" style="text-align: center;">
+    <div class="section-inner">
+      <div class="section-label" style="display: flex; justify-content: center;">On-Site Capabilities</div>
+      <div class="section-title">The Complete Repair Shop,<br>In Your Driveway.</div>
+      <p style="color:#888; max-width:520px; font-size:15px; margin-left: auto; margin-right: auto;">Our vans carry the tools to handle almost everything a traditional shop can, without the hassle of arranging a tow or waiting in a lobby.</p>
+      <div class="services-grid" style="text-align: left;">
+        <div class="service-card"><div class="service-icon">&#9888;</div><div class="service-name">Emergency Roadside</div><div class="service-desc">Stranded? We prioritize rapid dispatch for breakdowns, radiator leaks, and dead alternators.</div></div>
+        <div class="service-card"><div class="service-icon">&#128666;</div><div class="service-name">Mobile Diesel & RV</div><div class="service-desc">We offer specialized heavy-duty maintenance for diesel trucks and recreational vehicles right where they are parked.</div></div>
+        <div class="service-card"><div class="service-icon">&#128269;</div><div class="service-name">Pre-Purchase Inspections</div><div class="service-desc">Buying a used car? We will meet you at the seller's location to perform a comprehensive diagnostic check.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--dark2); border-top: 1.5px solid #222; border-bottom: 1.5px solid #222; text-align: center;">
+    <div class="section-inner">
+      <div class="section-label" style="display: flex; justify-content: center;">Where We Travel</div>
+      <div class="section-title">Active Dispatch Zones</div>
+      <p style="color:#888; max-width:520px; font-size:15px; margin-left: auto; margin-right: auto; margin-bottom: 1.5rem;">We provide mobile service to the following areas. If you are stuck within these zones, help is just a phone call away.</p>
+      <div class="areas-row">
+        <span class="area-pill">Austin Metro</span>
+        <span class="area-pill">South Austin</span>
+        <span class="area-pill">North Austin</span>
+        <span class="area-pill">Pflugerville</span>
+        <span class="area-pill">Cedar Park</span>
+        <span class="area-pill">Round Rock</span>
+        <span class="area-pill">Leander</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="page" id="page-services">
+  <div class="services-page-hero">
+    <div class="section-label">Mobile Service Menu</div>
+    <div class="section-title" style="font-size: clamp(36px,6vw,64px);">We Bring the Shop<br>To You.</div>
+    <p style="color:#888; max-width:500px; margin: 0.6rem auto 0; font-size:15px;">Every repair we perform on-site is backed by our comprehensive 12-month / 12,000-mile warranty.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="services-big-grid">
+        <div class="service-big-card" style="border-color: var(--accent);">
+          <div class="service-tag-pop">Urgent Need</div>
+          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">No-Start Diagnostics</div>
+          <p style="color:#888; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Car won't turn over? We will come to your driveway or parking lot to find out why.</p>
+          <ul class="service-features"><li>Battery and alternator testing</li><li>Starter motor inspection</li><li>Check engine light code pulls</li></ul>
+          <a href="tel:2107695262" class="btn-primary" style="width:100%; margin-top: 10px; text-align: center;">Call to Dispatch</a>
+        </div>
+        <div class="service-big-card">
+          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">On-Site Maintenance</div>
+          <p style="color:#888; font-size:14px; margin-top: 10px; margin-bottom: 15px;">We handle all routine maintenance without you ever having to leave your home or office.</p>
+          <ul class="service-features"><li>Brake pad & rotor replacement</li><li>Fluid flushes & oil changes</li><li>Belt & hose replacement</li></ul>
+          <button class="btn-outline" style="width:100%; padding:14px; margin-top: 10px;" onclick="showPage('contact')">Request Quote</button>
+        </div>
+        <div class="service-big-card">
+          <div class="service-name" style="font-size:18px; margin-bottom: 0.2rem;">Heavy Duty / RV</div>
+          <p style="color:#888; font-size:14px; margin-top: 10px; margin-bottom: 15px;">Specialized mobile mechanics trained to handle diesel engines and recreational vehicles.</p>
+          <ul class="service-features"><li>Mobile diesel mechanics</li><li>RV electrical & plumbing</li><li>Heavy-duty alternator replacement</li></ul>
+          <button class="btn-outline" style="width:100%; padding:14px; margin-top: 10px;" onclick="showPage('contact')">Request Quote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-contact">
+  <section class="section">
+    <div class="section-inner" style="text-align: center;">
+      <div class="section-label" style="display: flex; justify-content: center;">Get Help Now</div>
+      <div class="section-title">Request a Mobile Mechanic</div>
+      <p style="color:#AAA; font-size:15px; max-width:600px; margin: 0 auto 2.5rem auto;">If you are currently stranded on the side of the road, please call us immediately. For non-emergency driveway repairs, you can use the form below.</p>
+      
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-block" style="background: var(--accent); padding: 1.5rem; margin-bottom: 2rem;">
+            <div class="contact-info-label" style="font-size:12px; color:var(--dark); margin-bottom: 5px;">24/7 Dispatch Line</div>
+            <a href="tel:2107695262" style="font-size:32px; font-family:var(--font-head); color:var(--dark); text-decoration: none; display: block;">210-769-5262</a>
+          </div>
+
+          <div class="contact-hours">
+            <div style="font-family: var(--font-sub); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;">Operating Status</div>
+            <div class="hours-row"><span>Roadside Service</span><span class="hours-open">24/7 Available</span></div>
+            <div class="hours-row"><span>Scheduled Maintenance</span><span style="color:#CCC">Mon - Sat</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Your Name" id="fname"/></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
+          </div>
+          <div class="form-group"><label class="form-label">Current Vehicle Location (Address or Cross Streets)</label><input class="form-input" type="text" placeholder="e.g. 123 Main St, Austin" id="location"/></div>
+          <div class="form-group"><label class="form-label">Vehicle Make & Model</label><input class="form-input" type="text" placeholder="e.g. 2018 Ford F-250 Diesel" id="vehicle"/></div>
+          
+          <div class="form-group">
+            <label class="form-label">Type of Service</label>
+            <select class="form-select" id="service">
+              <option value="">— Select an option —</option>
+              <option>Emergency Breakdown</option><option>Driveway Maintenance / Brakes</option>
+              <option>Pre-Purchase Inspection</option><option>RV / Diesel Service</option>
+            </select>
+          </div>
+          <button class="btn-primary" style="width:100%; font-size:15px; padding:16px;" onclick="submitForm()">Request Quote &rarr;</button>
+          <div class="submit-confirm" id="form-confirm">&#10003; Request sent! A mechanic will review your location and contact you shortly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-logo">512<span>MOBILE</span></div>
+  <div class="footer-address">Mobile Service Dispatch &middot; Austin Metro Area &middot; 210-769-5262</div>
+  <div class="footer-areas" style="color: #444; font-size: 11px; margin-top: 10px;">ASE Certified Mechanics &middot; 12-Month/12,000-Mile Warranty</div>
+</footer>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.getElementById('nav-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const service = document.getElementById('service').value;
+    const location = document.getElementById('location').value.trim();
+    if (!fname || !service || !location) { alert('Please provide your name, location, and the service needed.'); return; }
+    const confirm = document.getElementById('form-confirm');
+    confirm.style.display = 'block';
+    confirm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+</body>
+</html>
