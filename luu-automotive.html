@@ -128,7 +128,6 @@
   .service-features li { font-size: 14px; color: #CCC; padding: 8px 0; border-bottom: 1px solid var(--dark3); display: flex; align-items: center; gap: 10px; }
   .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 14px; }
   
-  /* FIXED TAG PLACEMENT */
   .service-tag-pop { position: absolute; top: -12px; right: 20px; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
 
   /* Premium Parallax Banner */
@@ -185,7 +184,6 @@
   .footer-logo img { height: 40px; width: auto; }
   .footer-address { font-size: 14px; color: #888; margin-bottom: 0.5rem; }
   
-  /* Footer Navigation */
   .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--dark3); padding-top: 1.5rem; }
   .footer-nav a { font-family: var(--font-sub); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; cursor: pointer; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--accent); }
@@ -484,6 +482,11 @@
           <div class="submit-confirm" id="form-confirm">&#10003; Request received! We will text or call you to confirm an available drop-off time.</div>
         </div>
       </div>
+
+      <div class="map-container fade-in-up" style="margin-top: 4rem; border: 2px solid var(--dark3); border-top: 4px solid var(--accent); border-radius: 4px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); background: var(--dark2);">
+        <iframe src="https://maps.google.com/maps?q=9713%20N%20Lamar%20Blvd,%20Austin,%20TX&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
     </div>
   </section>
 </div>
@@ -515,6 +518,7 @@
       document.getElementById('page-' + name).classList.add('active');
       document.getElementById('nav-' + name).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      
       // Re-trigger animations on tab switch
       document.querySelectorAll('.fade-in-up').forEach(el => el.classList.remove('in-view'));
       setTimeout(() => checkAnimations(), 50);
@@ -536,6 +540,7 @@
     const elements = document.querySelectorAll('.fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
+      // Add 'in-view' when element is 90% into the viewport
       if (rect.top <= window.innerHeight * 0.9) {
         el.classList.add('in-view');
       }
