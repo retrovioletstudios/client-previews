@@ -10,7 +10,6 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    var(--accent): #E32636; 
     --accent: #E32636;
     --accent-dark: #B71C1C; 
     --highlight: #FFFFFF;
@@ -28,7 +27,12 @@
   /* Premium Phone Link Override */
   a[href^="tel"] { color: inherit; text-decoration: none; transition: opacity 0.2s; }
   a[href^="tel"]:hover { opacity: 0.8; }
-  .text-accent-link { color: var(--accent) !important; font-weight: 700; }
+  .text-accent-link { color: var(--accent) !important; font-weight: 700; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+  .text-accent-link:hover { opacity: 0.8; }
+  
+  /* Inline Cross-links */
+  .inline-link { color: var(--accent); font-weight: 600; text-decoration: underline; cursor: pointer; transition: color 0.2s; }
+  .inline-link:hover { color: var(--accent-dark); }
 
   /* Premium Scroll Animations */
   .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
@@ -42,7 +46,7 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 2rem; height: 64px; position: sticky; top: 0; z-index: 100;
   }
-  .nav-logo { font-family: var(--font-head); font-size: 26px; letter-spacing: 2px; color: var(--white); display: flex; align-items: center; gap: 10px; }
+  .nav-logo { font-family: var(--font-head); font-size: 26px; letter-spacing: 2px; color: var(--white); display: flex; align-items: center; gap: 10px; cursor: pointer; }
   .nav-logo img { height: 36px; width: auto; }
   .nav-loc { font-family: var(--font-sub); font-size: 12px; color: #888; letter-spacing: 1px; text-transform: uppercase; padding-left: 10px; border-left: 1px solid var(--dark3); margin-top: 4px; }
   .nav-links { display: flex; gap: 1.75rem; }
@@ -92,7 +96,7 @@
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--dark3); border: 2px solid var(--dark3); margin-top: 2.5rem; }
   @media (max-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .services-grid { grid-template-columns: 1fr; } }
-  .service-card { background: var(--dark2); padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; position: relative; overflow: hidden; }
+  .service-card { background: var(--dark2); padding: 2.5rem 2rem; transition: transform 0.3s, background 0.3s; position: relative; overflow: hidden; cursor: pointer;}
   .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-card:hover { transform: translateY(-5px); background: #181818; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
@@ -123,7 +127,9 @@
   .service-features { list-style: none; margin: 1.5rem 0; }
   .service-features li { font-size: 14px; color: #CCC; padding: 8px 0; border-bottom: 1px solid var(--dark3); display: flex; align-items: center; gap: 10px; }
   .service-features li::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 14px; }
-  .service-tag-pop { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; }
+  
+  /* FIXED TAG PLACEMENT */
+  .service-tag-pop { position: absolute; top: -12px; right: 20px; background: var(--accent); color: var(--white); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
 
   /* Premium Parallax Banner */
   .parallax-banner {
@@ -175,9 +181,15 @@
   .submit-confirm { background: var(--dark2); border: 1px solid #2C2; color: #6F6; padding: 1rem; font-family: var(--font-sub); font-size: 15px; letter-spacing: 1px; margin-top: 1rem; display: none; text-align: center; }
 
   footer { background: #0A0A0A; border-top: 2px solid var(--dark3); padding: 4rem 2rem 3rem; text-align: center; }
-  .footer-logo { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .footer-logo { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; }
   .footer-logo img { height: 40px; width: auto; }
   .footer-address { font-size: 14px; color: #888; margin-bottom: 0.5rem; }
+  
+  /* Footer Navigation */
+  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--dark3); padding-top: 1.5rem; }
+  .footer-nav a { font-family: var(--font-sub); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; cursor: pointer; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--accent); }
+  
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 </style>
 </head>
@@ -186,7 +198,7 @@
 <h2 class="sr-only">Luu Automotive — North Austin's trusted auto repair shop. Honest pricing and unparalleled integrity.</h2>
 
 <nav>
-  <div class="nav-logo">
+  <div class="nav-logo" onclick="showPage('home')">
     <img src="https://retrovioletstudios.github.io/client-previews/autologo.png" alt="Luu Automotive Logo">
     LUU<span>AUTOMOTIVE</span> 
     <span class="nav-loc">North Austin, TX</span>
@@ -241,21 +253,25 @@
       <p style="color:#D0D0D0; max-width:520px; font-size:16px; margin-left: auto; margin-right: auto;">From routine oil changes to complex mechanical diagnostics — we give you an honest assessment and get you back on the road safely.</p>
       
       <div class="services-grid" style="text-align: left;">
-        <div class="service-card">
+        <div class="service-card" onclick="showPage('services')">
           <div class="service-icon">&#128295;</div>
           <div class="service-name">Engine Diagnostics</div>
           <div class="service-desc">We accurately diagnose the issue without pushing predatory repairs onto our clientele.</div>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="showPage('services')">
           <div class="service-icon">&#128734;</div>
           <div class="service-name">Routine Maintenance</div>
           <div class="service-desc">Oil changes, fluid checks, and mileage milestone services to keep your vehicle running smoothly.</div>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="showPage('services')">
           <div class="service-icon">&#128721;</div>
           <div class="service-name">Brake Service</div>
           <div class="service-desc">Complete brake system inspections, pad replacements, and rotor surfacing.</div>
         </div>
+      </div>
+      
+      <div style="margin-top: 2rem;">
+        <a onclick="showPage('services')" class="text-accent-link" style="font-family: var(--font-sub); letter-spacing: 1px; text-transform: uppercase;">View Full Service Menu &rarr;</a>
       </div>
     </div>
   </section>
@@ -279,6 +295,31 @@
           <div class="why-num">Deep</div>
           <div class="why-label">Community Ties</div>
           <div class="why-desc">Generations of Austin families have trusted us to keep their vehicles safe.</div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2.5rem;">
+        <button class="btn-outline" onclick="showPage('about')" style="border-color: var(--dark3);">Read Our Story</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <div class="section-inner fade-in-up">
+      <div class="section-label" style="display: flex; justify-content: center;">Community Reputation</div>
+      <div class="section-title">What Austin Says About Us</div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Danny and Don operate with the highest level of integrity. They are the only mechanics I trust my family's cars with in Austin. Always honest."</p>
+          <div class="testimonial-author">Local Customer</div>
+          <div class="testimonial-detail">North Austin</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"They are always busy for a reason. You won't find a more respectful or polite group of technicians anywhere on North Lamar."</p>
+          <div class="testimonial-author">Long-term Client</div>
+          <div class="testimonial-detail">Austin, TX</div>
         </div>
       </div>
     </div>
@@ -342,12 +383,6 @@
     </div>
   </section>
 
-  <div class="parallax-banner fade-in-up">
-    <h2 style="font-family: var(--font-head); font-size: 42px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Fix It Right The First Time.</h2>
-    <p style="color: #DDD; max-width: 600px; margin: 0 auto 2rem; font-size: 16px; line-height: 1.6;">Our lot is always full because we don't cut corners. Get dealership-level expertise from a local shop you can actually trust.</p>
-    <button class="btn-primary" onclick="showPage('contact')">Get an Estimate Today</button>
-  </div>
-
   <section class="section">
     <div class="section-inner fade-in-up" style="text-align: center;">
       <div class="section-label">Common Questions</div>
@@ -369,6 +404,13 @@
       </div>
     </div>
   </section>
+
+  <div class="parallax-banner fade-in-up">
+    <h2 style="font-family: var(--font-head); font-size: 42px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;">Fix It Right The First Time.</h2>
+    <p style="color: #DDD; max-width: 600px; margin: 0 auto 2rem; font-size: 16px; line-height: 1.6;">Our lot is always full because we don't cut corners. Get dealership-level expertise from a local shop you can actually trust.</p>
+    <button class="btn-primary" onclick="showPage('contact')">Get an Estimate Today</button>
+  </div>
+
 </div>
 
 <div class="page" id="page-about">
@@ -381,9 +423,13 @@
           <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mechanic working on engine" class="about-img-real">
         </div>
         <div class="about-text">
-          <p>At Luu Automotive, our reputation is our most valuable asset. Led by <strong>Danny Luu and Don Luu</strong>, we have built a generational business on North Lamar Boulevard by adhering to one simple principle: <strong>unassailable honesty.</strong></p>
+          <p>At Luu Automotive, our reputation is our most valuable asset. Led by <strong>Danny Luu and Don Luu</strong>, we have built a generational business on North Lamar Boulevard by adhering to one simple principle: <a onclick="showPage('contact')" class="inline-link">unassailable honesty</a>.</p>
           <p>We know that bringing a car to a mechanic can be stressful. That is why we operate with complete transparency. We will never push a predatory repair, and we will clearly explain exactly what your vehicle needs to stay safe on the road.</p>
           <p>Our lot is perpetually busy precisely because of these honest business practices. We view our customers not as transactions, but as members of our Austin community who we want to keep safe mile after mile.</p>
+          
+          <div style="margin-top: 2rem;">
+            <button class="btn-outline" onclick="showPage('services')" style="border-color: var(--dark3);">Explore Our Services</button>
+          </div>
         </div>
       </div>
     </div>
@@ -443,12 +489,18 @@
 </div>
 
 <footer>
-  <div class="footer-logo">
+  <div class="footer-logo" onclick="showPage('home')">
     <img src="https://retrovioletstudios.github.io/client-previews/autologo.png" alt="Luu Automotive Logo">
     LUU<span>AUTOMOTIVE</span>
   </div>
-  <div class="footer-address">9713 N Lamar Blvd &middot; Austin, TX &middot; <a href="tel:5128350909" class="phone-link" style="color: #888;">(512) 835-0909</a></div>
-  <div class="footer-areas" style="color: #666; font-size: 12px; margin-top: 10px;">Austin's Most Trusted Wrench.</div>
+  <div class="footer-address">9713 N Lamar Blvd &middot; Austin, TX &middot; <a href="tel:5128350909" class="phone-link" style="color: #888; text-decoration: none;">(512) 835-0909</a></div>
+  
+  <div class="footer-nav">
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('services')">Full Service Menu</a>
+    <a onclick="showPage('about')">About the Shop</a>
+    <a onclick="showPage('contact')">Book Appointment</a>
+  </div>
 </footer>
 
 <script>
