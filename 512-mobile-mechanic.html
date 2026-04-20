@@ -17,8 +17,10 @@
     --dark2: #100C22; 
     --dark3: #1A1536;
     --glass: rgba(16, 12, 34, 0.65); 
-    --light: #E4E4E7; 
-    --white: #F8FAFC;
+    
+    /* Softened "Cloud Dancer" Typography Colors */
+    --white: #F3F4F6; /* Warm off-white to kill screen glare */
+    --text-gray: #9CA3AF; /* Soft silver-gray for paragraphs */
     
     /* 2026 Bento: Exaggerated Rounding */
     --radius: 24px; 
@@ -51,9 +53,9 @@
   .nav-logo img { height: 44px; width: auto; }
   .nav-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-transform: uppercase; }
   .nav-logo-text span { color: var(--accent); }
-  .nav-loc { font-family: var(--font-sub); font-size: 10px; font-weight: 600; color: #888; letter-spacing: 1.5px; text-transform: uppercase; padding-left: 12px; border-left: 1px solid rgba(255,255,255,0.1); margin-top: 2px; }
+  .nav-loc { font-family: var(--font-sub); font-size: 10px; font-weight: 600; color: var(--text-gray); letter-spacing: 1.5px; text-transform: uppercase; padding-left: 12px; border-left: 1px solid rgba(255,255,255,0.1); margin-top: 2px; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #A0A0A0; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .nav-links a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   
   .nav-cta { background: var(--accent); color: #000; font-family: var(--font-sub); font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border: none; padding: 12px 24px; cursor: pointer; border-radius: var(--radius-sm); transition: all 0.2s; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.2);}
@@ -73,10 +75,9 @@
   .hero-content { position: relative; z-index: 2; max-width: 760px; text-align: center; }
   .hero-tag { display: inline-block; background: rgba(248, 222, 34, 0.15); color: var(--accent); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; margin-bottom: 1.5rem; border-radius: var(--radius-sm); border: 1px solid rgba(248, 222, 34, 0.3); }
   
-  /* Retained Uppercase for Hero Hook */
   .hero h1 { font-family: var(--font-head); font-size: clamp(42px, 6vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -1px; margin-bottom: 1.25rem; color: var(--white); text-transform: uppercase; }
   .hero h1 em { color: var(--accent); font-style: normal; }
-  .hero-sub { font-size: 17px; color: #A1A1AA; max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem; margin-left: auto; margin-right: auto; font-weight: 400; }
+  .hero-sub { font-size: 17px; color: var(--text-gray); max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem; margin-left: auto; margin-right: auto; font-weight: 400; }
   
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
   .btn-primary { background: var(--accent); color: #000; font-family: var(--font-body); font-weight: 700; font-size: 15px; border: none; padding: 16px 36px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(248, 222, 34, 0.2); border-radius: var(--radius-sm);}
@@ -84,22 +85,23 @@
   .btn-outline { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); color: var(--white); font-family: var(--font-body); font-weight: 500; font-size: 15px; border: 1px solid rgba(255,255,255,0.15); padding: 15px 36px; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-sm);}
   .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
+  /* Hero Trust Badges - Elevated to top for stranded drivers */
+  .hero-trust { display: flex; gap: 2rem; justify-content: center; margin-top: 3.5rem; flex-wrap: wrap; }
+  .hero-trust-item { display: flex; align-items: center; gap: 8px; color: var(--white); font-family: var(--font-sub); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .hero-trust-item svg { color: var(--accent); }
+
   .marquee-strip { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 14px 0; overflow: hidden; white-space: nowrap; margin-top: 0; }
   .marquee-inner { display: inline-flex; animation: marquee 30s linear infinite; }
-  .marquee-item { font-family: var(--font-sub); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 0 2rem; color: #888; }
+  .marquee-item { font-family: var(--font-sub); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 0 2rem; color: var(--text-gray); }
   .marquee-dot { color: var(--accent); opacity: 0.6; margin-left: 2rem; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   .section { padding: 6rem 2.5rem; }
   .section-inner { max-width: 1140px; margin: 0 auto; }
   .section-label { font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-  
-  /* Softened Typography Hierarchy: Title Case */
   .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 44px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 1.25rem; color: var(--white); }
 
   .bento-grid { display: grid; gap: 1.5rem; margin-top: 3.5rem; text-align: left; }
-  
-  /* Generous Inner Padding & Yellow Glow Micro-Interaction */
   .bento-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 3rem; border-radius: var(--radius); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s; position: relative; overflow: hidden;}
   .bento-card:hover { transform: translateY(-6px); border-color: rgba(248, 222, 34, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(248, 222, 34, 0.15); z-index: 2;}
   
@@ -108,10 +110,8 @@
   @media (max-width: 480px) { .capabilities-bento { grid-template-columns: 1fr; } }
   
   .service-icon { font-size: 28px; margin-bottom: 1.5rem; color: var(--accent); opacity: 0.9; }
-  
-  /* Softened Typography Hierarchy: Title Case */
   .service-name { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.75rem; color: var(--white); }
-  .service-desc { font-size: 15px; color: #A1A1AA; line-height: 1.7; }
+  .service-desc { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
 
   .focus-bento { grid-template-columns: repeat(3, 1fr); }
   @media (max-width: 900px) { .focus-bento { grid-template-columns: repeat(2, 1fr); } }
@@ -124,24 +124,18 @@
   @media (max-width: 600px) { .bento-feat-img.span-2 { grid-column: span 1; aspect-ratio: 4/3; } }
   
   .why-stat-num { font-family: var(--font-head); font-size: 42px; font-weight: 800; letter-spacing: -1px; color: var(--accent); line-height: 1; margin-bottom: 0.75rem; text-transform: uppercase; }
-  
-  /* Softened Typography Hierarchy: Title Case */
   .why-stat-label { font-family: var(--font-head); font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--white); }
 
   /* SERVICES PAGE */
   .services-page-hero { background: var(--dark2); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 6rem 2.5rem; text-align: center; }
   .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3.5rem; text-align: left;}
   
-  /* Generous Inner Padding & Yellow Glow Micro-Interaction */
   .service-big-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 3rem; border-radius: var(--radius); transition: all 0.4s; position: relative; }
   .service-big-card:hover { border-color: rgba(248, 222, 34, 0.2); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(248, 222, 34, 0.15); }
   
-  .service-tag-pop { position: absolute; top: -12px; right: 30px; background: var(--accent); color: #000; font-family: var(--font-sub); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.3); border-radius: var(--radius-sm);}
-  
-  /* Softened Typography Hierarchy: Title Case */
   .service-name-big { font-family: var(--font-head); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: var(--white); margin-bottom: 0.75rem; }
   .service-features { list-style: none; margin: 2rem 0; }
-  .service-features li { font-size: 15px; color: #A1A1AA; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 14px; }
+  .service-features li { font-size: 15px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 14px; }
   .service-features li::before { content: '•'; color: var(--accent); font-weight: 700; font-size: 20px; }
 
   /* FAQ Accordion Styles */
@@ -150,7 +144,7 @@
   .faq-item:hover { background: rgba(255,255,255,0.01); }
   .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 600; letter-spacing: -0.2px; color: var(--white); }
   .faq-icon { color: var(--accent); font-size: 22px; font-weight: 300; transition: transform 0.3s ease; }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: #A1A1AA; font-size: 15px; line-height: 1.7; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-gray); font-size: 15px; line-height: 1.7; }
   .faq-item.active .faq-answer { max-height: 250px; margin-top: 1rem; }
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
@@ -167,15 +161,13 @@
   .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; text-align: left; }
   @media (max-width: 800px) { .about-split { grid-template-columns: 1fr; gap: 3rem;} }
   .about-feat-img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.4); aspect-ratio: 4/3; object-fit: cover;}
-  .about-text p { font-size: 16px; color: #A1A1AA; line-height: 1.8; margin-bottom: 1.5rem; }
-  .about-text strong { color: var(--white); font-weight: 600;}
-
-  /* TRUST BADGES - Elevated Visual Hierarchy */
+  
+  /* Trust Badges - Elevated Visual Hierarchy for About Page */
   .trust-badges { display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap;}
   .badge-card { background: rgba(248, 222, 34, 0.05); border: 1px solid rgba(248, 222, 34, 0.2); padding: 1.25rem 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px;}
   .badge-icon { font-size: 32px; color: var(--accent); }
   .badge-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--accent); margin-bottom: 2px;}
-  .badge-sub { font-size: 13px; color: #A1A1AA; }
+  .badge-sub { font-size: 13px; color: var(--text-gray); }
 
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; margin-top: 4rem; align-items: start; text-align: left;}
@@ -184,12 +176,12 @@
   .contact-info-val { font-size: 17px; color: var(--white); font-weight: 500; line-height: 1.6; }
   
   .contact-hours-glass { margin-top: 2.5rem; background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
-  .hours-row { display: flex; justify-content: space-between; font-size: 15px; color: #A1A1AA; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .hours-row { display: flex; justify-content: space-between; font-size: 15px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .hours-row:last-child { border-bottom: none; padding-bottom: 0;}
   .hours-row:first-child { padding-top: 0;}
   
   .form-group { margin-bottom: 1.5rem; }
-  .form-label { display: block; font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #A1A1AA; margin-bottom: 8px; }
+  .form-label { display: block; font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 8px; }
   .form-input, .form-select, .form-textarea { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: var(--font-body); font-size: 15px; padding: 16px; outline: none; transition: all 0.3s; appearance: none; border-radius: var(--radius-sm);}
   .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); background: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(248, 222, 34, 0.1); }
   .form-textarea { resize: vertical; min-height: 140px; }
@@ -206,7 +198,7 @@
   .footer-logo img { height: 44px; width: auto; opacity: 0.9; }
   .footer-logo-text { font-family: var(--font-head); font-size: 24px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-transform: uppercase;}
   .footer-logo-text span { color: var(--accent); }
-  .footer-address { font-size: 14px; color: #A1A1AA; margin-bottom: 0.5rem; }
+  .footer-address { font-size: 14px; color: var(--text-gray); margin-bottom: 0.5rem; }
   
   .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 2.5rem; }
   .footer-nav a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #71717A; cursor: pointer; transition: color 0.2s; }
@@ -242,11 +234,23 @@
       <div class="hero-tag fade-in-up">24/7 Emergency Dispatch</div>
       <h1 class="fade-in-up delay-1">We Come To You.<br><em>Roadside & Home Repair.</em></h1>
       <p class="hero-sub fade-in-up delay-2">Don't wait for trouble—fix it before it starts. Certified, honest, and efficient mobile auto repair serving the Greater Austin area.</p>
+      
       <div class="hero-btns fade-in-up delay-3">
         <a href="tel:2107695262" style="text-decoration: none;">
           <button class="btn-primary">Call For Immediate Dispatch</button>
         </a>
         <button class="btn-outline" onclick="showPage('services')">View Capabilities</button>
+      </div>
+
+      <div class="hero-trust fade-in-up delay-3">
+        <div class="hero-trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          12k Mile Warranty
+        </div>
+        <div class="hero-trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          ASE Certified
+        </div>
       </div>
     </div>
   </section>
@@ -276,7 +280,7 @@
     <div class="section-inner">
       <div class="section-label fade-in-up" style="display: flex; justify-content: center;">Expertise</div>
       <div class="section-title fade-in-up">The Complete Mobile Garage</div>
-      <p class="fade-in-up" style="color:#A1A1AA; max-width:600px; font-size:16px; margin: 0 auto 4rem auto; line-height: 1.7;">From check engine light diagnostics to mobile diesel mechanics, we bring the shop directly to your driveway.</p>
+      <p class="fade-in-up" style="color:var(--text-gray); max-width:600px; font-size:16px; margin: 0 auto 4rem auto; line-height: 1.7;">From check engine light diagnostics to mobile diesel mechanics, we bring the shop directly to your driveway.</p>
       
       <div class="bento-grid capabilities-bento fade-in-up">
         <div class="bento-card" style="grid-column: span 1;">
@@ -316,25 +320,25 @@
         <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
           <div class="why-stat-num">24/7</div>
           <div class="why-stat-label">Emergency Dispatch</div>
-          <p style="font-size: 15px; color: #A1A1AA; margin-top: 15px; line-height: 1.7;">Stranded? We deploy immediately to your location to get you safely back on the road, day or night.</p>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Stranded? We deploy immediately to your location to get you safely back on the road, day or night.</p>
         </div>
         
         <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
           <div class="why-stat-num">12k</div>
           <div class="why-stat-label">Mile Warranty</div>
-          <p style="font-size: 15px; color: #A1A1AA; margin-top: 15px; line-height: 1.7;">We back our labor. All repairs include a comprehensive 12-month or 12,000-mile warranty for total peace of mind.</p>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">We back our labor. All repairs include a comprehensive 12-month or 12,000-mile warranty for total peace of mind.</p>
         </div>
         <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
           <div class="why-stat-num" style="font-size: 32px; margin-bottom: 1rem;">ASE</div>
           <div class="why-stat-label">Certified Experts</div>
-          <p style="font-size: 15px; color: #A1A1AA; margin-top: 15px; line-height: 1.7;">Our mobile units are operated by highly trained professionals equipped with dealership-level diagnostic tools.</p>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Our mobile units are operated by highly trained professionals equipped with dealership-level diagnostic tools.</p>
         </div>
         <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
           <div class="service-icon" style="margin-bottom: 0.5rem; font-size: 32px;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
           <div class="why-stat-label">On-Site Convenience</div>
-          <p style="font-size: 15px; color: #A1A1AA; margin-top: 15px; line-height: 1.7;">Skip the tow truck and the waiting room. We perform complex repairs directly in your driveway or parking lot.</p>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Skip the tow truck and the waiting room. We perform complex repairs directly in your driveway or parking lot.</p>
         </div>
       </div>
     </div>
@@ -346,7 +350,7 @@
   <div class="services-page-hero">
     <div class="section-label fade-in-up">The Mobile Garage</div>
     <div class="section-title fade-in-up delay-1" style="font-size: clamp(36px,5vw,54px);">Comprehensive Service.<br>At Your Location.</div>
-    <p class="fade-in-up delay-2" style="color:#A1A1AA; max-width:540px; margin: 1.5rem auto 0; font-size:16px; line-height: 1.7;">We offer a complete range of mobile auto repair, performed by experienced technicians using quality parts.</p>
+    <p class="fade-in-up delay-2" style="color:var(--text-gray); max-width:540px; margin: 1.5rem auto 0; font-size:16px; line-height: 1.7;">We offer a complete range of mobile auto repair, performed by experienced technicians using quality parts.</p>
   </div>
   
   <section class="section">
@@ -355,43 +359,42 @@
         
         <div class="service-big-card">
           <h3 class="service-name-big">AC Repair & Recharge</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We fix and recharge vehicle air conditioners on-site so you can drive comfortably year-round.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We fix and recharge vehicle air conditioners on-site so you can drive comfortably year-round.</p>
           <ul class="service-features"><li>Freon leak detection & recharge</li><li>Compressor replacement</li><li>System pressure testing</li></ul>
           <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
         </div>
         
-        <div class="service-big-card" style="border-color: rgba(248, 222, 34, 0.3);">
-          <div class="service-tag-pop">Immediate Response</div>
+        <div class="service-big-card">
           <h3 class="service-name-big">Check Engine Diagnostics</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We come to you with advanced tools to scan, diagnose, and fix check engine light issues.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We come to you with advanced tools to scan, diagnose, and fix check engine light issues.</p>
           <ul class="service-features"><li>Computer code diagnostics</li><li>Smog system repairs</li><li>No-tow required</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-primary" style="width:100%;">Schedule Diagnostic</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Schedule Diagnostic</button></a>
         </div>
         
         <div class="service-big-card">
           <h3 class="service-name-big">Brake & Rotor Replacement</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">On-location brake pad and rotor replacement using high-grade parts and certified service.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">On-location brake pad and rotor replacement using high-grade parts and certified service.</p>
           <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>Brake fluid line inspection</li></ul>
           <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
           <h3 class="service-name-big">Mobile Diesel & RV</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Need an RV or diesel mechanic to come to your site? We handle heavy engine and maintenance issues.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Need an RV or diesel mechanic to come to your site? We handle heavy engine and maintenance issues.</p>
           <ul class="service-features"><li>Diesel diagnostics & fuel systems</li><li>RV electrical maintenance</li><li>On-site fleet servicing</li></ul>
           <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
         </div>
         
         <div class="service-big-card">
           <h3 class="service-name-big">Alternators & Starters</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Stranded with a non-starting vehicle? We replace alternators, starters, and fuel pumps wherever you are parked.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Stranded with a non-starting vehicle? We replace alternators, starters, and fuel pumps wherever you are parked.</p>
           <ul class="service-features"><li>Ignition switch & lock cylinder repair</li><li>Fuel pump installation</li><li>Battery & wiring diagnostics</li></ul>
           <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
           <h3 class="service-name-big">Tune-Ups & Maintenance</h3>
-          <p style="color:#A1A1AA; font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We offer regular maintenance services including filters, fluids, spark plugs, and pre-purchase vehicle inspections.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We offer regular maintenance services including filters, fluids, spark plugs, and pre-purchase vehicle inspections.</p>
           <ul class="service-features"><li>Serpentine & timing belt replacement</li><li>Radiator leak & cooling system repair</li><li>Window motors & lighting</li></ul>
           <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
         </div>
@@ -433,9 +436,25 @@
       <div class="about-split fade-in-up delay-1">
         <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mobile mechanic inspecting engine" class="about-feat-img">
         <div class="about-text">
-          <p>512 Mobile Mechanic was built on a simple premise: vehicle repair shouldn't require paying for an expensive tow truck or waiting days in a dealership lobby.</p>
-          <p>We operate fully equipped, high-tech mobile service units manned by expert technicians. Whether you are stranded on the side of the highway at midnight, or just need routine maintenance performed in your office parking lot, we deploy directly to your location.</p>
-          <p>We proudly serve the entire Greater Austin region—from Georgetown down to San Marcos—and we back our labor completely. Honest, efficient, and entirely on your terms.</p>
+          
+          <p style="font-size: 18px; color: var(--white); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.6;">512 Mobile Mechanic was built on a simple premise: vehicle repair shouldn't require paying for an expensive tow truck or waiting days in a dealership lobby.</p>
+          
+          <ul style="list-style: none; margin-bottom: 2rem;">
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>Fully Equipped Mobile Units:</strong> We deploy high-tech service vans directly to your driveway, office, or roadside location.</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>ASE-Certified Technicians:</strong> Expert mechanics equipped with dealership-level diagnostic tools for all makes and models.</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>Greater Austin Coverage:</strong> Proudly serving the entire region from Georgetown down to San Marcos.</span>
+            </li>
+          </ul>
+          
+          <p style="font-size: 15px; color: var(--text-gray); line-height: 1.7; margin-bottom: 1.5rem;">We back our labor completely. Honest, efficient, and entirely on your terms.</p>
           
           <div class="trust-badges">
             <div class="badge-card">
@@ -472,7 +491,7 @@
     <div class="section-inner fade-in-up" style="text-align: center;">
       <div class="section-label" style="display: flex; justify-content: center;">Contact Dispatch</div>
       <div class="section-title">Request Mobile Service</div>
-      <p style="color:#A1A1AA; font-size:16px; max-width:600px; margin: 0 auto 4rem auto; line-height: 1.7;">If this is an emergency, please call our dispatch number directly. For standard maintenance or quotes, fill out the request form below.</p>
+      <p style="color:var(--text-gray); font-size:16px; max-width:600px; margin: 0 auto 4rem auto; line-height: 1.7;">If this is an emergency, please call our dispatch number directly. For standard maintenance or quotes, fill out the request form below.</p>
       
       <div class="contact-grid">
         <div style="text-align: left;">
@@ -519,7 +538,7 @@
     <img src="https://retrovioletstudios.github.io/client-previews/512mobilemechaniclogo.webp" alt="512 Mobile Mechanic Logo">
     <div class="footer-logo-text">512 <span>MOBILE</span></div>
   </div>
-  <div class="footer-address">Mobile Service Units · Greater Austin Area · <a href="tel:2107695262" class="text-accent-link" style="color: #A1A1AA;">(210) 769-5262</a></div>
+  <div class="footer-address">Mobile Service Units · Greater Austin Area · <a href="tel:2107695262" class="text-accent-link" style="color: var(--text-gray);">(210) 769-5262</a></div>
   
   <div class="footer-nav">
     <a onclick="showPage('home')">Home</a>
