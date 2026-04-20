@@ -19,8 +19,8 @@
     --glass: rgba(16, 12, 34, 0.65); 
     
     /* Softened "Cloud Dancer" Typography Colors */
-    --white: #F3F4F6; /* Warm off-white to kill screen glare */
-    --text-gray: #9CA3AF; /* Soft silver-gray for paragraphs */
+    --white: #F3F4F6; 
+    --text-gray: #9CA3AF; 
     
     /* 2026 Bento: Exaggerated Rounding */
     --radius: 24px; 
@@ -55,7 +55,7 @@
   .nav-logo-text span { color: var(--accent); }
   .nav-loc { font-family: var(--font-sub); font-size: 10px; font-weight: 600; color: var(--text-gray); letter-spacing: 1.5px; text-transform: uppercase; padding-left: 12px; border-left: 1px solid rgba(255,255,255,0.1); margin-top: 2px; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .nav-links a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #A0A0A0; text-decoration: none; cursor: pointer; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   
   .nav-cta { background: var(--accent); color: #000; font-family: var(--font-sub); font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border: none; padding: 12px 24px; cursor: pointer; border-radius: var(--radius-sm); transition: all 0.2s; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.2);}
@@ -85,7 +85,6 @@
   .btn-outline { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); color: var(--white); font-family: var(--font-body); font-weight: 500; font-size: 15px; border: 1px solid rgba(255,255,255,0.15); padding: 15px 36px; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-sm);}
   .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
-  /* Hero Trust Badges - Elevated to top for stranded drivers */
   .hero-trust { display: flex; gap: 2rem; justify-content: center; margin-top: 3.5rem; flex-wrap: wrap; }
   .hero-trust-item { display: flex; align-items: center; gap: 8px; color: var(--white); font-family: var(--font-sub); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
   .hero-trust-item svg { color: var(--accent); }
@@ -133,12 +132,14 @@
   .service-big-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 3rem; border-radius: var(--radius); transition: all 0.4s; position: relative; }
   .service-big-card:hover { border-color: rgba(248, 222, 34, 0.2); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(248, 222, 34, 0.15); }
   
+  .service-tag-pop { position: absolute; top: -12px; right: 30px; background: var(--accent); color: #000; font-family: var(--font-sub); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.3); border-radius: var(--radius-sm);}
+  
   .service-name-big { font-family: var(--font-head); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: var(--white); margin-bottom: 0.75rem; }
   .service-features { list-style: none; margin: 2rem 0; }
   .service-features li { font-size: 15px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 14px; }
   .service-features li::before { content: '•'; color: var(--accent); font-weight: 700; font-size: 20px; }
 
-  /* FAQ Accordion Styles */
+  /* FAQ Accordion */
   .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
   .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
   .faq-item:hover { background: rgba(255,255,255,0.01); }
@@ -157,17 +158,23 @@
     margin-top: 5rem;
   }
 
-  /* ABOUT */
+  /* ABOUT PAGE FIX: Extracted Badges to full width row */
   .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; text-align: left; }
   @media (max-width: 800px) { .about-split { grid-template-columns: 1fr; gap: 3rem;} }
   .about-feat-img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.4); aspect-ratio: 4/3; object-fit: cover;}
+  .about-text p { font-size: 16px; color: var(--text-gray); line-height: 1.8; }
   
-  /* Trust Badges - Elevated Visual Hierarchy for About Page */
-  .trust-badges { display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap;}
-  .badge-card { background: rgba(248, 222, 34, 0.05); border: 1px solid rgba(248, 222, 34, 0.2); padding: 1.25rem 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px;}
+  .about-bottom-bar { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 3.5rem; justify-content: space-between; }
+  .trust-badges { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; justify-content: flex-start; margin-top: 0;}
+  .badge-card { background: rgba(248, 222, 34, 0.05); border: 1px solid rgba(248, 222, 34, 0.2); padding: 1.25rem 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left;}
   .badge-icon { font-size: 32px; color: var(--accent); }
   .badge-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--accent); margin-bottom: 2px;}
   .badge-sub { font-size: 13px; color: var(--text-gray); }
+
+  @media (max-width: 900px) {
+    .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; }
+    .trust-badges { justify-content: center; }
+  }
 
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; margin-top: 4rem; align-items: start; text-align: left;}
@@ -189,7 +196,6 @@
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .submit-confirm { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ADE80; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: var(--radius-sm);}
 
-  /* Mobile Map Filter */
   .map-frame-dark { filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%); border:0; width:100%; height:450px; border-radius: var(--radius);}
 
   /* FOOTER */
@@ -361,42 +367,43 @@
           <h3 class="service-name-big">AC Repair & Recharge</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We fix and recharge vehicle air conditioners on-site so you can drive comfortably year-round.</p>
           <ul class="service-features"><li>Freon leak detection & recharge</li><li>Compressor replacement</li><li>System pressure testing</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
         
-        <div class="service-big-card">
+        <div class="service-big-card" style="border-color: rgba(248, 222, 34, 0.3);">
+          <div class="service-tag-pop">Immediate Response</div>
           <h3 class="service-name-big">Check Engine Diagnostics</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We come to you with advanced tools to scan, diagnose, and fix check engine light issues.</p>
           <ul class="service-features"><li>Computer code diagnostics</li><li>Smog system repairs</li><li>No-tow required</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Schedule Diagnostic</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Schedule Diagnostic</button></a>
         </div>
         
         <div class="service-big-card">
           <h3 class="service-name-big">Brake & Rotor Replacement</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">On-location brake pad and rotor replacement using high-grade parts and certified service.</p>
           <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>Brake fluid line inspection</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
           <h3 class="service-name-big">Mobile Diesel & RV</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Need an RV or diesel mechanic to come to your site? We handle heavy engine and maintenance issues.</p>
           <ul class="service-features"><li>Diesel diagnostics & fuel systems</li><li>RV electrical maintenance</li><li>On-site fleet servicing</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
         
         <div class="service-big-card">
           <h3 class="service-name-big">Alternators & Starters</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Stranded with a non-starting vehicle? We replace alternators, starters, and fuel pumps wherever you are parked.</p>
           <ul class="service-features"><li>Ignition switch & lock cylinder repair</li><li>Fuel pump installation</li><li>Battery & wiring diagnostics</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
           <h3 class="service-name-big">Tune-Ups & Maintenance</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We offer regular maintenance services including filters, fluids, spark plugs, and pre-purchase vehicle inspections.</p>
           <ul class="service-features"><li>Serpentine & timing belt replacement</li><li>Radiator leak & cooling system repair</li><li>Window motors & lighting</li></ul>
-          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%;">Call to Dispatch</button></a>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
       </div>
@@ -436,7 +443,6 @@
       <div class="about-split fade-in-up delay-1">
         <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mobile mechanic inspecting engine" class="about-feat-img">
         <div class="about-text">
-          
           <p style="font-size: 18px; color: var(--white); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.6;">512 Mobile Mechanic was built on a simple premise: vehicle repair shouldn't require paying for an expensive tow truck or waiting days in a dealership lobby.</p>
           
           <ul style="list-style: none; margin-bottom: 2rem;">
@@ -454,34 +460,36 @@
             </li>
           </ul>
           
-          <p style="font-size: 15px; color: var(--text-gray); line-height: 1.7; margin-bottom: 1.5rem;">We back our labor completely. Honest, efficient, and entirely on your terms.</p>
-          
-          <div class="trust-badges">
-            <div class="badge-card">
-              <div class="badge-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-              </div>
-              <div>
-                <div class="badge-title">ASE Certified</div>
-                <div class="badge-sub">Master Technicians</div>
-              </div>
-            </div>
-            <div class="badge-card">
-              <div class="badge-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <div>
-                <div class="badge-title">12k Mile Warranty</div>
-                <div class="badge-sub">Parts & Labor Included</div>
-              </div>
-            </div>
-          </div>
-          
-          <div style="margin-top: 3rem;">
-            <button class="btn-outline" onclick="showPage('services')">Explore Our Capabilities</button>
-          </div>
+          <p style="font-size: 15px; color: var(--text-gray); line-height: 1.7; margin-bottom: 0;">We back our labor completely. Honest, efficient, and entirely on your terms.</p>
         </div>
       </div>
+      
+      <div class="about-bottom-bar fade-in-up delay-2">
+        <div class="trust-badges">
+          <div class="badge-card">
+            <div class="badge-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <div>
+              <div class="badge-title">ASE Certified</div>
+              <div class="badge-sub">Master Technicians</div>
+            </div>
+          </div>
+          <div class="badge-card">
+            <div class="badge-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <div class="badge-title">12k Mile Warranty</div>
+              <div class="badge-sub">Parts & Labor Included</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="btn-outline" onclick="showPage('services')" style="padding: 18px 36px; height: 100%;">Explore Our Capabilities</button>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
