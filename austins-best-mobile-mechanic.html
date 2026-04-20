@@ -10,18 +10,13 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    /* Concept B: Lightning Blue & Crisp White Space */
     --accent: #51d0de; 
     --accent-hover: #3ebbc9;
-    
     --bg-white: #FFFFFF; 
-    --bg-alt: #F4F8FA; /* Soft icy blue/gray for section contrast */
-    
-    --text-main: #0F172A; /* Deep Slate Navy for high contrast */
-    --text-gray: #475569; /* Medium Slate for readable paragraphs */
-    
+    --bg-alt: #F4F8FA; 
+    --text-main: #0F172A; 
+    --text-gray: #475569; 
     --radius: 16px; 
-    
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
@@ -36,11 +31,9 @@
   .delay-1 { transition-delay: 0.1s; }
   .delay-2 { transition-delay: 0.2s; }
 
-  /* Top Promo Banner */
   .promo-banner { background: var(--text-main); color: #FFF; text-align: center; padding: 12px 20px; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 101; }
   .promo-banner span { color: var(--accent); font-weight: 800; }
 
-  /* Light Mode Navigation */
   nav {
     background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #E2E8F0;
     display: flex; align-items: center; justify-content: space-between;
@@ -58,11 +51,9 @@
   .nav-cta { background: var(--accent); color: #0F172A; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 12px 28px; cursor: pointer; border-radius: 50px; transition: all 0.2s; box-shadow: 0 4px 15px rgba(81, 208, 222, 0.3);}
   .nav-cta:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
 
-  /* Page Logic */
   .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
   .page.active { display: block; opacity: 1; }
 
-  /* SPLIT HERO SECTION */
   .hero { 
     padding: 6rem 5% 6rem; 
     display: grid;
@@ -94,7 +85,6 @@
   .hero-img-container { position: relative; }
   .hero-img-container img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 4/3;}
   
-  /* Trust Bar */
   .trust-strip { background: var(--bg-alt); padding: 3rem 5%; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; align-items: center; }
   .trust-item { display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text-gray); }
   .trust-item svg { color: var(--accent-hover); }
@@ -106,7 +96,6 @@
   .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
   .section-sub { font-size: 18px; color: var(--text-gray); line-height: 1.7; }
 
-  /* BENTO GRIDS (Light Mode) */
   .bento-grid { display: grid; gap: 2rem; text-align: left; }
   .bento-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.3s; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative;}
   .bento-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); z-index: 2;}
@@ -126,7 +115,9 @@
   @media (max-width: 600px) { .bento-feat-img.span-2 { grid-column: span 1; aspect-ratio: 4/3; } }
   
   .service-tag { position: absolute; top: 2rem; right: 2.5rem; background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px;}
-  .service-icon { background: var(--text-main); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 2rem; }
+  
+  /* FIXED SERVICE ICONS FOR LIGHT MODE */
+  .service-icon { background: rgba(81, 208, 222, 0.15); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--accent-hover); margin-bottom: 2rem; }
   
   .bento-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 1rem; }
   .bento-desc { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
@@ -144,7 +135,6 @@
   .service-features li:last-child { border-bottom: none; }
   .service-features li::before { content: '✓'; color: var(--accent-hover); font-weight: 700; font-size: 16px; }
 
-  /* Light Mode FAQ */
   .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
   .faq-item { border-bottom: 1px solid #E2E8F0; padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
   .faq-item:hover { background: #F8FAFC; }
@@ -154,7 +144,6 @@
   .faq-item.active .faq-answer { max-height: 250px; margin-top: 1rem; }
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-  /* Parallax CTA */
   .parallax-banner {
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
     padding: 7rem 5%;
@@ -162,10 +151,13 @@
     margin-top: 5rem;
   }
 
-  /* ABOUT PAGE */
+  /* ABOUT PAGE FIX: Constrained Image */
   .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   @media (max-width: 900px) { .about-container { grid-template-columns: 1fr; gap: 3rem;} }
-  .about-img { width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  
+  .about-img-wrapper { text-align: center; } /* Centers the constrained image */
+  .about-img { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.1); aspect-ratio: 1/1; object-fit: cover; display: inline-block;}
+  
   .about-text p { font-size: 17px; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
   
   .feature-list { margin-top: 2.5rem; }
@@ -173,19 +165,6 @@
   .feature-icon { background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .feature-content h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
   .feature-content p { font-size: 15px; color: var(--text-gray); line-height: 1.6; margin-bottom: 0; }
-
-  /* Light Mode Trust Badges */
-  .about-bottom-bar { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 3.5rem; justify-content: space-between; }
-  .trust-badges { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; justify-content: flex-start; margin-top: 0;}
-  .badge-card { background: var(--bg-white); border: 1px solid #E2E8F0; padding: 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
-  .badge-icon { font-size: 32px; color: var(--accent-hover); }
-  .badge-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--text-main); margin-bottom: 2px;}
-  .badge-sub { font-size: 13px; color: var(--text-gray); }
-
-  @media (max-width: 900px) {
-    .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; }
-    .trust-badges { justify-content: center; }
-  }
 
   /* CONTACT PAGE */
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-white); border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05); overflow: hidden; border: 1px solid #E2E8F0; }
@@ -209,19 +188,18 @@
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 8px;}
 
-  /* Light Mode Map */
   .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
   /* FOOTER */
-  footer { background: #0F172A; padding: 5rem 5% 3rem; text-align: center; color: var(--bg-white); }
+  footer { background: #0F172A; padding: 5rem 5% 3rem; text-align: center; color: var(--white); }
   .footer-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 1.5rem; cursor: pointer;}
   .footer-logo img { height: 40px; width: auto; border-radius: 4px;}
-  .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--bg-white); text-transform: uppercase; text-align: left; line-height: 1.1;}
+  .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--white); text-transform: uppercase; text-align: left; line-height: 1.1;}
   .footer-logo-text span { color: var(--accent); display: block; font-size: 12px; letter-spacing: 2px;}
   
   .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 3rem 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; }
   .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
-  .footer-nav a:hover { color: var(--bg-white); }
+  .footer-nav a:hover { color: var(--white); }
   
 </style>
 </head>
@@ -298,7 +276,7 @@
         </div>
         <div class="bento-card fade-in-up delay-3" style="grid-column: span 1;">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><polyline points="9 14 11 16 15 12"></polyline></svg>
           </div>
           <h3 class="bento-name">Lemon Squad</h3>
           <p class="bento-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
@@ -340,7 +318,7 @@
         </div>
         <div class="bento-card fade-in-up delay-3" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
           <div class="service-icon" style="margin-bottom: 0.5rem; font-size: 32px; width: auto; background: transparent;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
           </div>
           <h3 class="bento-name">Contactless Protocol</h3>
           <p class="bento-desc">Strict sanitization and zero-contact driveway repairs to keep you and your family safe.</p>
@@ -373,7 +351,7 @@
         
         <div class="service-big-card">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>
           </div>
           <h3 class="service-name-big">Brake & Rotor Service</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
@@ -384,7 +362,7 @@
         <div class="service-big-card">
           <div class="service-tag-pop">Specialty</div>
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
           </div>
           <h3 class="service-name-big">Diesel Engine Repair</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Expert maintenance and repair for diesel trucks and heavy-duty consumer vehicles.</p>
@@ -394,8 +372,8 @@
         
         <div class="service-big-card" style="border-color: rgba(81, 208, 222, 0.4);">
           <div class="service-tag-pop">Partner</div>
-          <div class="service-icon" style="background: var(--accent); color: #0F172A;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><polyline points="9 14 11 16 15 12"></polyline></svg>
           </div>
           <h3 class="service-name-big">Lemon Squad</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
@@ -405,9 +383,9 @@
 
         <div class="service-big-card">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
           </div>
-          <h3 class="service-name-big">Oil & Maintenance</h3>
+          <h3 class="service-name-big">Oil & Routine</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Protect your investment with regular fluid changes and factory milestone checks.</p>
           <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
           <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
@@ -415,7 +393,7 @@
 
         <div class="service-big-card">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
           </div>
           <h3 class="service-name-big">Contactless Protocol</h3>
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Your safety is paramount. We offer a completely touch-free auto repair experience.</p>
@@ -460,7 +438,7 @@
       
       <div class="about-container fade-in-up delay-1">
         <div class="about-img-wrapper">
-          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-img">
+          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-feat-img">
         </div>
         <div class="about-text text-left">
           
