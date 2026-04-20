@@ -4,182 +4,171 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
-<title>Austin's Best Mobile Mechanic | Master Auto Repair</title>
-<meta name="description" content="Master Craftsmanship, Delivered to Your Door. Roberto brings 35 years of expert auto repair experience directly to your driveway."/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"/>
+<title>512 Mobile Mechanic | 24/7 Roadside Repair in Austin, TX</title>
+<meta name="description" content="We come to you. 24/7 emergency roadside and driveway auto repair across the Greater Austin area. ASE Certified and fully warrantied."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    /* Concept B: Lightning Blue & Crisp White Space */
-    --accent: #51d0de; 
-    --accent-hover: #3ebbc9;
+    /* Concept A: Warning Yellow & Asphalt Black */
+    --accent: #F8DE22; 
+    --accent-dark: #D4BD1A; 
+    --dark: #080616; 
+    --dark2: #100C22; 
+    --dark3: #1A1536;
+    --glass: rgba(16, 12, 34, 0.65); 
     
-    --bg-white: #FFFFFF; 
-    --bg-alt: #F4F8FA; /* Soft icy blue/gray for section contrast */
+    /* Softened "Cloud Dancer" Typography Colors */
+    --white: #F3F4F6; 
+    --text-gray: #9CA3AF; 
     
-    --text-main: #0F172A; /* Deep Slate Navy for high contrast */
-    --text-gray: #475569; /* Medium Slate for readable paragraphs */
-    
-    --radius: 16px; 
+    /* 2026 Bento: Exaggerated Rounding */
+    --radius: 24px; 
+    --radius-sm: 8px;
     
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --font-sub: 'Montserrat', sans-serif;
   }
-  body { font-family: var(--font-body); background: var(--bg-white); color: var(--text-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
   a[href^="tel"] { color: inherit; text-decoration: none; transition: opacity 0.2s; }
   a[href^="tel"]:hover { opacity: 0.8; }
-  .text-accent-link { color: var(--accent-hover) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
+  .text-accent-link { color: var(--accent) !important; font-weight: 600; cursor: pointer; text-decoration: none;}
+  .inline-link { color: var(--accent); font-weight: 600; text-decoration: underline; cursor: pointer; transition: color 0.2s; }
+  .inline-link:hover { color: var(--accent-dark); }
 
   .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
   .fade-in-up.in-view { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
   .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
 
-  /* Top Promo Banner */
-  .promo-banner { background: var(--text-main); color: #FFF; text-align: center; padding: 12px 20px; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 101; }
-  .promo-banner span { color: var(--accent); font-weight: 800; }
-
-  /* Light Mode Navigation */
   nav {
-    background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #E2E8F0;
+    background: rgba(8, 6, 22, 0.95); border-bottom: 1px solid rgba(255,255,255,0.04);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; height: 80px; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    padding: 0 2.5rem; height: 72px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
   }
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-main); cursor: pointer;}
-  .nav-logo img { height: 48px; width: auto; border-radius: 6px; }
-  .nav-logo-text { font-family: var(--font-head); font-size: 20px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.1; }
-  .nav-logo-text span { color: var(--accent-hover); display: block; font-size: 14px; font-family: var(--font-body); letter-spacing: 2px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-transform: uppercase; }
+  .nav-logo-text span { color: var(--accent); }
+  .nav-loc { font-family: var(--font-sub); font-size: 10px; font-weight: 600; color: var(--text-gray); letter-spacing: 1.5px; text-transform: uppercase; padding-left: 12px; border-left: 1px solid rgba(255,255,255,0.1); margin-top: 2px; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #A0A0A0; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
   
-  .nav-links { display: flex; gap: 2.5rem; }
-  .nav-links a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--accent-hover); }
-  
-  .nav-cta { background: var(--accent); color: #0F172A; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 12px 28px; cursor: pointer; border-radius: 50px; transition: all 0.2s; box-shadow: 0 4px 15px rgba(81, 208, 222, 0.3);}
-  .nav-cta:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
+  .nav-cta { background: var(--accent); color: #000; font-family: var(--font-sub); font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border: none; padding: 12px 24px; cursor: pointer; border-radius: var(--radius-sm); transition: all 0.2s; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.2);}
+  .nav-cta:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(248, 222, 34, 0.4); }
 
-  /* Page Logic */
-  .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
-  .page.active { display: block; opacity: 1; }
+  .page { display: none; }
+  .page.active { display: block; }
 
-  /* SPLIT HERO SECTION */
   .hero { 
-    padding: 6rem 5% 6rem; 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    background: var(--bg-white);
-    max-width: 1400px;
-    margin: 0 auto;
+    position: relative; 
+    background: linear-gradient(to right, rgba(8, 6, 22, 0.95) 0%, rgba(8, 6, 22, 0.6) 100%), url('https://retrovioletstudios.github.io/client-previews/engine1.jpeg') center/cover no-repeat; 
+    padding: 9rem 2.5rem 8rem; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
   }
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; text-align: center; padding: 4rem 5% 4rem; gap: 3rem;}
-  }
+  .hero-content { position: relative; z-index: 2; max-width: 760px; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(248, 222, 34, 0.15); color: var(--accent); font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; margin-bottom: 1.5rem; border-radius: var(--radius-sm); border: 1px solid rgba(248, 222, 34, 0.3); }
   
-  .hero-tag { display: inline-block; background: rgba(81, 208, 222, 0.15); color: #0F172A; font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; margin-bottom: 1.5rem; border-radius: 50px; }
-  .hero h1 { font-family: var(--font-head); font-size: clamp(40px, 5vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.5rem; color: var(--text-main); }
-  .hero h1 em { color: var(--accent-hover); font-style: normal; }
-  .hero-sub { font-size: 18px; color: var(--text-gray); line-height: 1.7; margin-bottom: 2.5rem; font-weight: 400; max-width: 500px;}
-  @media (max-width: 900px) { .hero-sub { margin-left: auto; margin-right: auto; } }
+  .hero h1 { font-family: var(--font-head); font-size: clamp(42px, 6vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -1px; margin-bottom: 1.25rem; color: var(--white); text-transform: uppercase; }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub { font-size: 17px; color: var(--text-gray); max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem; margin-left: auto; margin-right: auto; font-weight: 400; }
   
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  @media (max-width: 900px) { .hero-btns { justify-content: center; } }
-  
-  .btn-primary { background: var(--accent); color: #0F172A; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(81, 208, 222, 0.3); border-radius: 50px;}
-  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
-  .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E2E8F0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
-  .btn-outline:hover { border-color: var(--text-main); background: #F8FAFC; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: var(--accent); color: #000; font-family: var(--font-body); font-weight: 700; font-size: 15px; border: none; padding: 16px 36px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(248, 222, 34, 0.2); border-radius: var(--radius-sm);}
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(248, 222, 34, 0.4); }
+  .btn-outline { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); color: var(--white); font-family: var(--font-body); font-weight: 500; font-size: 15px; border: 1px solid rgba(255,255,255,0.15); padding: 15px 36px; cursor: pointer; transition: all 0.2s; border-radius: var(--radius-sm);}
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
 
-  .hero-img-container { position: relative; }
-  .hero-img-container img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 4/3;}
-  
-  /* Trust Bar */
-  .trust-strip { background: var(--bg-alt); padding: 3rem 5%; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; align-items: center; }
-  .trust-item { display: flex; align-items: center; gap: 12px; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text-gray); }
-  .trust-item svg { color: var(--accent-hover); }
+  .hero-trust { display: flex; gap: 2rem; justify-content: center; margin-top: 3.5rem; flex-wrap: wrap; }
+  .hero-trust-item { display: flex; align-items: center; gap: 8px; color: var(--white); font-family: var(--font-sub); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .hero-trust-item svg { color: var(--accent); }
 
-  .section { padding: 6rem 5%; }
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-  .section-label { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 1rem; display: block; }
-  .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
-  .section-sub { font-size: 18px; color: var(--text-gray); line-height: 1.7; }
+  .marquee-strip { background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 14px 0; overflow: hidden; white-space: nowrap; margin-top: 0; }
+  .marquee-inner { display: inline-flex; animation: marquee 30s linear infinite; }
+  .marquee-item { font-family: var(--font-sub); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 0 2rem; color: var(--text-gray); }
+  .marquee-dot { color: var(--accent); opacity: 0.6; margin-left: 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* BENTO GRIDS (Light Mode) */
-  .bento-grid { display: grid; gap: 2rem; text-align: left; }
-  .bento-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.3s; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative;}
-  .bento-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); z-index: 2;}
+  .section { padding: 6rem 2.5rem; }
+  .section-inner { max-width: 1140px; margin: 0 auto; }
+  .section-label { font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 44px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 1.25rem; color: var(--white); }
+
+  .bento-grid { display: grid; gap: 1.5rem; margin-top: 3.5rem; text-align: left; }
+  .bento-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 3rem; border-radius: var(--radius); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s; position: relative; overflow: hidden;}
+  .bento-card:hover { transform: translateY(-6px); border-color: rgba(248, 222, 34, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(248, 222, 34, 0.15); z-index: 2;}
   
   .capabilities-bento { grid-template-columns: repeat(4, 1fr); }
   @media (max-width: 900px) { .capabilities-bento { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .capabilities-bento { grid-template-columns: 1fr; } }
   
+  .service-icon { font-size: 28px; margin-bottom: 1.5rem; color: var(--accent); opacity: 0.9; }
+  .service-name { font-family: var(--font-head); font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.75rem; color: var(--white); }
+  .service-desc { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
+
   .focus-bento { grid-template-columns: repeat(3, 1fr); }
   @media (max-width: 900px) { .focus-bento { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .focus-bento { grid-template-columns: 1fr; } }
   
-  .bento-feat-img { padding: 0; border: none; box-shadow: none; background: transparent; }
+  .bento-feat-img { padding: 0; }
   .bento-feat-img.span-2 { grid-column: span 2; }
-  .bento-img-asset { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
+  .bento-img-asset { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);}
   @media (max-width: 900px) { .bento-feat-img.span-2 { grid-column: span 2; aspect-ratio: 16/9; } }
   @media (max-width: 600px) { .bento-feat-img.span-2 { grid-column: span 1; aspect-ratio: 4/3; } }
   
-  .service-tag { position: absolute; top: 2rem; right: 2.5rem; background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px;}
-  .service-icon { background: var(--text-main); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 2rem; }
-  
-  .bento-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 1rem; }
-  .bento-desc { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
-  .why-stat-num { font-family: var(--font-head); font-size: 42px; font-weight: 800; letter-spacing: -1px; color: var(--accent-hover); line-height: 1; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .why-stat-num { font-family: var(--font-head); font-size: 42px; font-weight: 800; letter-spacing: -1px; color: var(--accent); line-height: 1; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .why-stat-label { font-family: var(--font-head); font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--white); }
 
   /* SERVICES PAGE */
-  .services-page-hero { background: var(--bg-alt); border-bottom: 1px solid #E2E8F0; padding: 6rem 5% 5rem; text-align: center; }
-  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3.5rem; text-align: left;}
+  .services-page-hero { background: var(--dark2); border-bottom: 1px solid rgba(255,255,255,0.03); padding: 6rem 2.5rem; text-align: center; }
+  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3.5rem; text-align: left;}
   
-  .service-big-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.3s; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative; }
-  .service-big-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); }
+  .service-big-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 3rem; border-radius: var(--radius); transition: all 0.4s; position: relative; }
+  .service-big-card:hover { border-color: rgba(248, 222, 34, 0.2); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(248, 222, 34, 0.15); }
   
+  .service-tag-pop { position: absolute; top: -12px; right: 30px; background: var(--accent); color: #000; font-family: var(--font-sub); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; box-shadow: 0 4px 12px rgba(248, 222, 34, 0.3); border-radius: var(--radius-sm);}
+  
+  .service-name-big { font-family: var(--font-head); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: var(--white); margin-bottom: 0.75rem; }
   .service-features { list-style: none; margin: 2rem 0; }
-  .service-features li { font-size: 14px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid #F1F5F9; display: flex; align-items: center; gap: 12px; }
-  .service-features li:last-child { border-bottom: none; }
-  .service-features li::before { content: '✓'; color: var(--accent-hover); font-weight: 700; font-size: 16px; }
+  .service-features li { font-size: 15px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 14px; }
+  .service-features li::before { content: '•'; color: var(--accent); font-weight: 700; font-size: 20px; }
 
-  /* Light Mode FAQ */
+  /* FAQ Accordion */
   .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
-  .faq-item { border-bottom: 1px solid #E2E8F0; padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
-  .faq-item:hover { background: #F8FAFC; }
-  .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 600; letter-spacing: -0.2px; color: var(--text-main); }
-  .faq-icon { color: var(--accent-hover); font-size: 22px; font-weight: 300; transition: transform 0.3s ease; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
+  .faq-item:hover { background: rgba(255,255,255,0.01); }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 600; letter-spacing: -0.2px; color: var(--white); }
+  .faq-icon { color: var(--accent); font-size: 22px; font-weight: 300; transition: transform 0.3s ease; }
   .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-gray); font-size: 15px; line-height: 1.7; }
   .faq-item.active .faq-answer { max-height: 250px; margin-top: 1rem; }
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-  /* Parallax CTA */
   .parallax-banner {
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
-    padding: 7rem 5%;
+    background: linear-gradient(rgba(8, 6, 22, 0.85), rgba(8, 6, 22, 0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
+    padding: 7rem 2.5rem;
     text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     margin-top: 5rem;
   }
 
-  /* ABOUT PAGE */
-  .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  @media (max-width: 900px) { .about-container { grid-template-columns: 1fr; gap: 3rem;} }
-  .about-img { width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-  .about-text p { font-size: 17px; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
+  /* ABOUT PAGE FIX: Extracted Badges to full width row */
+  .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; text-align: left; }
+  @media (max-width: 800px) { .about-split { grid-template-columns: 1fr; gap: 3rem;} }
+  .about-feat-img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.4); aspect-ratio: 4/3; object-fit: cover;}
+  .about-text p { font-size: 16px; color: var(--text-gray); line-height: 1.8; }
   
-  .feature-list { margin-top: 2.5rem; }
-  .feature-item { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
-  .feature-icon { background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .feature-content h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
-  .feature-content p { font-size: 15px; color: var(--text-gray); line-height: 1.6; margin-bottom: 0; }
-
-  /* Light Mode Trust Badges */
   .about-bottom-bar { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 3.5rem; justify-content: space-between; }
   .trust-badges { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; justify-content: flex-start; margin-top: 0;}
-  .badge-card { background: var(--bg-white); border: 1px solid #E2E8F0; padding: 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
-  .badge-icon { font-size: 32px; color: var(--accent-hover); }
-  .badge-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--text-main); margin-bottom: 2px;}
+  .badge-card { background: rgba(248, 222, 34, 0.05); border: 1px solid rgba(248, 222, 34, 0.2); padding: 1.25rem 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left;}
+  .badge-icon { font-size: 32px; color: var(--accent); }
+  .badge-title { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--accent); margin-bottom: 2px;}
   .badge-sub { font-size: 13px; color: var(--text-gray); }
 
   @media (max-width: 900px) {
@@ -187,174 +176,187 @@
     .trust-badges { justify-content: center; }
   }
 
-  /* CONTACT PAGE */
-  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-white); border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05); overflow: hidden; border: 1px solid #E2E8F0; }
-  @media (max-width: 900px) { .contact-wrapper { grid-template-columns: 1fr; gap: 0;} }
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; margin-top: 4rem; align-items: start; text-align: left;}
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem;} }
+  .contact-info-label { font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .contact-info-val { font-size: 17px; color: var(--white); font-weight: 500; line-height: 1.6; }
   
-  .contact-info { background: var(--text-main); color: var(--bg-white); padding: 4rem; }
-  .contact-info h3 { font-family: var(--font-head); font-size: 28px; margin-bottom: 1.5rem; color: var(--bg-white); }
-  .contact-info p { color: #94A3B8; line-height: 1.7; margin-bottom: 3rem; }
+  .contact-hours-glass { margin-top: 2.5rem; background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.04); padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+  .hours-row { display: flex; justify-content: space-between; font-size: 15px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .hours-row:last-child { border-bottom: none; padding-bottom: 0;}
+  .hours-row:first-child { padding-top: 0;}
   
-  .info-row { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
-  .info-icon { color: var(--accent); }
-  .info-text h5 { font-family: var(--font-body); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin-bottom: 4px; }
-  .info-text p { color: var(--bg-white); font-size: 18px; font-weight: 500; margin-bottom: 0; }
-  
-  .form-container { padding: 4rem; }
   .form-group { margin-bottom: 1.5rem; }
-  .form-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
-  .form-input, .form-select, .form-textarea { width: 100%; background: #F8FAFC; border: 1px solid #E2E8F0; color: var(--text-main); font-family: var(--font-body); font-size: 15px; padding: 16px; outline: none; transition: all 0.2s; border-radius: 8px;}
-  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-hover); background: #FFF; box-shadow: 0 0 0 4px rgba(81, 208, 222, 0.1); }
-  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-label { display: block; font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 8px; }
+  .form-input, .form-select, .form-textarea { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08); color: var(--white); font-family: var(--font-body); font-size: 15px; padding: 16px; outline: none; transition: all 0.3s; appearance: none; border-radius: var(--radius-sm);}
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); background: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(248, 222, 34, 0.1); }
+  .form-textarea { resize: vertical; min-height: 140px; }
+  .form-select option { background: var(--dark2); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 8px;}
+  .submit-confirm { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ADE80; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: var(--radius-sm);}
 
-  /* Light Mode Map */
-  .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+  .map-frame-dark { filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%); border:0; width:100%; height:450px; border-radius: var(--radius);}
 
   /* FOOTER */
-  footer { background: #0F172A; padding: 5rem 5% 3rem; text-align: center; color: var(--bg-white); }
-  .footer-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 1.5rem; cursor: pointer;}
-  .footer-logo img { height: 40px; width: auto; border-radius: 4px;}
-  .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--bg-white); text-transform: uppercase; text-align: left; line-height: 1.1;}
-  .footer-logo-text span { color: var(--accent); display: block; font-size: 12px; letter-spacing: 2px;}
+  footer { background: #04030B; border-top: 1px solid rgba(255,255,255,0.03); padding: 5rem 2.5rem 4rem; text-align: center; }
+  .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; margin-bottom: 1.25rem;}
+  .footer-logo img { height: 44px; width: auto; opacity: 0.9; }
+  .footer-logo-text { font-family: var(--font-head); font-size: 24px; font-weight: 800; letter-spacing: 1px; color: var(--white); text-transform: uppercase;}
+  .footer-logo-text span { color: var(--accent); }
+  .footer-address { font-size: 14px; color: var(--text-gray); margin-bottom: 0.5rem; }
   
-  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 3rem 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; }
-  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
-  .footer-nav a:hover { color: var(--bg-white); }
+  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 2.5rem; }
+  .footer-nav a { font-family: var(--font-sub); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #71717A; cursor: pointer; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--white); }
   
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 </style>
 </head>
 <body>
 
-<div class="promo-banner">
-  Get 10% Off Your First Service — Use Code: <span>AUSTINSBEST</span>
-</div>
+<h2 class="sr-only">512 Mobile Mechanic — 24/7 Auto Repair in Austin, TX.</h2>
 
 <nav>
   <div class="nav-logo" onclick="showPage('home')">
-    <img src="https://retrovioletstudios.github.io/client-previews/austinsbestmmlogo.jpeg" alt="Austin's Best Mobile Mechanic Logo">
-    <div class="nav-logo-text">Austin's <span>Best Mobile</span></div>
+    <img src="https://retrovioletstudios.github.io/client-previews/512mobilemechaniclogo.webp" alt="512 Mobile Mechanic Logo">
+    <div class="nav-logo-text">512 <span>MOBILE</span></div>
   </div>
   <div class="nav-links">
     <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
-    <a onclick="showPage('services')" id="nav-services">Services</a>
-    <a onclick="showPage('about')" id="nav-about">Meet Roberto</a>
-    <a onclick="showPage('contact')" id="nav-contact">Book Online</a>
+    <a onclick="showPage('services')" id="nav-services">Capabilities</a>
+    <a onclick="showPage('about')" id="nav-about">About Us</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
   </div>
-  <button class="nav-cta" onclick="showPage('contact')">Schedule Service</button>
+  <a href="tel:2107695262" style="text-decoration: none;">
+    <button class="nav-cta">Dispatch: (210) 769-5262</button>
+  </a>
 </nav>
 
 <div class="page active" id="page-home">
+
   <section class="hero">
-    <div class="hero-content fade-in-up">
-      <div class="hero-tag">The Auto Mechanic That Comes To You</div>
-      <h1>Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
-      <p class="hero-sub">Roberto brings 35 years of master-level automotive repair directly to your home. Enjoy contactless service, Lemon Squad inspections, and integrated Wrench scheduling.</p>
+    <div class="hero-content">
+      <div class="hero-tag fade-in-up">24/7 Emergency Dispatch</div>
+      <h1 class="fade-in-up delay-1">We Come To You.<br><em>Roadside & Home Repair.</em></h1>
+      <p class="hero-sub fade-in-up delay-2">Don't wait for trouble—fix it before it starts. Certified, honest, and efficient mobile auto repair serving the Greater Austin area.</p>
       
-      <div class="hero-btns">
-        <button class="btn-primary" onclick="showPage('contact')">Book via Wrench</button>
+      <div class="hero-btns fade-in-up delay-3">
+        <a href="tel:2107695262" style="text-decoration: none;">
+          <button class="btn-primary">Call For Immediate Dispatch</button>
+        </a>
         <button class="btn-outline" onclick="showPage('services')">View Capabilities</button>
       </div>
-    </div>
-    <div class="hero-img-container fade-in-up delay-1">
-      <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mechanic working on an engine">
+
+      <div class="hero-trust fade-in-up delay-3">
+        <div class="hero-trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          12k Mile Warranty
+        </div>
+        <div class="hero-trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          ASE Certified
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="trust-strip fade-in-up">
-    <div class="trust-item">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-      Lemon Squad Partner
-    </div>
-    <div class="trust-item">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      1-Year Warranty
-    </div>
-    <div class="trust-item">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-      Wrench Integration
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span class="marquee-item">Austin <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Round Rock <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Pflugerville <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">San Marcos <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Georgetown <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Buda <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Kyle <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Bastrop <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Austin <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Round Rock <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Pflugerville <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">San Marcos <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Georgetown <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Buda <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Kyle <span class="marquee-dot">•</span></span>
+      <span class="marquee-item">Bastrop <span class="marquee-dot">•</span></span>
     </div>
   </div>
 
-  <section class="section" style="background: var(--bg-alt);">
+  <section class="section" style="text-align: center;">
     <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <span class="section-label">Expertise</span>
-        <h2 class="section-title">Premium Diagnostic Repair</h2>
-        <p class="section-sub">From rigorous Lemon Squad inspections to complex diesel repairs, we provide dealership-level diagnostics in your driveway.</p>
-      </div>
+      <div class="section-label fade-in-up" style="display: flex; justify-content: center;">Expertise</div>
+      <div class="section-title fade-in-up">The Complete Mobile Garage</div>
+      <p class="fade-in-up" style="color:var(--text-gray); max-width:600px; font-size:16px; margin: 0 auto 4rem auto; line-height: 1.7;">From check engine light diagnostics to mobile diesel mechanics, we bring the shop directly to your driveway.</p>
       
-      <div class="bento-grid capabilities-bento">
-        <div class="bento-card fade-in-up delay-1" style="grid-column: span 1;">
+      <div class="bento-grid capabilities-bento fade-in-up">
+        <div class="bento-card" style="grid-column: span 1;">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
           </div>
-          <h3 class="bento-name">Diagnostic Mastery</h3>
-          <p class="bento-desc">We accurately diagnose complex mechanical and electrical issues that standard shops frequently miss.</p>
+          <div class="service-name">Engine Diagnostics</div>
+          <div class="service-desc">We come to you with advanced tools to scan and fix check engine light issues fast.</div>
         </div>
-        <div class="bento-feat-img bento-card span-2 fade-in-up delay-2">
+        <div class="bento-feat-img bento-card span-2">
           <img src="https://retrovioletstudios.github.io/client-previews/undercar1.png" alt="Mechanic inspecting undercarriage" class="bento-img-asset">
         </div>
-        <div class="bento-card fade-in-up delay-3" style="grid-column: span 1;">
+        <div class="bento-card" style="grid-column: span 1;">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
-          <h3 class="bento-name">Lemon Squad</h3>
-          <p class="bento-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
+          <div class="service-name">Diesel & RV Service</div>
+          <div class="service-desc">We service diesel trucks and RVs with mobile diagnostics, fuel systems, and heavy repairs.</div>
         </div>
       </div>
       
-      <div style="margin-top: 3.5rem; text-align: center;">
-        <a onclick="showPage('services')" class="text-accent-link" style="font-family: var(--font-body); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;">View Full Service Menu →</a>
+      <div style="margin-top: 3.5rem;">
+        <a onclick="showPage('services')" class="text-accent-link" style="font-family: var(--font-sub); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">View Full Service Menu →</a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="background: var(--dark2); text-align: center;">
     <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <span class="section-label">Why Choose Austin's Best</span>
-        <h2 class="section-title">Authority & Convenience</h2>
-      </div>
+      <div class="section-label fade-in-up" style="display: flex; justify-content: center;">Why Call Us</div>
+      <div class="section-title fade-in-up">Rescue & Reliability</div>
       
-      <div class="bento-grid focus-bento">
-        <div class="bento-feat-img bento-card span-2 fade-in-up delay-1">
+      <div class="bento-grid focus-bento fade-in-up" style="margin-top: 4rem;">
+        <div class="bento-feat-img bento-card span-2">
           <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mobile mechanic at work" class="bento-img-asset">
         </div>
-        <div class="bento-card fade-in-up delay-2" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num">35 YRS</div>
-          <h3 class="bento-name">Combined Experience</h3>
-          <p class="bento-desc">Roberto combines 25 years of traditional shop mastery with 10 years of specialized mobile operations.</p>
+        <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
+          <div class="why-stat-num">24/7</div>
+          <div class="why-stat-label">Emergency Dispatch</div>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Stranded? We deploy immediately to your location to get you safely back on the road, day or night.</p>
         </div>
         
-        <div class="bento-card fade-in-up delay-1" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num">1-Year</div>
-          <h3 class="bento-name">Repair Warranty</h3>
-          <p class="bento-desc">Complex diagnostics and brake repairs are backed by our unassailable 1-year guarantee.</p>
+        <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
+          <div class="why-stat-num">12k</div>
+          <div class="why-stat-label">Mile Warranty</div>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">We back our labor. All repairs include a comprehensive 12-month or 12,000-mile warranty for total peace of mind.</p>
         </div>
-        <div class="bento-card fade-in-up delay-2" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num" style="font-size: 32px; margin-bottom: 1rem;">Wrench</div>
-          <h3 class="bento-name">Seamless Booking</h3>
-          <p class="bento-desc">We utilize sophisticated scheduling integrations so you can book your exact service slot with ease.</p>
+        <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
+          <div class="why-stat-num" style="font-size: 32px; margin-bottom: 1rem;">ASE</div>
+          <div class="why-stat-label">Certified Experts</div>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Our mobile units are operated by highly trained professionals equipped with dealership-level diagnostic tools.</p>
         </div>
-        <div class="bento-card fade-in-up delay-3" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="service-icon" style="margin-bottom: 0.5rem; font-size: 32px; width: auto; background: transparent;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <div class="bento-card" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
+          <div class="service-icon" style="margin-bottom: 0.5rem; font-size: 32px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
-          <h3 class="bento-name">Contactless Protocol</h3>
-          <p class="bento-desc">Strict sanitization and zero-contact driveway repairs to keep you and your family safe.</p>
+          <div class="why-stat-label">On-Site Convenience</div>
+          <p style="font-size: 15px; color: var(--text-gray); margin-top: 15px; line-height: 1.7;">Skip the tow truck and the waiting room. We perform complex repairs directly in your driveway or parking lot.</p>
         </div>
       </div>
     </div>
   </section>
+
 </div>
 
 <div class="page" id="page-services">
-  <div class="services-page-hero fade-in-up">
-    <div class="section-label">Master Mechanic Capabilities</div>
-    <div class="section-title" style="font-size: clamp(36px,5vw,54px);">Comprehensive Service.<br>Uncompromising Quality.</div>
-    <p class="section-sub" style="margin: 1.5rem auto 0; max-width: 600px;">From gas to diesel, we service all major systems using premium parts and master-level expertise.</p>
+  <div class="services-page-hero">
+    <div class="section-label fade-in-up">The Mobile Garage</div>
+    <div class="section-title fade-in-up delay-1" style="font-size: clamp(36px,5vw,54px);">Comprehensive Service.<br>At Your Location.</div>
+    <p class="fade-in-up delay-2" style="color:var(--text-gray); max-width:540px; margin: 1.5rem auto 0; font-size:16px; line-height: 1.7;">We offer a complete range of mobile auto repair, performed by experienced technicians using quality parts.</p>
   </div>
   
   <section class="section">
@@ -362,139 +364,103 @@
       <div class="services-big-grid">
         
         <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-          </div>
-          <h3 class="service-name-big">Computer Diagnostics</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We diagnose complex check engine lights and electrical faults that standard mechanics miss.</p>
-          <ul class="service-features"><li>Dealership-level code scanning</li><li>Electrical system analysis</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
+          <h3 class="service-name-big">AC Repair & Recharge</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We fix and recharge vehicle air conditioners on-site so you can drive comfortably year-round.</p>
+          <ul class="service-features"><li>Freon leak detection & recharge</li><li>Compressor replacement</li><li>System pressure testing</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
+        </div>
+        
+        <div class="service-big-card" style="border-color: rgba(248, 222, 34, 0.3);">
+          <div class="service-tag-pop">Immediate Response</div>
+          <h3 class="service-name-big">Check Engine Diagnostics</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We come to you with advanced tools to scan, diagnose, and fix check engine light issues.</p>
+          <ul class="service-features"><li>Computer code diagnostics</li><li>Smog system repairs</li><li>No-tow required</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Schedule Diagnostic</button></a>
         </div>
         
         <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          </div>
-          <h3 class="service-name-big">Brake & Rotor Service</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
-          <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
+          <h3 class="service-name-big">Brake & Rotor Replacement</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">On-location brake pad and rotor replacement using high-grade parts and certified service.</p>
+          <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>Brake fluid line inspection</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
-          <div class="service-tag-pop">Specialty</div>
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <h3 class="service-name-big">Diesel Engine Repair</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Expert maintenance and repair for diesel trucks and heavy-duty consumer vehicles.</p>
-          <ul class="service-features"><li>Diesel diagnostics</li><li>Fuel system maintenance</li><li>Heavy mechanical repair</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
+          <h3 class="service-name-big">Mobile Diesel & RV</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Need an RV or diesel mechanic to come to your site? We handle heavy engine and maintenance issues.</p>
+          <ul class="service-features"><li>Diesel diagnostics & fuel systems</li><li>RV electrical maintenance</li><li>On-site fleet servicing</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
         
-        <div class="service-big-card" style="border-color: rgba(81, 208, 222, 0.4);">
-          <div class="service-tag-pop">Partner</div>
-          <div class="service-icon" style="background: var(--accent); color: #0F172A;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          </div>
-          <h3 class="service-name-big">Lemon Squad</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
-          <ul class="service-features"><li>32-point checklist</li><li>On-site at seller location</li><li>Detailed mechanical report</li></ul>
-          <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Schedule Inspection</button>
+        <div class="service-big-card">
+          <h3 class="service-name-big">Alternators & Starters</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Stranded with a non-starting vehicle? We replace alternators, starters, and fuel pumps wherever you are parked.</p>
+          <ul class="service-features"><li>Ignition switch & lock cylinder repair</li><li>Fuel pump installation</li><li>Battery & wiring diagnostics</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
         <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-          </div>
-          <h3 class="service-name-big">Oil & Maintenance</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Protect your investment with regular fluid changes and factory milestone checks.</p>
-          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h3 class="service-name-big">Contactless Protocol</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Your safety is paramount. We offer a completely touch-free auto repair experience.</p>
-          <ul class="service-features"><li>Digital Wrench booking</li><li>Zero-contact driveway service</li><li>Vehicle sanitization</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
+          <h3 class="service-name-big">Tune-Ups & Maintenance</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We offer regular maintenance services including filters, fluids, spark plugs, and pre-purchase vehicle inspections.</p>
+          <ul class="service-features"><li>Serpentine & timing belt replacement</li><li>Radiator leak & cooling system repair</li><li>Window motors & lighting</li></ul>
+          <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-outline" style="width:100%; padding: 18px 36px;">Call to Dispatch</button></a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--bg-alt); border-top: 1px solid #E2E8F0;">
+  <section class="section" style="background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
     <div class="section-inner fade-in-up" style="text-align: center;">
       <div class="section-label">Information</div>
-      <h2 class="section-title">What To Expect</h2>
+      <div class="section-title">What To Expect</div>
       
       <div class="faq-container">
         <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-question">How does the 10% discount work? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">Simply enter the promo code <strong>AUSTINSBEST</strong> when booking your appointment through our scheduling portal. It will automatically apply a 10% discount to the labor costs of your very first service with us.</div>
+          <div class="faq-question">How quickly can a mechanic arrive at my location? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Because we offer 24/7 emergency dispatch, our response times are significantly faster than waiting for a tow truck and a traditional shop queue. Call us directly at (210) 769-5262 for an immediate ETA based on your location in the Austin area.</div>
         </div>
         <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-question">What areas do you service? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">We deploy our mobile service units across Cedar Park, Pflugerville, Round Rock, and the greater Austin metropolitan area. We come directly to your home or office.</div>
+          <div class="faq-question">Do you offer warranties on mobile repairs? <span class="faq-icon">+</span></div>
+          <div class="faq-answer">Yes. We utilize ASE-certified technicians and provide a comprehensive 12-month or 12,000-mile warranty on all repairs, giving you the exact same peace of mind as a brick-and-mortar dealership.</div>
         </div>
       </div>
     </div>
   </section>
 
   <div class="parallax-banner fade-in-up">
-    <h2 style="font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2rem; color: #FFF; text-transform: uppercase;">Your Car, Fixed Where It Is.</h2>
-    <button class="btn-primary" onclick="showPage('contact')">Book via Wrench Today</button>
+    <h2 style="font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2rem; color: var(--white); text-transform: uppercase;">The Complete Shop, In Your Driveway.</h2>
+    <a href="tel:2107695262" style="text-decoration: none;"><button class="btn-primary">Call (210) 769-5262</button></a>
   </div>
 </div>
 
 <div class="page" id="page-about">
-  <section class="section" style="padding-top: 6rem;">
+  <section class="section">
     <div class="section-inner fade-in-up" style="text-align: center;">
-      <div class="section-label" style="display: flex; justify-content: center;">Master Pedigree</div>
-      <h2 class="section-title">Meet Master Mechanic Roberto.</h2>
-      <p class="section-sub" style="margin: 0 auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
+      <div class="section-label" style="display: flex; justify-content: center;">Austin's Mobile Experts</div>
+      <div class="section-title">We bring the garage<br>to your driveway.</div>
       
-      <div class="about-container fade-in-up delay-1">
-        <div class="about-img-wrapper">
-          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-img">
-        </div>
-        <div class="about-text text-left">
+      <div class="about-split fade-in-up delay-1">
+        <img src="https://retrovioletstudios.github.io/client-previews/engine2.jpeg" alt="Mobile mechanic inspecting engine" class="about-feat-img">
+        <div class="about-text">
+          <p style="font-size: 18px; color: var(--white); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.6;">512 Mobile Mechanic was built on a simple premise: vehicle repair shouldn't require paying for an expensive tow truck or waiting days in a dealership lobby.</p>
           
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>35 Years of Experience</h4>
-                <p>Roberto spent 25 years mastering diagnostics in traditional shops before transitioning to specialized mobile repair for the last decade.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>Gas & Diesel Expertise</h4>
-                <p>Decades of experience tackling everything from basic commuter sedans to heavy-duty diesel engines.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="6.5"></line></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>Unassailable Warranty</h4>
-                <p>Complex diagnostics and brake repairs are backed by a solid 1-year guarantee. Routine maintenance carries a 90-day warranty.</p>
-              </div>
-            </div>
-          </div>
+          <ul style="list-style: none; margin-bottom: 2rem;">
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>Fully Equipped Mobile Units:</strong> We deploy high-tech service vans directly to your driveway, office, or roadside location.</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>ASE-Certified Technicians:</strong> Expert mechanics equipped with dealership-level diagnostic tools for all makes and models.</span>
+            </li>
+            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent); font-size: 20px;">✓</span>
+              <span style="color: var(--text-gray); line-height: 1.6;"><strong>Greater Austin Coverage:</strong> Proudly serving the entire region from Georgetown down to San Marcos.</span>
+            </li>
+          </ul>
+          
+          <p style="font-size: 15px; color: var(--text-gray); line-height: 1.7; margin-bottom: 0;">We back our labor completely. Honest, efficient, and entirely on your terms.</p>
         </div>
       </div>
       
@@ -502,7 +468,7 @@
         <div class="trust-badges">
           <div class="badge-card">
             <div class="badge-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </div>
             <div>
               <div class="badge-title">ASE Certified</div>
@@ -511,10 +477,10 @@
           </div>
           <div class="badge-card">
             <div class="badge-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
             <div>
-              <div class="badge-title">1-Year Warranty</div>
+              <div class="badge-title">12k Mile Warranty</div>
               <div class="badge-sub">Parts & Labor Included</div>
             </div>
           </div>
@@ -529,89 +495,64 @@
 </div>
 
 <div class="page" id="page-contact">
-  <section class="section" style="background: var(--bg-alt); padding-top: 6rem;">
+  <section class="section">
     <div class="section-inner fade-in-up" style="text-align: center;">
-      <div class="section-label">Digital Scheduling</div>
-      <h2 class="section-title">Book Your Service</h2>
-      <p class="section-sub" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
+      <div class="section-label" style="display: flex; justify-content: center;">Contact Dispatch</div>
+      <div class="section-title">Request Mobile Service</div>
+      <p style="color:var(--text-gray); font-size:16px; max-width:600px; margin: 0 auto 4rem auto; line-height: 1.7;">If this is an emergency, please call our dispatch number directly. For standard maintenance or quotes, fill out the request form below.</p>
       
-      <div class="contact-wrapper">
-        <div class="contact-info text-left">
-          <h3 style="text-align: left;">Wrench Portal</h3>
-          <p style="text-align: left;">Use code <strong>AUSTINSBEST</strong> for 10% off your first service.</p>
-          
-          <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
-              <h5>Service Area</h5>
-              <p>Cedar Park, Pflugerville, Round Rock, & Austin</p>
+      <div class="contact-grid">
+        <div style="text-align: left;">
+          <div class="contact-info-block" style="margin-bottom: 2.5rem;">
+            <div class="contact-info-label">Service Area</div>
+            <div class="contact-info-val">Mobile Service Units<br>Greater Austin Region, TX</div>
+          </div>
+          <div class="contact-info-block">
+            <div class="contact-info-label">24/7 Dispatch</div>
+            <div class="contact-info-val">
+              <a href="tel:2107695262" class="text-accent-link" style="font-size: 22px;">(210) 769-5262</a>
             </div>
           </div>
           
-          <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
-              <h5>Lemon Squad</h5>
-              <p>Certified Inspection Partner</p>
-            </div>
-          </div>
-
-          <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
-              <h5>Direct Dispatch</h5>
-              <p><a href="tel:5127467277" style="color:var(--accent); text-decoration:none;">(512) 746-7277</a></p>
-            </div>
+          <div class="contact-hours-glass fade-in-up delay-1">
+            <div style="font-family: var(--font-sub); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 1rem;">Availability</div>
+            <div class="hours-row"><span>Emergency Service</span><span style="color: var(--accent); font-weight: 700;">24/7 Dispatch</span></div>
+            <div class="hours-row"><span>Standard Scheduling</span><span style="color: var(--white); font-weight: 600;">Mon - Sun</span></div>
           </div>
         </div>
         
-        <div class="form-container" style="text-align: left;">
+        <div style="text-align: left;">
           <div class="form-row">
             <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Your Name" id="fname"/></div>
             <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
           </div>
-          <div class="form-group"><label class="form-label">Vehicle Location (City / Zip)</label><input class="form-input" type="text" placeholder="e.g. Cedar Park, 78613" id="location"/></div>
-          <div class="form-group"><label class="form-label">Vehicle Make, Model & Year</label><input class="form-input" type="text" placeholder="e.g. 2019 Ford F-250 Diesel" id="vehicle"/></div>
-          <div class="form-group"><label class="form-label">Required Service</label>
-            <select class="form-select" id="service-select">
-              <option>Diagnostics</option>
-              <option>Brake Service</option>
-              <option>Oil & Maintenance</option>
-              <option>Lemon Squad Inspection</option>
-              <option>Diesel Repair</option>
-            </select>
-          </div>
-          <button class="btn-primary" style="width:100%; margin-top: 10px;" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
-          <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
+          <div class="form-group"><label class="form-label">Vehicle Location (Address or Intersection)</label><input class="form-input" type="text" placeholder="Where is the vehicle parked?" id="location"/></div>
+          <div class="form-group"><label class="form-label">Vehicle Make & Model</label><input class="form-input" type="text" placeholder="e.g. 2018 Honda Accord" id="vehicle"/></div>
+          <div class="form-group"><label class="form-label">Describe the Issue</label><textarea class="form-textarea" placeholder="What seems to be the problem?" id="notes"></textarea></div>
+          <button class="btn-primary" style="width:100%; font-size:15px; padding:18px;" onclick="submitForm()">Request Estimate →</button>
+          <div class="submit-confirm" id="form-confirm">✓ Request received! Dispatch will contact you shortly.</div>
         </div>
       </div>
 
-      <div class="map-container fade-in-up delay-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.3283626262!2d-97.6974720235308!3d30.370000000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644c9747b0a0a0b%3A0x7b0a0a0b7b0a0a0b!2s9713%20N%20Lamar%20Blvd%2C%20Austin%2C%20TX%2078753!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-container fade-in-up" style="margin-top: 5rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); background: var(--dark2); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.05);">
+        <iframe src="https://maps.google.com/maps?q=Austin,%20TX&t=&z=10&ie=UTF8&iwloc=&output=embed" class="map-frame-dark" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      
     </div>
   </section>
 </div>
 
 <footer>
-  <a onclick="showPage('home')" class="footer-logo">
-    <img src="https://retrovioletstudios.github.io/client-previews/austinsbestmmlogo.jpeg" alt="Austin's Best Mobile Mechanic Logo">
-    <div class="footer-logo-text">Austin's <span>Best Mobile</span></div>
-  </a>
-  <div class="footer-address">Master Mobile Service Units · Serving Cedar Park to Austin</div>
+  <div class="footer-logo" onclick="showPage('home')">
+    <img src="https://retrovioletstudios.github.io/client-previews/512mobilemechaniclogo.webp" alt="512 Mobile Mechanic Logo">
+    <div class="footer-logo-text">512 <span>MOBILE</span></div>
+  </div>
+  <div class="footer-address">Mobile Service Units · Greater Austin Area · <a href="tel:2107695262" class="text-accent-link" style="color: var(--text-gray);">(210) 769-5262</a></div>
   
   <div class="footer-nav">
     <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('services')">Services</a>
-    <a onclick="showPage('about')">Meet Roberto</a>
-    <a onclick="showPage('contact')">Book Online</a>
+    <a onclick="showPage('services')">Capabilities</a>
+    <a onclick="showPage('about')">About Us</a>
+    <a onclick="showPage('contact')">Dispatch</a>
   </div>
 </footer>
 
@@ -637,6 +578,7 @@
     if (!fname) { alert('Please fill in your name.'); return; }
     const confirm = document.getElementById('form-confirm');
     confirm.style.display = 'block';
+    confirm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function checkAnimations() {
