@@ -20,7 +20,6 @@
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
-  /* Crucial Mobile Fix to prevent horizontal bounce */
   html, body { overflow-x: hidden; width: 100%; }
   body { font-family: var(--font-body); background: var(--bg-white); color: var(--text-main); -webkit-font-smoothing: antialiased; }
 
@@ -54,21 +53,17 @@
   .nav-cta { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 12px 28px; cursor: pointer; border-radius: 50px; transition: all 0.3s;}
   .nav-cta:hover { background: var(--accent); color: #0F172A; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
 
-  /* MOBILE BOTTOM APP BAR - LIQUID GLASS UPDATE */
+  /* MOBILE BOTTOM APP BAR */
   .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226, 232, 240, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(15, 23, 42, 0.08); }
   .mobile-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 0; color: #94A3B8; text-decoration: none; cursor: pointer; transition: color 0.2s;}
   .mobile-nav-item svg { width: 22px; height: 22px; margin-bottom: 4px; }
   .mobile-nav-item span { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;}
-  
-  /* Bright Vibrant Active State */
   .mobile-nav-item.active { color: var(--accent-hover); }
   .mobile-nav-item.active svg { color: var(--accent-hover); }
 
-  /* Page Logic */
   .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
   .page.active { display: block; opacity: 1; }
 
-  /* Universal Flexbox Bug Fix - Forces text to wrap correctly */
   .hero-content, .hero-img-container, .bento-card, .service-big-card, .feature-content, .contact-wrapper, .badge-card { min-width: 0; word-wrap: break-word; }
 
   /* SPLIT HERO SECTION */
@@ -241,18 +236,26 @@
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
     .hero-btns { justify-content: center; }
     
-    .capabilities-bento, .focus-bento { grid-template-columns: 1fr; }
-    .bento-feat-img.span-2 { grid-column: span 1; aspect-ratio: 4/3; }
+    /* Grids & Cards tightening for mobile */
+    .capabilities-bento { grid-template-columns: repeat(2, 1fr); }
+    .focus-bento { grid-template-columns: repeat(2, 1fr); }
+    .bento-feat-img.span-2 { grid-column: span 2; aspect-ratio: 16/9; }
+    .bento-grid { gap: 1.5rem; margin-top: 2rem; }
     
     .trust-strip { flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 5%; }
     
-    .section { padding: 4rem 5%; }
+    /* Fixed Section Padding & Header gaps */
+    .section { padding: 3rem 5%; }
     .section-title { font-size: 32px; }
+    .section-header { margin-bottom: 2rem; }
     .bento-card { padding: 2rem 1.5rem; }
+    
+    .services-page-hero { padding: 4rem 5% 2rem; }
+    .services-big-grid { margin-top: 2rem; }
     
     /* Fix About Layout */
     .about-container { grid-template-columns: 1fr; gap: 3rem;}
-    .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; gap: 1.5rem; padding-top: 3rem;}
+    .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem;}
     .about-bottom-bar button { width: 100%; }
     .trust-badges { flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; width: 100%;}
     .badge-card { width: 100%; min-width: 0; flex-direction: column; text-align: center; }
@@ -268,8 +271,7 @@
   }
 
   @media (max-width: 600px) {
-    /* Extreme Mobile Cleanup */
-    .nav-cta { display: none; } /* Prevents header from forcing wide scroll on tiny screens */
+    .nav-cta { display: none; } 
     .nav-logo-text { font-size: 18px; }
     
     /* Override all grids to single column explicitly */
@@ -675,7 +677,7 @@
       </div>
 
       <div class="map-container fade-in-up delay-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d441113.8829983794!2d-98.05374457788487!3d30.347571110756782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1713835619183!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440897.6256902155!2d-98.05364139883606!3d30.307982688849105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>
