@@ -123,7 +123,7 @@
   .why-stat-num { font-family: var(--font-head); font-size: 42px; font-weight: 800; letter-spacing: -1px; color: var(--accent-hover); line-height: 1; margin-bottom: 0.75rem; text-transform: uppercase; }
 
   /* SERVICES PAGE */
-  .services-page-hero { background: var(--bg-alt); border-bottom: 1px solid #E2E8F0; padding: 6rem 5% 5rem; text-align: center; }
+  .services-page-hero { background: var(--bg-alt); border-bottom: 1px solid #E2E8F0; padding: 7rem 5% 6rem; text-align: center; }
   
   .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3.5rem; text-align: left;}
   
@@ -205,13 +205,13 @@
   .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
 
   /* FOOTER */
-  footer { background: var(--bg-alt); padding: 5rem 5% 3rem; text-align: center; color: var(--text-gray); border-top: 1px solid #E2E8F0;}
+  footer { background: var(--bg-alt); padding: 5rem 5% 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid #E2E8F0;}
   .footer-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 1.5rem; cursor: pointer;}
   .footer-logo img { height: 40px; width: auto; border-radius: 4px;}
   .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--text-main); text-transform: uppercase; text-align: left; line-height: 1.1;}
   .footer-logo-text span { color: var(--accent-hover); display: block; font-size: 12px; letter-spacing: 2px;}
   
-  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 3rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
+  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
   .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
   .footer-nav a:hover { color: var(--text-main); }
   
@@ -223,20 +223,17 @@
   /* BULLETPROOF MOBILE RESPONSIVENESS         */
   /* ========================================= */
   @media (max-width: 900px) {
-    /* Enable Bottom App Bar */
     .mobile-bottom-nav { display: flex; }
-    body { padding-bottom: 70px; } /* Prevent footer from hiding behind nav */
+    body { padding-bottom: 70px; } 
 
     nav { background: #FFFFFF; } 
     .nav-links { display: none; } 
     
-    /* Hero Section Constraints */
     .hero { grid-template-columns: 1fr; padding: 3rem 5% 4rem; text-align: center; gap: 2.5rem;}
     .hero h1 { font-size: clamp(36px, 8vw, 48px); }
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
     .hero-btns { justify-content: center; }
     
-    /* Grids & Cards tightening for mobile */
     .capabilities-bento { grid-template-columns: repeat(2, 1fr); }
     .focus-bento { grid-template-columns: repeat(2, 1fr); }
     .bento-feat-img.span-2 { grid-column: span 2; aspect-ratio: 16/9; }
@@ -244,16 +241,16 @@
     
     .trust-strip { flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 5%; }
     
-    /* Fixed Section Padding & Header gaps */
-    .section { padding: 3rem 5%; }
+    /* Fixed Section Padding for Mobile */
+    .section { padding: 4rem 5%; }
     .section-title { font-size: 32px; }
-    .section-header { margin-bottom: 2rem; }
+    .section-header { margin-bottom: 3rem; }
     .bento-card { padding: 2rem 1.5rem; }
     
-    .services-page-hero { padding: 4rem 5% 2rem; }
-    .services-big-grid { margin-top: 2rem; }
+    /* Fixed Services Hero Spacing */
+    .services-page-hero { padding: 5rem 5% 4rem; }
+    .services-big-grid { margin-top: 0; gap: 1.5rem; }
     
-    /* Fix About Layout */
     .about-container { grid-template-columns: 1fr; gap: 3rem;}
     .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem;}
     .about-bottom-bar button { width: 100%; }
@@ -263,7 +260,6 @@
     .press-title { margin-bottom: 3rem; }
     .press-grid { flex-direction: column; gap: 1.5rem; }
     
-    /* Form Constraints */
     .contact-wrapper { grid-template-columns: 1fr; gap: 0; }
     .contact-info { padding: 3rem 1.5rem; }
     .form-container { padding: 3rem 1.5rem; }
@@ -274,7 +270,6 @@
     .nav-cta { display: none; } 
     .nav-logo-text { font-size: 18px; }
     
-    /* Override all grids to single column explicitly */
     .capabilities-bento, .focus-bento, .services-big-grid { grid-template-columns: 1fr !important; }
     .bento-feat-img.span-2 { grid-column: span 1 !important; aspect-ratio: 4/3; }
   }
@@ -379,8 +374,8 @@
         </div>
       </div>
       
-      <div style="margin-top: 3.5rem; text-align: center;">
-        <a onclick="showPage('services')" class="text-accent-link" style="font-family: var(--font-body); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;">View Full Service Menu →</a>
+      <div style="margin-top: 3rem; text-align: center;">
+        <button class="btn-outline" onclick="showPage('services')">View Full Service Menu</button>
       </div>
     </div>
   </section>
@@ -677,7 +672,7 @@
       </div>
 
       <div class="map-container fade-in-up delay-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440897.6256902155!2d-98.05364139883606!3d30.307982688849105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d441113.8837130541!2d-98.05386221011497!3d30.34752538805903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1713710777174!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>
@@ -707,28 +702,22 @@
 
 <script>
   function showPage(name) {
-    // Hide all pages and remove active class from desktop nav
     document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); });
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     
-    // Remove active class from mobile nav
     document.querySelectorAll('.mobile-nav-item').forEach(a => a.classList.remove('active'));
     
     setTimeout(() => {
-      // Show the selected page
       document.getElementById('page-' + name).classList.add('active');
       
-      // Update desktop nav
       const desktopLink = document.getElementById('nav-' + name);
       if(desktopLink) desktopLink.classList.add('active');
       
-      // Update mobile nav
       const mobileLink = document.getElementById('mob-nav-' + name);
       if(mobileLink) mobileLink.classList.add('active');
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
-      // Re-trigger scroll animations
       document.querySelectorAll('.fade-in-up').forEach(el => el.classList.remove('in-view'));
       setTimeout(() => checkAnimations(), 50);
     }, 10);
