@@ -69,7 +69,7 @@
   .hero-content, .hero-img-container, .bento-card, .service-big-card, .feature-content, .contact-wrapper, .badge-card { min-width: 0; word-wrap: break-word; }
 
   /* SPLIT HERO SECTION */
-  .hero { 
+  .video-hero { 
     position: relative;
     height: 100vh; min-height: 600px;
     display: flex; align-items: center; justify-content: center;
@@ -86,17 +86,19 @@
     position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px;
   }
   
-  .hero-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; gap: 12px; }
-  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
+  .section-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .section-eyebrow::before, .section-eyebrow::after { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
+  .hero-content .section-eyebrow { color: var(--accent); }
   
-  .hero h1 { font-family: var(--font-head); font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1.5rem; color: #FFFFFF !important; }
-  .hero h1 em { color: var(--accent); font-style: italic; font-weight: 700;}
+  /* CORRECTED HERO TYPOGRAPHY TARGETING */
+  .hero-content h1 { font-family: var(--font-head); font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1.5rem; color: #FFFFFF !important; }
+  .hero-content h1 em { color: var(--accent); font-style: italic; font-weight: 700;}
   .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 3rem; font-weight: 300; max-width: 650px; margin-left: auto; margin-right: auto;}
   
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
   
-  .btn-primary { background: var(--accent); color: #0F172A; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px;}
-  .btn-primary:hover { background: #FFF; color: #0F172A; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3); }
+  .btn-primary { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px;}
+  .btn-primary:hover { background: var(--accent); color: #0F172A; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
   .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E2E8F0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
   .btn-outline:hover { border-color: var(--text-main); background: #F8FAFC; }
 
@@ -257,8 +259,9 @@
     nav { background: #FFFFFF; } 
     .nav-links { display: none; } 
     
+    /* CORRECTED MOBILE HERO TYPOGRAPHY TARGETING */
     .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
-    .hero h1 { font-size: clamp(36px, 10vw, 48px); color: #FFFFFF !important; }
+    .hero-content h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); color: #FFFFFF !important; }
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
     .scroll-indicator { display: none; } 
     
@@ -355,7 +358,7 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in-up">
-      <div class="hero-eyebrow">The Auto Mechanic That Comes To You</div>
+      <div class="section-eyebrow">The Auto Mechanic That Comes To You</div>
       <h1>Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
       <p class="hero-sub">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
@@ -480,7 +483,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
           </div>
           <h3 class="service-name-big">Engine Diagnostics</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We accurately diagnose issues without pushing unassailable predatory repairs.</p>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We accurately diagnose issues without pushing unnecessary predatory repairs.</p>
           <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li><li>1-Year Repair Warranty</li></ul>
           <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
@@ -775,10 +778,12 @@
     confirm.style.display = 'block';
   }
 
+  // BULLETPROOF SCROLL TRIGGER
   function checkAnimations() {
     const elements = document.querySelectorAll('.page.active .fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
+      // If the top of the element is within the viewport (with a small buffer)
       if (rect.top <= window.innerHeight * 0.95) {
         el.classList.add('in-view');
       }
@@ -800,6 +805,7 @@
     counts.forEach(c => countObs.observe(c));
   });
 
+  // Attach strictly to scroll
   window.addEventListener('scroll', checkAnimations, { passive: true });
 
   function animateCount(el) {
