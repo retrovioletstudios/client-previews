@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <title>Austin's Best Mobile Mechanic | Master Auto Repair</title>
-<meta name="description" content="Master Craftsmanship, Delivered to Your Door. Roberto brings 35 years of expert auto repair experience directly to your driveway."/>
+<meta name="description" content="We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, 100% integrity, and zero predatory upsells."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,10 +27,12 @@
   a:hover { opacity: 0.8; }
   .text-accent-link { color: var(--accent-hover) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
 
-  .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform; }
+  /* BULLETPROOF ANIMATIONS */
+  .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform; }
   .fade-in-up.in-view { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
   .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
 
   .promo-banner { background: var(--text-main); color: #FFF; text-align: center; padding: 12px 20px; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 101; }
   .promo-banner span { color: var(--accent); font-weight: 800; }
@@ -88,10 +90,9 @@
   .section-eyebrow::before, .section-eyebrow::after { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--accent); flex-shrink: 0; }
   .hero-content .section-eyebrow { color: var(--accent); }
   
-  /* CORRECTED HERO TYPOGRAPHY */
   .hero h1 { font-family: var(--font-head); font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1.5rem; color: #FFFFFF; }
   .hero h1 em { color: var(--accent); font-style: italic; font-weight: 700;}
-  .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 3rem; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto;}
+  .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 3rem; font-weight: 300; max-width: 650px; margin-left: auto; margin-right: auto;}
   
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
   
@@ -145,8 +146,8 @@
   
   .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3.5rem; text-align: left;}
   
-  .service-big-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.3s; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative; }
-  .service-big-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); }
+  .service-big-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.4s cubic-bezier(0.22,1,0.36,1); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative; }
+  .service-big-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border-color: rgba(81, 208, 222, 0.3);}
   
   .service-tag-pop { position: absolute; top: -14px; right: 24px; background: var(--text-main); color: #FFF; font-family: var(--font-sub); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; border-radius: 50px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);}
   
@@ -166,19 +167,25 @@
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
   .parallax-banner {
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/engine2.jpeg') center/cover fixed;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed;
     padding: 7rem 5%;
     text-align: center;
     margin-top: 5rem;
   }
   
-  .parallax-banner .btn-primary { border: 2px solid var(--accent); }
+  .parallax-banner .btn-primary { border: 2px solid var(--accent); background: transparent; color: #FFF; box-shadow: none;}
+  .parallax-banner .btn-primary:hover { background: var(--accent); color: #0F172A;}
 
-  /* ABOUT PAGE */
+  /* ABOUT PAGE WITH FLOATING BADGE */
   .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .about-img-wrapper { text-align: center; } 
-  .about-img { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.1); aspect-ratio: 1/1; object-fit: cover; display: inline-block;}
+  .about-img-wrapper { position: relative; max-width: 420px; margin: 0 auto; } 
+  .about-img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); aspect-ratio: 1/1; object-fit: cover; display: block;}
   
+  .about-badge { position: absolute; bottom: -20px; left: -20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #E2E8F0; border-left: 4px solid var(--accent); border-radius: 12px; padding: 20px 24px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); text-align: left; z-index: 5;}
+  .about-badge-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: var(--accent-hover); line-height: 1; letter-spacing: -1px;}
+  .about-badge-num span { color: var(--text-main); font-weight: 700; font-size: 1.2rem; }
+  .about-badge-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-gray); margin-top: 6px; }
+
   .about-text p { font-size: 17px; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
   
   .feature-list { margin-top: 2.5rem; }
@@ -189,7 +196,7 @@
 
   .about-bottom-bar { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 4rem; justify-content: space-between; border-top: 1px solid #E2E8F0; padding-top: 4rem; }
   .trust-badges { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; justify-content: flex-start; }
-  .badge-card { background: var(--bg-white); border: 1px solid #E2E8F0; padding: 1.5rem 2rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);}
+  .badge-card { background: var(--bg-white); border: 1px solid #E2E8F0; padding: 1.5rem 2rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
   .badge-icon { font-size: 32px; color: var(--accent-hover); display: flex; align-items: center; justify-content: center; }
   .badge-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: var(--text-main); margin-bottom: 2px;}
   .badge-sub { font-size: 13px; color: var(--text-gray); }
@@ -201,7 +208,7 @@
   .press-logo:hover { color: var(--text-main); }
 
   /* CONTACT / WRENCH INTEGRATION */
-  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-white); border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05); overflow: hidden; border: 1px solid #E2E8F0; }
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-white); border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); overflow: hidden; border: 1px solid #E2E8F0; }
   .contact-info { background: var(--text-main); color: var(--bg-white); padding: 4rem; }
   .contact-info h3 { font-family: var(--font-head); font-size: 28px; margin-bottom: 1.5rem; color: var(--bg-white); }
   .contact-info p { color: #94A3B8; line-height: 1.7; margin-bottom: 3rem; }
@@ -218,9 +225,13 @@
   .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-hover); background: #FFF; box-shadow: 0 0 0 4px rgba(81, 208, 222, 0.1); }
   .form-textarea { resize: vertical; min-height: 120px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  
+  .btn-submit { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 8px; width: 100%; margin-top: 10px;}
+  .btn-submit:hover { background: var(--accent); color: #0F172A; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
+  
   .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 8px;}
 
-  .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+  .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); }
 
   /* FOOTER */
   footer { background: var(--bg-alt); padding: 5rem 5% 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid #E2E8F0;}
@@ -229,7 +240,7 @@
   .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--text-main); text-transform: uppercase; text-align: left; line-height: 1.1;}
   .footer-logo-text span { color: var(--accent-hover); display: block; font-size: 12px; letter-spacing: 2px;}
   
-  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 3rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
+  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
   .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
   .footer-nav a:hover { color: var(--text-main); }
   
@@ -247,11 +258,16 @@
     nav { background: #FFFFFF; } 
     .nav-links { display: none; } 
     
-    .hero { grid-template-columns: 1fr; padding: 3rem 5% 4rem; text-align: center; gap: 2.5rem;}
-    .hero h1 { font-size: clamp(36px, 8vw, 48px); font-weight: 300; color: #FFFFFF; }
+    .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
+    .hero h1 { font-size: clamp(36px, 10vw, 48px); }
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
-    .hero-btns { justify-content: center; }
-    .scroll-indicator { display: none; }
+    .scroll-indicator { display: none; } 
+    
+    #stats { grid-template-columns: repeat(2, 1fr); padding: 2rem 5%; }
+    .stat-item { border-bottom: 1px solid #E2E8F0; padding: 1.5rem 1rem;}
+    .stat-item:nth-child(even) { border-right: none; }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+    .stat-num { font-size: 2.5rem; }
     
     .capabilities-bento { grid-template-columns: repeat(2, 1fr); }
     .focus-bento { grid-template-columns: repeat(2, 1fr); }
@@ -269,6 +285,7 @@
     .services-big-grid { margin-top: 0; gap: 1.5rem; }
     
     .about-container { grid-template-columns: 1fr; gap: 3rem;}
+    .about-badge { left: 50%; transform: translateX(-50%); bottom: -30px; width: 85%; text-align: center; padding: 15px;}
     .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem;}
     .about-bottom-bar button { width: 100%; }
     .trust-badges { flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; width: 100%;}
@@ -339,9 +356,9 @@
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in-up">
-      <div class="hero-tag">The Auto Mechanic That Comes To You</div>
+      <div class="hero-tag" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: #FFF;">The Auto Mechanic That Comes To You</div>
       <h1>Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
-      <p class="hero-sub">Roberto brings 35 years of master-level automotive repair directly to your home. Enjoy contactless service, Lemon Squad inspections, and integrated Wrench scheduling.</p>
+      <p class="hero-sub">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('contact')">Book via Wrench</button>
@@ -359,8 +376,8 @@
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-item fade-in-up delay-2">
-      <div class="stat-num"><span class="count" data-target="12">0</span><span>k+</span></div>
-      <div class="stat-label">Vehicles Serviced</div>
+      <div class="stat-num"><span class="count" data-target="5">0</span><span>.0</span></div>
+      <div class="stat-label">Star Guarantee</div>
     </div>
     <div class="stat-item fade-in-up delay-1">
       <div class="stat-num"><span class="count" data-target="1">0</span><span> Year</span></div>
@@ -368,7 +385,7 @@
     </div>
     <div class="stat-item fade-in-up delay-2">
       <div class="stat-num"><span class="count" data-target="100">0</span><span>%</span></div>
-      <div class="stat-label">Mobile Service</div>
+      <div class="stat-label">Integrity First</div>
     </div>
   </div>
 
@@ -377,7 +394,7 @@
       <div class="section-header fade-in-up">
         <span class="section-label">Expertise</span>
         <h2 class="section-title">Premium Diagnostic Repair</h2>
-        <p class="section-sub">From rigorous Lemon Squad inspections to complex diesel repairs, we provide dealership-level diagnostics in your driveway.</p>
+        <p class="section-sub">Our mobile units cover your vehicle mile after mile, providing dealership-level troubleshooting directly in your driveway.</p>
       </div>
       
       <div class="bento-grid capabilities-bento">
@@ -385,8 +402,8 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
           </div>
-          <h3 class="bento-name">Diagnostic Mastery</h3>
-          <p class="bento-desc">We accurately diagnose complex mechanical and electrical issues that standard shops frequently miss.</p>
+          <h3 class="bento-name">Engine Diagnostics</h3>
+          <p class="bento-desc">We accurately diagnose issues without pushing unassailable predatory repairs.</p>
         </div>
         
         <div class="bento-feat-img bento-card span-2 fade-in-up delay-2">
@@ -463,9 +480,9 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
           </div>
-          <h3 class="service-name-big">Computer Diagnostics</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We diagnose complex check engine lights and electrical faults that standard mechanics miss.</p>
-          <ul class="service-features"><li>Dealership-level code scanning</li><li>Electrical system analysis</li><li>1-Year Repair Warranty</li></ul>
+          <h3 class="service-name-big">Engine Diagnostics</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We accurately diagnose issues without pushing unassailable predatory repairs.</p>
+          <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li><li>1-Year Repair Warranty</li></ul>
           <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
         
@@ -473,23 +490,42 @@
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
           </div>
-          <h3 class="service-name-big">Brake & Rotor Service</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
+          <h3 class="service-name-big">Brake Service</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Ensure your vehicle is safe with our complete brake system inspections and service.</p>
           <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>1-Year Repair Warranty</li></ul>
           <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
 
         <div class="service-big-card">
-          <div class="service-tag-pop">Specialty</div>
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
           </div>
-          <h3 class="service-name-big">Diesel Engine Repair</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Expert maintenance and repair for diesel trucks and heavy-duty consumer vehicles.</p>
-          <ul class="service-features"><li>Diesel diagnostics</li><li>Fuel system maintenance</li><li>Heavy mechanical repair</li></ul>
+          <h3 class="service-name-big">Routine Maintenance</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Keep your vehicle running mile after mile with factory milestone checks.</p>
+          <ul class="service-features"><li>Synthetic oil changes</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
+          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
+        </div>
+
+        <div class="service-big-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <h3 class="service-name-big">Electrical Repair</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Expert electrical system repair for everything from complex wiring shorts to battery drains.</p>
+          <ul class="service-features"><li>Alternator & starter replacement</li><li>Wiring diagnostics</li><li>Battery testing</li></ul>
           <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
         
+        <div class="service-big-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3 class="service-name-big">A/C & Heating</h3>
+          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Because Texans demand exceptional comfort, we keep your climate control systems running ice cold.</p>
+          <ul class="service-features"><li>Freon leak detection</li><li>Compressor repair</li><li>System recharge</li></ul>
+          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
+        </div>
+
         <div class="service-big-card" style="border-color: rgba(81, 208, 222, 0.4);">
           <div class="service-tag-pop">Partner</div>
           <div class="service-icon">
@@ -499,26 +535,6 @@
           <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
           <ul class="service-features"><li>32-point checklist</li><li>On-site at seller location</li><li>Detailed mechanical report</li></ul>
           <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Schedule Inspection</button>
-        </div>
-
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-          </div>
-          <h3 class="service-name-big">Oil & Routine</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Protect your investment with regular fluid changes and factory milestone checks.</p>
-          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-          </div>
-          <h3 class="service-name-big">Contactless Protocol</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Your safety is paramount. We offer a completely touch-free auto repair experience.</p>
-          <ul class="service-features"><li>Digital Wrench booking</li><li>Zero-contact driveway service</li><li>Vehicle sanitization</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
 
       </div>
@@ -537,7 +553,7 @@
         </div>
         <div class="faq-item" onclick="this.classList.toggle('active')">
           <div class="faq-question">What areas do you service? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">We deploy our mobile service units across Cedar Park, Pflugerville, Round Rock, and the greater Austin metropolitan area. We come directly to your home or office.</div>
+          <div class="faq-answer">We deploy our fully-equipped mobile service units across Cedar Park, Pflugerville, Round Rock, and the greater Austin metropolitan area. We come directly to your home or office.</div>
         </div>
       </div>
     </div>
@@ -552,13 +568,18 @@
 <div class="page" id="page-about">
   <section class="section" style="padding-top: 8rem;">
     <div class="section-inner text-center">
-      <p class="section-eyebrow reveal" style="justify-content: center;">Master Pedigree</p>
-      <h2 class="section-title reveal reveal-delay-1">Meet Master Mechanic<br><em>Roberto.</em></h2>
-      <p class="section-sub reveal reveal-delay-2" style="margin: 0 auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
+      <p class="section-eyebrow fade-in-up" style="justify-content: center;">Master Pedigree</p>
+      <h2 class="section-title fade-in-up delay-1">Meet Master Mechanic<br><em>Roberto.</em></h2>
       
-      <div class="about-container fade-in-up delay-1" style="margin-top: 4rem;">
+      <p class="section-sub fade-in-up delay-2" style="margin: 0 auto 4rem auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
+      
+      <div class="about-container fade-in-up delay-1">
         <div class="about-img-wrapper">
           <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-img">
+          <div class="about-badge">
+            <div class="about-badge-num">35<span>+ Yrs</span></div>
+            <div class="about-badge-label">Master Pedigree</div>
+          </div>
         </div>
         <div class="about-text text-left">
           
@@ -600,7 +621,7 @@
         <div class="trust-badges">
           <div class="badge-card">
             <div class="badge-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </div>
             <div>
               <div class="badge-title">ASE Certified</div>
@@ -637,43 +658,48 @@
 
 <div class="page" id="page-contact">
   <section class="section" style="background: var(--bg-alt); padding-top: 8rem;">
-    <div class="section-inner text-center">
-      <p class="section-eyebrow reveal" style="justify-content: center;">Digital Scheduling</p>
-      <h2 class="section-title reveal reveal-delay-1">Book Your Service</h2>
-      <p class="section-sub reveal reveal-delay-2" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
+    <div class="section-inner fade-in-up" style="text-align: center;">
+      <div class="section-label">Digital Scheduling</div>
+      <h2 class="section-title">Book Your Service</h2>
+      <p class="section-sub" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
       
-      <div class="contact-wrapper reveal reveal-delay-2">
+      <div class="contact-wrapper">
         <div class="contact-info text-left">
           <h3 style="text-align: left;">Wrench Portal</h3>
           <p style="text-align: left;">Use code <strong>AUSTINSBEST</strong> for 10% off your first service.</p>
           
           <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-            <div class="info-text">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="info-text" style="text-align: left;">
               <h5>Service Area</h5>
               <p>Cedar Park, Pflugerville, Round Rock, & Austin</p>
             </div>
           </div>
           
           <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-            <div class="info-text">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <div class="info-text" style="text-align: left;">
               <h5>Lemon Squad</h5>
               <p>Certified Inspection Partner</p>
             </div>
           </div>
 
           <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
-            <div class="info-text">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="info-text" style="text-align: left;">
               <h5>Direct Dispatch</h5>
               <p><a href="tel:5127467277" style="color:var(--text-main); text-decoration:none;">(512) 746-7277</a></p>
             </div>
           </div>
         </div>
         
-        <div class="form-container">
-          <h3>Request Booking</h3>
+        <div class="form-container" style="text-align: left;">
           <div class="form-row">
             <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Your Name" id="fname"/></div>
             <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
@@ -682,11 +708,12 @@
           <div class="form-group"><label class="form-label">Vehicle Make, Model & Year</label><input class="form-input" type="text" placeholder="e.g. 2019 Ford F-250 Diesel" id="vehicle"/></div>
           <div class="form-group"><label class="form-label">Required Service</label>
             <select class="form-select" id="service-select">
-              <option>Diagnostics</option>
+              <option>Engine Diagnostics</option>
               <option>Brake Service</option>
-              <option>Oil & Maintenance</option>
+              <option>Routine Maintenance</option>
+              <option>A/C & Heating Repair</option>
+              <option>Electrical System Repair</option>
               <option>Lemon Squad Inspection</option>
-              <option>Diesel Repair</option>
             </select>
           </div>
           <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
@@ -694,8 +721,8 @@
         </div>
       </div>
 
-      <div class="map-container reveal delay-2">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d441113.8837130541!2d-98.05386221011497!3d30.34752538805903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1713710777174!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-container fade-in-up delay-1">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882006.1887372993!2d-98.42398551913166!3d30.347525388046896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1691458925579!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>
@@ -740,7 +767,8 @@
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
-      initObserver();
+      document.querySelectorAll('.fade-in-up').forEach(el => el.classList.remove('in-view'));
+      setTimeout(checkAnimations, 50);
     }, 10);
   }
 
@@ -751,24 +779,19 @@
     confirm.style.display = 'block';
   }
 
-  function initObserver() {
-    const revealEls = document.querySelectorAll('.page.active .reveal, .trust-strip .reveal, .press-section.reveal');
-    revealEls.forEach(el => el.classList.remove('visible'));
-    
-    const revealObs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    
-    revealEls.forEach(el => revealObs.observe(el));
+  // BULLETPROOF SCROLL TRIGGER
+  function checkAnimations() {
+    const elements = document.querySelectorAll('.page.active .fade-in-up');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.95) {
+        el.classList.add('in-view');
+      }
+    });
   }
   
   window.addEventListener('load', () => {
-    initObserver();
+    setTimeout(checkAnimations, 100);
     
     const counts = document.querySelectorAll('.count');
     const countObs = new IntersectionObserver((entries, observer) => {
@@ -781,6 +804,8 @@
     }, { threshold: 0.5 });
     counts.forEach(c => countObs.observe(c));
   });
+
+  window.addEventListener('scroll', checkAnimations, { passive: true });
 
   function animateCount(el) {
     const target = +el.dataset.target;
