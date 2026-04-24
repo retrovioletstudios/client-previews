@@ -68,7 +68,7 @@
 
   .hero-content, .hero-img-container, .bento-card, .service-big-card, .feature-content, .contact-wrapper, .badge-card { min-width: 0; word-wrap: break-word; }
 
-  /* VIDEO HERO SECTION */
+  /* ─── V4.0 RESTORED VIDEO HERO ─── */
   .video-hero { 
     position: relative;
     height: 100vh; min-height: 600px;
@@ -83,15 +83,14 @@
     background: linear-gradient(160deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.6) 50%, rgba(15, 23, 42, 0.8) 100%);
   }
   .hero-content {
-    position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px; width: 100%;
+    position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px;
   }
   
-  /* FORCED HERO TYPOGRAPHY LOCKS */
   .hero-tag { 
     display: inline-block; 
-    background: rgba(81, 208, 222, 0.15) !important; 
-    color: var(--accent) !important; 
-    border: 1px solid rgba(81, 208, 222, 0.3) !important; 
+    background: rgba(81, 208, 222, 0.15); 
+    color: var(--accent); 
+    border: 1px solid rgba(81, 208, 222, 0.3); 
     font-family: var(--font-body); 
     font-size: 12px; 
     font-weight: 700; 
@@ -102,42 +101,38 @@
     border-radius: 50px; 
   }
   
-  .hero-content h1 { 
+  /* EXPLICIT WHITE COLOR OVERRIDE FOR DARK BACKGROUND */
+  .hero-title { 
     font-family: var(--font-head); 
-    font-size: clamp(2.8rem, 8vw, 5.5rem); 
-    font-weight: 300; 
+    font-size: clamp(40px, 6vw, 72px); 
+    font-weight: 800; 
     line-height: 1.1; 
-    letter-spacing: -1px; 
+    letter-spacing: -1.5px; 
     margin-bottom: 1.5rem; 
     color: #FFFFFF !important; 
   }
-  .hero-content h1 em { 
-    color: var(--accent) !important; 
-    font-style: italic; 
-    font-weight: 700;
+  .hero-title em { 
+    color: var(--accent-hover) !important; 
+    font-style: normal; 
   }
-  
   .hero-sub { 
-    font-size: 1.1rem; 
-    color: rgba(255,255,255,0.85) !important; 
-    line-height: 1.8; 
-    margin-bottom: 3rem; 
-    font-weight: 300; 
+    font-size: 18px; 
+    color: #FFFFFF !important; 
+    opacity: 0.9;
+    line-height: 1.7; 
+    margin-bottom: 2.5rem; 
+    font-weight: 400; 
     max-width: 650px; 
     margin-left: auto; 
     margin-right: auto;
   }
   
-  .hero-btns { 
-    display: flex; 
-    gap: 1rem; 
-    flex-wrap: wrap; 
-    justify-content: center;
-  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
   
+  /* ─── V4.0 RESTORED BUTTONS ─── */
   .btn-primary { 
-    background: var(--accent) !important; 
-    color: #0F172A !important; 
+    background: var(--text-main); 
+    color: #FFF; 
     font-family: var(--font-body); 
     font-weight: 700; 
     font-size: 16px; 
@@ -145,15 +140,29 @@
     padding: 18px 40px; 
     cursor: pointer; 
     transition: all 0.3s; 
-    border-radius: 50px; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
+    border-radius: 50px;
   }
   .btn-primary:hover { 
-    background: #FFF !important; 
-    color: #0F172A !important; 
+    background: var(--accent); 
+    color: #0F172A; 
     transform: translateY(-3px); 
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3) !important; 
+    box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); 
+  }
+  .btn-outline { 
+    background: transparent; 
+    color: var(--text-main); 
+    font-family: var(--font-body); 
+    font-weight: 600; 
+    font-size: 16px; 
+    border: 2px solid #E2E8F0; 
+    padding: 16px 40px; 
+    cursor: pointer; 
+    transition: all 0.2s; 
+    border-radius: 50px;
+  }
+  .btn-outline:hover { 
+    border-color: var(--text-main); 
+    background: #F8FAFC; 
   }
 
   .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s ease 1.5s forwards; }
@@ -281,8 +290,8 @@
   .form-textarea { resize: vertical; min-height: 120px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   
-  .btn-submit { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 8px; width: 100%; margin-top: 10px;}
-  .btn-submit:hover { background: var(--accent); color: #0F172A; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
+  /* Restored v4.0 Contact Submit Button */
+  .contact-wrapper .btn-primary { width: 100%; margin-top: 10px; }
   
   .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 8px;}
 
@@ -314,7 +323,7 @@
     .nav-links { display: none; } 
     
     .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
-    .hero-content h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+    .hero-title { font-size: clamp(36px, 10vw, 48px); }
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
     .scroll-indicator { display: none; } 
     
@@ -410,15 +419,17 @@
       <source src="https://retrovioletstudios.github.io/client-previews/mechanic-rolling-tire.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
+    
     <div class="hero-content fade-in-up">
       <div class="hero-tag">The Auto Mechanic That Comes To You</div>
-      <h1>Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
+      <h1 class="hero-title">Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
       <p class="hero-sub">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('contact')">Book via Wrench</button>
       </div>
     </div>
+    
     <div class="scroll-indicator">
       <span>Scroll</span>
       <div class="scroll-line"></div>
@@ -616,7 +627,7 @@
 
   <div class="parallax-banner fade-in-up">
     <h2 style="font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2rem; color: #FFF; text-transform: uppercase;">Your Car, Fixed Where It Is.</h2>
-    <button class="btn-primary" style="background: transparent; border: 2px solid var(--accent); color: #FFF !important; box-shadow: none;" onclick="showPage('contact')">Book via Wrench Today</button>
+    <button class="btn-primary" onclick="showPage('contact')">Book via Wrench Today</button>
   </div>
 </div>
 
@@ -767,7 +778,7 @@
               <option>Lemon Squad Inspection</option>
             </select>
           </div>
-          <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
+          <button class="btn-primary" style="width:100%; margin-top: 10px;" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
           <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
         </div>
       </div>
@@ -818,7 +829,6 @@
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
-      // Reset classes immediately so they re-trigger on scroll
       document.querySelectorAll('.fade-in-up').forEach(el => el.classList.remove('in-view'));
       setTimeout(checkAnimations, 50);
     }, 10);
@@ -831,12 +841,10 @@
     confirm.style.display = 'block';
   }
 
-  // BULLETPROOF SCROLL TRIGGER
   function checkAnimations() {
     const elements = document.querySelectorAll('.page.active .fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      // If the top of the element is within the viewport (with a small buffer)
       if (rect.top <= window.innerHeight * 0.95) {
         el.classList.add('in-view');
       }
@@ -858,7 +866,6 @@
     counts.forEach(c => countObs.observe(c));
   });
 
-  // Attach strictly to scroll
   window.addEventListener('scroll', checkAnimations, { passive: true });
 
   function animateCount(el) {
