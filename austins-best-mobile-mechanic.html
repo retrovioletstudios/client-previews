@@ -14,31 +14,33 @@
     --accent-hover: #3ebbc9;
     --bg-white: #FFFFFF; 
     --bg-alt: #F4F8FA; 
-    --text-main: #0F172A; 
+    --text-main: #1A1A1A; /* NEUTRAL BLACK, ZERO NAVY */
     --text-gray: #475569; 
     --radius: 14px; 
     --font-display: 'Cormorant Garamond', serif;
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --shadow-sm: 0 4px 16px rgba(26, 26, 26, 0.04);
+    --shadow-md: 0 10px 30px rgba(26, 26, 26, 0.05);
+    --shadow-lg: 0 24px 80px rgba(26, 26, 26, 0.08);
   }
   html, body { overflow-x: hidden; width: 100%; }
   body { font-family: var(--font-body); background: var(--bg-white); color: var(--text-main); -webkit-font-smoothing: antialiased; }
 
-  a[href^="tel"], a[href^="http"] { color: inherit; text-decoration: none; transition: opacity 0.2s; }
+  a[href^="tel"], a[href^="http"] { color: inherit; text-decoration: none; transition: opacity 0.3s; }
   a:hover { opacity: 0.8; }
-  .text-accent-link { color: var(--accent-hover) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
-
-  /* ANIMATIONS */
-  .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform; }
-  .fade-in-up.in-view { opacity: 1; transform: translateY(0); }
-  .delay-1 { transition-delay: 0.1s; }
-  .delay-2 { transition-delay: 0.2s; }
-  .delay-3 { transition-delay: 0.3s; }
+  
+  /* ─── SCROLL REVEAL ANIMATIONS ─── */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform;}
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.22s; }
+  .reveal-delay-3 { transition-delay: 0.34s; }
 
   .promo-banner { background: var(--text-main); color: #FFF; text-align: center; padding: 12px 20px; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 101; }
   .promo-banner span { color: var(--accent); font-weight: 800; }
 
-  /* DESKTOP NAVIGATION */
+  /* ─── DESKTOP NAVIGATION ─── */
   nav {
     background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #E2E8F0;
     display: flex; align-items: center; justify-content: space-between;
@@ -50,25 +52,29 @@
   .nav-logo-text span { color: var(--accent-hover); display: block; font-size: 14px; font-family: var(--font-body); letter-spacing: 2px; margin-top: 2px;}
   
   .nav-links { display: flex; gap: 2.5rem; }
-  .nav-links a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--accent-hover); }
+  .nav-links a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.3s; position: relative;}
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
   
-  .nav-cta { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 12px 28px; cursor: pointer; border-radius: 50px; transition: all 0.3s;}
-  .nav-cta:hover { background: var(--accent); color: #0F172A; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
+  .nav-cta { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 14px 32px; cursor: pointer; border-radius: 50px; transition: all 0.3s;}
+  .nav-cta:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
 
-  /* MOBILE BOTTOM APP BAR */
-  .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226, 232, 240, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(15, 23, 42, 0.08); }
+  /* ─── MOBILE BOTTOM APP BAR ─── */
+  .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226, 232, 240, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(26, 26, 26, 0.08); }
   .mobile-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 0; color: #94A3B8; text-decoration: none; cursor: pointer; transition: color 0.2s;}
   .mobile-nav-item svg { width: 22px; height: 22px; margin-bottom: 4px; }
   .mobile-nav-item span { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;}
   .mobile-nav-item.active { color: var(--accent-hover); }
   .mobile-nav-item.active svg { color: var(--accent-hover); }
 
+  /* Page Logic */
   .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
   .page.active { display: block; opacity: 1; }
+  .service-card, .feature-content, .contact-wrapper, .badge-card, .about-text { min-width: 0; word-wrap: break-word; }
 
-  /* ─── APEX-STYLE VIDEO HERO ─── */
-  .video-hero { 
+  /* ─── 100vh APEX HERO SECTION ─── */
+  .video-hero {
     position: relative;
     height: 100vh; min-height: 600px;
     display: flex; align-items: center; justify-content: center;
@@ -79,15 +85,16 @@
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.75) 100%);
+    background: linear-gradient(160deg, rgba(26, 26, 26, 0.85) 0%, rgba(26, 26, 26, 0.45) 50%, rgba(26, 26, 26, 0.75) 100%);
   }
   .hero-content {
     position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px; width: 100%;
   }
   
+  /* PERFECT APEX TYPOGRAPHY RECREATION */
   .hero-eyebrow { 
     font-family: var(--font-body);
-    font-size: 0.75rem; 
+    font-size: 0.72rem; 
     font-weight: 600; 
     letter-spacing: 0.32em; 
     text-transform: uppercase; 
@@ -127,13 +134,14 @@
     font-size: 1.05rem; 
     color: rgba(255,255,255,0.85); 
     line-height: 1.8; 
-    margin-bottom: 3rem; 
+    margin-bottom: 42px; 
     font-weight: 300; 
-    max-width: 650px; 
+    max-width: 520px; 
     margin-left: auto; 
     margin-right: auto;
   }
   
+  /* EXACT APEX BUTTON STYLES */
   .hero-btns { 
     display: flex; 
     gap: 16px; 
@@ -141,22 +149,22 @@
     justify-content: center;
   }
   
-  /* APEX FROSTED GLASS BUTTON */
   .btn-glass {
+    padding: 15px 36px;
     background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50px;
     color: #FFFFFF;
     font-family: var(--font-body);
-    font-weight: 600;
     font-size: 0.8rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.5);
-    padding: 16px 36px;
+    text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 50px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
   }
   .btn-glass:hover {
     background: rgba(255,255,255,0.25);
@@ -164,20 +172,20 @@
     transform: translateY(-2px);
   }
 
-  /* APEX SOLID ACCENT BUTTON */
   .btn-solid-accent {
+    padding: 15px 36px;
     background: var(--accent);
-    color: #0F172A;
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+    color: var(--text-main);
     font-family: var(--font-body);
-    font-weight: 700;
     font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border: 1px solid var(--accent);
-    padding: 16px 36px;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 50px;
     box-shadow: 0 4px 20px rgba(81, 208, 222, 0.25);
   }
   .btn-solid-accent:hover {
@@ -195,11 +203,11 @@
 
   /* ─── GENERAL BUTTONS (Used elsewhere) ─── */
   .btn-primary { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px;}
-  .btn-primary:hover { background: var(--accent); color: #0F172A; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
+  .btn-primary:hover { background: var(--accent); color: var(--text-main); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
   .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E2E8F0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
   .btn-outline:hover { border-color: var(--text-main); background: #F8FAFC; }
 
-  /* ─── STATS BAR ─── */
+  /* ─── APEX STATS BAR ─── */
   #stats { background: var(--bg-alt); padding: 50px 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border-bottom: 1px solid #E2E8F0; }
   .stat-item { text-align: center; padding: 20px; border-right: 1px solid #E2E8F0; }
   .stat-item:last-child { border-right: none; }
@@ -207,121 +215,103 @@
   .stat-num span { color: var(--text-main); font-weight: 300;}
   .stat-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-gray); }
 
-  .section { padding: 6rem 5%; }
+  /* ─── GENERAL APEX SECTIONS ─── */
+  .section { padding: 120px 5%; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-  .section-label { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 1rem; display: block; }
-  .section-title { font-family: var(--font-head); font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
-  .section-sub { font-size: 18px; color: var(--text-gray); line-height: 1.7; }
+  .section-header { text-align: center; max-width: 700px; margin: 0 auto 64px auto; }
+  .section-title { font-family: var(--font-head); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--accent-hover); }
+  .section-sub { font-size: 1.05rem; color: var(--text-gray); line-height: 1.8; font-weight: 300;}
 
-  .bento-grid { display: grid; gap: 2rem; text-align: left; }
-  .bento-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.3s; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative; min-width: 0; word-wrap: break-word;}
-  .bento-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); z-index: 2;}
+  /* ─── APEX 3-COLUMN SERVICE GRID ─── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card { background: var(--bg-white); border: 1px solid #E2E8F0; border-top: 3px solid var(--accent); border-radius: var(--radius); padding: 40px 36px; box-shadow: var(--shadow-sm); transition: all 0.45s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; text-align: left;}
+  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-top-color: var(--accent-hover); }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent-hover); transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+  .service-card:hover::before { transform: scaleX(1); }
   
-  .capabilities-bento { grid-template-columns: repeat(4, 1fr); }
-  .focus-bento { grid-template-columns: repeat(3, 1fr); }
+  .service-icon { width: 48px; height: 48px; margin-bottom: 24px; color: var(--accent-hover); }
+  .service-icon svg { width: 100%; height: 100%; }
+  .service-name { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.5px; }
+  .service-desc { font-size: 0.95rem; font-weight: 300; color: var(--text-gray); line-height: 1.75; margin-bottom: 1.5rem;}
   
-  .bento-feat-img { padding: 0; border: none; box-shadow: none; background: transparent; }
-  .bento-feat-img.span-2 { grid-column: span 2; }
-  .bento-img-asset { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
-  
-  .service-tag { position: absolute; top: 2rem; right: 2.5rem; background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px;}
-  .service-icon { background: rgba(81, 208, 222, 0.15); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--accent-hover); margin-bottom: 2rem; }
-  
-  .bento-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 1rem; }
-  .bento-desc { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
-  .why-stat-num { font-family: var(--font-head); font-size: 42px; font-weight: 800; letter-spacing: -1px; color: var(--accent-hover); line-height: 1; margin-bottom: 0.75rem; text-transform: uppercase; }
-
-  /* SERVICES PAGE */
-  .services-page-hero { background: var(--bg-alt); border-bottom: 1px solid #E2E8F0; padding: 6rem 5% 5rem; text-align: center; }
-  
-  .services-big-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3.5rem; text-align: left;}
-  
-  .service-big-card { background: var(--bg-white); padding: 3rem 2.5rem; border-radius: var(--radius); transition: all 0.4s cubic-bezier(0.22,1,0.36,1); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); border: 1px solid rgba(0,0,0,0.02); position: relative; min-width: 0; word-wrap: break-word; }
-  .service-big-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border-color: rgba(81, 208, 222, 0.3);}
-  
-  .service-tag-pop { position: absolute; top: -14px; right: 24px; background: var(--text-main); color: #FFF; font-family: var(--font-sub); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; border-radius: 50px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);}
-  
-  .service-name-big { font-family: var(--font-head); font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 0.75rem; }
-  .service-features { list-style: none; margin: 2rem 0; }
-  .service-features li { font-size: 14px; color: var(--text-gray); padding: 12px 0; border-bottom: 1px solid #F1F5F9; display: flex; align-items: center; gap: 12px; }
-  .service-features li:last-child { border-bottom: none; }
+  .service-features { list-style: none; margin-bottom: 2rem; border-top: 1px solid #F1F5F9; padding-top: 1.5rem;}
+  .service-features li { font-size: 0.9rem; color: var(--text-gray); padding: 8px 0; display: flex; align-items: center; gap: 10px; }
   .service-features li::before { content: '✓'; color: var(--accent-hover); font-weight: 700; font-size: 16px; }
 
+  /* ─── APEX SPLIT LAYOUT (About / Reliability) ─── */
+  .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .split-text { text-align: left; }
+  .section-eyebrow.left-aligned { justify-content: flex-start; }
+  .section-eyebrow.left-aligned::after { display: none; }
+  .split-text p { font-size: 1.05rem; font-weight: 300; color: var(--text-gray); line-height: 1.85; margin-bottom: 1.5rem; }
+  
+  .split-img-wrap { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow-lg); }
+  .split-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 6s ease; }
+  .split-img-wrap:hover img { transform: scale(1.04); }
+  
+  /* Apex Floating Badge */
+  .split-badge { position: absolute; bottom: 28px; left: 28px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #E2E8F0; border-left: 3px solid var(--accent); border-radius: 12px; padding: 20px 24px; box-shadow: var(--shadow-md); z-index: 5;}
+  .split-badge-num { font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; color: var(--accent-hover); line-height: 1; letter-spacing: -1px;}
+  .split-badge-num span { color: var(--text-main); font-weight: 300; font-size: 1.4rem; }
+  .split-badge-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-gray); margin-top: 6px; }
+
+  /* ─── APEX OWNER SPOTLIGHT ─── */
+  .owner-spotlight { background: var(--bg-alt); padding: 80px 5%; display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center; border-radius: 24px; border: 1px solid #E2E8F0; margin-top: 2rem;}
+  .owner-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; box-shadow: var(--shadow-lg); border: 1px solid rgba(0,0,0,0.05); }
+  .owner-img img { width: 100%; height: 100%; object-fit: cover; }
+  .owner-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, transparent 100%); padding: 30px 20px 20px; }
+  .owner-img-label strong { display: block; font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--bg-white); }
+  .owner-img-label span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  
+  .owner-quote-mark { font-family: var(--font-head); font-size: 8rem; font-weight: 800; color: var(--accent); line-height: 0.7; margin-bottom: 12px; opacity: 0.2; }
+  .owner-quote-text { font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--text-main); line-height: 1.45; margin-bottom: 28px; }
+  .owner-quote-text em { color: var(--accent-hover); font-style: normal; font-weight: 700; }
+
+  /* ─── APEX PARALLAX BANNER ─── */
+  .parallax-banner { background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed; padding: 120px 5%; text-align: center; }
+  
   .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
   .faq-item { border-bottom: 1px solid #E2E8F0; padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
   .faq-item:hover { background: #F8FAFC; }
-  .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 600; letter-spacing: -0.2px; color: var(--text-main); }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 700; letter-spacing: -0.2px; color: var(--text-main); }
   .faq-icon { color: var(--accent-hover); font-size: 22px; font-weight: 300; transition: transform 0.3s ease; }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-gray); font-size: 15px; line-height: 1.7; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-gray); font-size: 1.05rem; font-weight: 300; line-height: 1.7; }
   .faq-item.active .faq-answer { max-height: 250px; margin-top: 1rem; }
   .faq-item.active .faq-icon { transform: rotate(45deg); }
 
-  .parallax-banner {
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed;
-    padding: 7rem 5%;
-    text-align: center;
-    margin-top: 5rem;
-  }
-  
-  .parallax-banner .btn-primary { border: 2px solid var(--accent); background: transparent; color: #FFF; box-shadow: none;}
-  .parallax-banner .btn-primary:hover { background: var(--accent); color: #0F172A;}
-
-  /* ABOUT PAGE WITH FLOATING BADGE */
-  .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .about-img-wrapper { position: relative; max-width: 420px; margin: 0 auto; } 
-  .about-img { width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); aspect-ratio: 1/1; object-fit: cover; display: block;}
-  
-  .about-badge { position: absolute; bottom: -20px; left: -20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #E2E8F0; border-left: 4px solid var(--accent); border-radius: 12px; padding: 20px 24px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); text-align: left; z-index: 5;}
-  .about-badge-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: var(--accent-hover); line-height: 1; letter-spacing: -1px;}
-  .about-badge-num span { color: var(--text-main); font-weight: 700; font-size: 1.2rem; }
-  .about-badge-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-gray); margin-top: 6px; }
-
-  .about-text p { font-size: 17px; color: var(--text-gray); line-height: 1.8; margin-bottom: 1.5rem; }
-  
-  .feature-list { margin-top: 2.5rem; }
-  .feature-item { display: flex; gap: 1.25rem; margin-bottom: 1.5rem; }
-  .feature-icon { background: rgba(81, 208, 222, 0.15); color: var(--accent-hover); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .feature-content h4 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--text-main); }
-  .feature-content p { font-size: 15px; color: var(--text-gray); line-height: 1.6; margin-bottom: 0; }
-
-  .about-bottom-bar { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 4rem; justify-content: space-between; border-top: 1px solid #E2E8F0; padding-top: 4rem; }
-  .trust-badges { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; justify-content: flex-start; }
-  .badge-card { background: var(--bg-white); border: 1px solid #E2E8F0; padding: 1.5rem 2rem; border-radius: 16px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 240px; text-align: left; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);}
-  .badge-icon { font-size: 32px; color: var(--accent-hover); display: flex; align-items: center; justify-content: center; }
-  .badge-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: var(--text-main); margin-bottom: 2px;}
-  .badge-sub { font-size: 13px; color: var(--text-gray); }
-
   .press-section { padding: 4rem 5%; background: var(--bg-alt); text-align: center; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;}
-  .press-title { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); margin-bottom: 4rem; }
-  .press-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: center; max-width: 1000px; margin: 0 auto; }
+  .press-title { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 3rem; }
+  .press-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; align-items: center; max-width: 1000px; margin: 0 auto; }
   .press-logo { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: #94A3B8; letter-spacing: -0.5px; transition: all 0.3s; }
   .press-logo:hover { color: var(--text-main); }
 
-  /* CONTACT / WRENCH INTEGRATION */
-  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-white); border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); overflow: hidden; border: 1px solid #E2E8F0; min-width: 0; word-wrap: break-word; }
-  .contact-info { background: var(--text-main); color: var(--bg-white); padding: 4rem; }
-  .contact-info h3 { font-family: var(--font-head); font-size: 28px; margin-bottom: 1.5rem; color: var(--bg-white); }
-  .contact-info p { color: #94A3B8; line-height: 1.7; margin-bottom: 3rem; }
+  /* ─── APEX CONTACT ─── */
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .contact-info { text-align: left;}
+  .contact-info h2 { font-family: var(--font-head); font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); letter-spacing: -1px; line-height: 1.1;}
+  .contact-info h2 em { font-style: italic; color: var(--accent-hover); font-weight: 300;}
+  .contact-info p { color: var(--text-gray); font-weight: 300; line-height: 1.8; margin-bottom: 3rem; font-size: 1.05rem; }
   
-  .info-row { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
-  .info-icon { color: var(--accent); }
-  .info-text h5 { font-family: var(--font-body); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin-bottom: 4px; }
-  .info-text p { color: var(--bg-white); font-size: 18px; font-weight: 500; margin-bottom: 0; }
+  .info-row { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 28px; }
+  .info-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--bg-white); border: 1px solid #E2E8F0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent-hover); box-shadow: var(--shadow-sm);}
+  .info-icon svg { width: 20px; height: 20px;}
+  .info-text h5 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-gray); margin-bottom: 6px; }
+  .info-text p { color: var(--text-main); font-size: 1rem; font-weight: 500; margin-bottom: 0; }
   
-  .form-container { padding: 4rem; }
-  .form-group { margin-bottom: 1.5rem; }
-  .form-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
-  .form-input, .form-select, .form-textarea { width: 100%; background: #F8FAFC; border: 1px solid #E2E8F0; color: var(--text-main); font-family: var(--font-body); font-size: 15px; padding: 16px; outline: none; transition: all 0.2s; border-radius: 8px;}
-  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-hover); background: #FFF; box-shadow: 0 0 0 4px rgba(81, 208, 222, 0.1); }
+  .form-container { background: var(--bg-white); padding: 48px 44px; border-radius: 20px; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0; text-align: left;}
+  .form-container h3 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; letter-spacing: -0.5px;}
+  .form-group { margin-bottom: 16px; }
+  .form-label { display: block; font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 8px; }
+  .form-input, .form-select, .form-textarea { width: 100%; background: var(--bg-alt); border: 1px solid #E2E8F0; color: var(--text-main); font-family: var(--font-body); font-size: 15px; padding: 16px 20px; outline: none; transition: all 0.3s ease; border-radius: 10px;}
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-hover); background: #FFF; box-shadow: 0 0 0 3px rgba(81, 208, 222, 0.15); }
   .form-textarea { resize: vertical; min-height: 120px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  
-  .contact-wrapper .btn-primary { width: 100%; margin-top: 10px;}
-  
-  .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 8px;}
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .btn-submit { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px; width: 100%; margin-top: 10px;}
+  .btn-submit:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
+  .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 10px;}
 
-  .map-container { margin-top: 5rem; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08); }
+  .map-container { margin-top: 5rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;}
 
   /* FOOTER */
   footer { background: var(--bg-alt); padding: 5rem 5% 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid #E2E8F0;}
@@ -331,7 +321,7 @@
   .footer-logo-text span { color: var(--accent-hover); display: block; font-size: 12px; letter-spacing: 2px;}
   
   .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
-  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
+  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
   .footer-nav a:hover { color: var(--text-main); }
   
   .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
@@ -341,15 +331,26 @@
   /* ========================================= */
   /* BULLETPROOF MOBILE RESPONSIVENESS         */
   /* ========================================= */
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .split-layout { grid-template-columns: 1fr; gap: 40px; }
+    .split-text { text-align: center; }
+    .section-eyebrow.left-aligned { justify-content: center; }
+    .section-eyebrow.left-aligned::after { display: inline-block; }
+    .owner-spotlight { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; text-align: center;}
+    .owner-img { max-width: 400px; margin: 0 auto; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
     .mobile-bottom-nav { display: flex; }
     body { padding-bottom: 70px; } 
 
     nav { background: #FFFFFF; } 
-    .nav-links { display: none; } 
+    .nav-links, .nav-cta { display: none; } 
     
     .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
-    .hero-title { font-size: clamp(32px, 10vw, 48px); }
+    .hero-title { font-size: clamp(36px, 10vw, 48px); }
     .hero-sub { margin-bottom: 2rem; font-size: 16px; margin-left: auto; margin-right: auto;}
     .scroll-indicator { display: none; } 
     
@@ -357,45 +358,23 @@
     .stat-item { border-bottom: 1px solid #E2E8F0; padding: 1.5rem 1rem;}
     .stat-item:nth-child(even) { border-right: none; }
     .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
-    .stat-num { font-size: 2.5rem; }
+    .stat-num { font-size: 2.8rem; }
     
-    .capabilities-bento { grid-template-columns: repeat(2, 1fr); }
-    .focus-bento { grid-template-columns: repeat(2, 1fr); }
-    .bento-feat-img.span-2 { grid-column: span 2; aspect-ratio: 16/9; }
-    .bento-grid { gap: 1.5rem; margin-top: 2rem; }
-    
-    .trust-strip { flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 5%; }
-    
-    .section { padding: 4rem 5%; }
-    .section-title { font-size: 32px; }
+    .section { padding: 80px 5%; }
+    .section-title { font-size: 36px; }
     .section-header { margin-bottom: 3rem; }
-    .bento-card { padding: 2rem 1.5rem; }
     
-    .services-page-hero { padding: 5rem 5% 4rem; }
-    .services-big-grid { margin-top: 0; gap: 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1.5rem;}
+    .service-card { padding: 2.5rem 2rem; }
     
-    .about-container { grid-template-columns: 1fr; gap: 3rem;}
-    .about-badge { left: 50%; transform: translateX(-50%); bottom: -30px; width: 85%; text-align: center; padding: 15px;}
-    .about-bottom-bar { flex-direction: column; align-items: stretch; text-align: center; gap: 1.5rem; padding-top: 2rem; margin-top: 2rem;}
-    .about-bottom-bar button { width: 100%; }
-    .trust-badges { flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; width: 100%;}
-    .badge-card { width: 100%; min-width: 0; flex-direction: column; text-align: center; }
+    .split-badge { left: 50%; transform: translateX(-50%); bottom: -20px; width: 85%; text-align: center; padding: 15px;}
     
-    .press-title { margin-bottom: 3rem; }
+    .press-title { margin-bottom: 2.5rem; }
     .press-grid { flex-direction: column; gap: 1.5rem; }
     
-    .contact-wrapper { grid-template-columns: 1fr; gap: 0; }
-    .contact-info { padding: 3rem 1.5rem; }
+    .contact-info h2 { font-size: 38px; }
     .form-container { padding: 3rem 1.5rem; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
-  }
-
-  @media (max-width: 600px) {
-    .nav-cta { display: none; } 
-    .nav-logo-text { font-size: 18px; }
-    
-    .capabilities-bento, .focus-bento, .services-big-grid { grid-template-columns: 1fr !important; }
-    .bento-feat-img.span-2 { grid-column: span 1 !important; aspect-ratio: 4/3; }
   }
 </style>
 </head>
@@ -445,12 +424,12 @@
       <source src="https://retrovioletstudios.github.io/client-previews/mechanic-rolling-tire.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow fade-in-up">The Auto Mechanic That Comes To You</div>
-      <h1 class="hero-title fade-in-up delay-1">Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
-      <p class="hero-sub fade-in-up delay-2">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
+    <div class="hero-content fade-in-up">
+      <div class="hero-eyebrow">The Auto Mechanic That Comes To You</div>
+      <h1 class="hero-title">Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
+      <p class="hero-sub">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
-      <div class="hero-btns fade-in-up delay-3">
+      <div class="hero-btns">
         <button class="btn-glass" onclick="showPage('services')">Our Services</button>
         <button class="btn-solid-accent" onclick="showPage('contact')">Book via Wrench</button>
       </div>
@@ -483,73 +462,68 @@
   <section class="section" style="background: var(--bg-alt);">
     <div class="section-inner">
       <div class="section-header fade-in-up">
-        <span class="section-label">Expertise</span>
-        <h2 class="section-title">Premium Diagnostic Repair</h2>
-        <p class="section-sub">Our mobile units cover your vehicle mile after mile, providing dealership-level troubleshooting directly in your driveway.</p>
+        <span class="section-eyebrow">Expertise</span>
+        <h2 class="section-title">Premium Diagnostic<br><em>Repair</em></h2>
+        <p class="section-sub" style="margin:0 auto;">Our mobile units cover your vehicle mile after mile, providing dealership-level troubleshooting directly in your driveway.</p>
       </div>
       
-      <div class="bento-grid capabilities-bento">
-        <div class="bento-card fade-in-up delay-1" style="grid-column: span 1;">
+      <div class="services-grid">
+        <div class="service-card fade-in-up delay-1">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="10"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4M8.69 8.69l2.83 2.83M36.48 36.48l2.83 2.83M8.69 39.31l2.83-2.83M36.48 11.52l2.83-2.83"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
           </div>
-          <h3 class="bento-name">Engine Diagnostics</h3>
-          <p class="bento-desc">We accurately diagnose issues without pushing unassailable predatory repairs.</p>
+          <h3 class="service-name">Engine Diagnostics</h3>
+          <p class="service-desc">We accurately diagnose issues without pushing unnecessary predatory repairs.</p>
+          <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li></ul>
         </div>
         
-        <div class="bento-feat-img bento-card span-2 fade-in-up delay-2">
-          <img src="https://retrovioletstudios.github.io/client-previews/mechanicdesk.jpeg" alt="Mechanic diagnosing at desk" class="bento-img-asset">
-        </div>
-        
-        <div class="bento-card fade-in-up delay-3" style="grid-column: span 1;">
+        <div class="service-card fade-in-up delay-2">
           <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><polyline points="9 14 11 16 15 12"></polyline></svg>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 36l8-16 6 8 6-12 8 20"/><rect x="4" y="38" width="40" height="4" rx="2"/><path d="M30 14a4 4 0 100-8 4 4 0 000 8z"/></svg>
           </div>
-          <h3 class="bento-name">Lemon Squad</h3>
-          <p class="bento-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
+          <h3 class="service-name">Brake & Rotor Service</h3>
+          <p class="service-desc">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
+          <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li></ul>
+        </div>
+
+        <div class="service-card fade-in-up delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6C13.5 6 5 14.5 5 25s8.5 19 19 19 19-8.5 19-19S34.5 6 24 6z"/><path d="M24 14v11l7 4"/></svg>
+          </div>
+          <h3 class="service-name">Lemon Squad</h3>
+          <p class="service-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
+          <ul class="service-features"><li>32-point checklist</li><li>Detailed mechanical reports</li></ul>
         </div>
       </div>
       
-      <div style="margin-top: 3.5rem; text-align: center;" class="fade-in-up">
-        <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main);" onclick="showPage('services')">View Full Service Menu</button>
+      <div style="margin-top: 4rem; text-align: center;" class="fade-in-up">
+        <button class="btn-outline" onclick="showPage('services')">View Full Service Menu</button>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <span class="section-label">Why Choose Austin's Best</span>
-        <h2 class="section-title">Reliability & Convenience</h2>
-      </div>
-      
-      <div class="bento-grid focus-bento">
-        <div class="bento-feat-img bento-card span-2 fade-in-up delay-1">
-          <img src="https://retrovioletstudios.github.io/client-previews/luxcarmechanic.jpeg" alt="Mobile mechanic at work" class="bento-img-asset">
+      <div class="split-layout">
+        <div class="split-text fade-in-up delay-1">
+          <p class="section-eyebrow left-aligned">Why Choose Austin's Best</p>
+          <h2 class="section-title">Reliability &<br><em>Convenience</em></h2>
+          <p>Skip the tow truck and the waiting room. We bring the entire auto shop directly to you, combining master-level expertise with the ultimate convenience of mobile service.</p>
+          
+          <ul class="service-features" style="border:none; padding:0;">
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 35 Yrs Combined Experience</li>
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 1-Year Repair Warranty</li>
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> Seamless Wrench Booking</li>
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main);"><strong style="color:var(--accent-hover);">✓</strong> 100% Contactless Protocol</li>
+          </ul>
         </div>
         
-        <div class="bento-card fade-in-up delay-2" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num">35 YRS</div>
-          <h3 class="bento-name">Combined Experience</h3>
-          <p class="bento-desc">Roberto combines 25 years of traditional shop mastery with 10 years of specialized mobile operations.</p>
-        </div>
-        
-        <div class="bento-card fade-in-up delay-1" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num">1-Year</div>
-          <h3 class="bento-name">Repair Warranty</h3>
-          <p class="bento-desc">Complex diagnostics and brake repairs are backed by our unassailable 1-year guarantee.</p>
-        </div>
-        <div class="bento-card fade-in-up delay-2" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="why-stat-num" style="font-size: 32px; margin-bottom: 1rem;">Wrench</div>
-          <h3 class="bento-name">Seamless Booking</h3>
-          <p class="bento-desc">We utilize sophisticated scheduling integrations so you can book your exact service slot with ease.</p>
-        </div>
-        <div class="bento-card fade-in-up delay-3" style="grid-column: span 1; display: flex; flex-direction: column; justify-content: center;">
-          <div class="service-icon" style="margin-bottom: 0.5rem; font-size: 32px; width: auto; background: transparent;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        <div class="split-img-wrap fade-in-up delay-2">
+          <img src="https://retrovioletstudios.github.io/client-previews/luxcarmechanic.jpeg" alt="Mobile mechanic at work">
+          <div class="split-badge">
+            <div class="split-badge-num">100<span>%</span></div>
+            <div class="split-badge-label">Mobile Convenience</div>
           </div>
-          <h3 class="bento-name">Contactless Protocol</h3>
-          <p class="bento-desc">Strict sanitization and zero-contact driveway repairs to keep you and your family safe.</p>
         </div>
       </div>
     </div>
@@ -557,75 +531,62 @@
 </div>
 
 <div class="page" id="page-services">
-  <div class="services-page-hero fade-in-up">
-    <div class="section-label">Master Mechanic Capabilities</div>
-    <div class="section-title" style="font-size: clamp(36px,5vw,54px);">Comprehensive Service.<br>Uncompromising Quality.</div>
-    <p class="section-sub" style="margin: 1.5rem auto 0; max-width: 600px;">From gas to diesel, we service all major systems using premium parts and master-level expertise.</p>
+  <div class="section" style="background: var(--bg-alt); padding-top: 10rem; padding-bottom: 6rem; text-align: center; border-bottom: 1px solid #E2E8F0;">
+    <p class="section-eyebrow fade-in-up" style="justify-content: center;">Master Mechanic Capabilities</p>
+    <h2 class="section-title fade-in-up delay-1" style="font-size: clamp(36px,5vw,64px);">Comprehensive Service.<br><em>Uncompromising Quality.</em></h2>
+    <p class="section-sub fade-in-up delay-2" style="margin: 1.5rem auto 0; max-width: 600px;">From gas to diesel, we service all major systems using premium parts and master-level expertise.</p>
   </div>
   
   <section class="section">
-    <div class="section-inner fade-in-up">
-      <div class="services-big-grid">
+    <div class="section-inner">
+      <div class="services-grid">
         
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-          </div>
-          <h3 class="service-name-big">Engine Diagnostics</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">We accurately diagnose issues without pushing unnecessary predatory repairs.</p>
-          <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
+        <div class="service-card fade-in-up">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="10"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4M8.69 8.69l2.83 2.83M36.48 36.48l2.83 2.83M8.69 39.31l2.83-2.83M36.48 11.52l2.83-2.83"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg></div>
+          <h3 class="service-name">Computer Diagnostics</h3>
+          <p class="service-desc">We diagnose complex check engine lights and electrical faults that standard mechanics miss.</p>
+          <ul class="service-features"><li>Dealership-level code scanning</li><li>Electrical system analysis</li><li>1-Year Repair Warranty</li></ul>
+          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
         
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          </div>
-          <h3 class="service-name-big">Brake Service</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Ensure your vehicle is safe with our complete brake system inspections and service.</p>
+        <div class="service-card fade-in-up delay-1">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 36l8-16 6 8 6-12 8 20"/><rect x="4" y="38" width="40" height="4" rx="2"/><path d="M30 14a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
+          <h3 class="service-name">Brake & Rotor Service</h3>
+          <p class="service-desc">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
           <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
+          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
 
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
-          </div>
-          <h3 class="service-name-big">Routine Maintenance</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Keep your vehicle running mile after mile with factory milestone checks.</p>
-          <ul class="service-features"><li>Synthetic oil changes</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-          </div>
-          <h3 class="service-name-big">Electrical Repair</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Expert electrical system repair for everything from complex wiring shorts to battery drains.</p>
-          <ul class="service-features"><li>Alternator & starter replacement</li><li>Wiring diagnostics</li><li>Battery testing</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
+        <div class="service-card fade-in-up delay-2">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36H4V24l6-14h28l6 14v12h-4"/><path d="M20 36h8"/><path d="M10 24h28"/></svg></div>
+          <h3 class="service-name">Diesel Engine Repair</h3>
+          <p class="service-desc">Expert maintenance and repair for diesel trucks and heavy-duty consumer vehicles.</p>
+          <ul class="service-features"><li>Diesel diagnostics</li><li>Fuel system maintenance</li><li>Heavy mechanical repair</li></ul>
+          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
         
-        <div class="service-big-card">
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <h3 class="service-name-big">A/C & Heating</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Because Texans demand exceptional comfort, we keep your climate control systems running ice cold.</p>
-          <ul class="service-features"><li>Freon leak detection</li><li>Compressor repair</li><li>System recharge</li></ul>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main); width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-big-card" style="border-color: rgba(81, 208, 222, 0.4);">
-          <div class="service-tag-pop">Partner</div>
-          <div class="service-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          </div>
-          <h3 class="service-name-big">Lemon Squad</h3>
-          <p style="color:var(--text-gray); font-size:15px; margin: 12px 0 20px; line-height: 1.6;">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
+        <div class="service-card fade-in-up" style="border-top-color: var(--text-main);">
+          <div class="service-icon" style="background: var(--text-main); color: #FFF;"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="16" width="32" height="20" rx="3"/><path d="M14 16V12a10 10 0 0120 0v4"/><circle cx="24" cy="26" r="4"/><path d="M24 30v4"/></svg></div>
+          <h3 class="service-name">Lemon Squad</h3>
+          <p class="service-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
           <ul class="service-features"><li>32-point checklist</li><li>On-site at seller location</li><li>Detailed mechanical report</li></ul>
           <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Schedule Inspection</button>
+        </div>
+
+        <div class="service-card fade-in-up delay-1">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6C13.5 6 5 14.5 5 25s8.5 19 19 19 19-8.5 19-19S34.5 6 24 6z"/><path d="M24 14v11l7 4"/></svg></div>
+          <h3 class="service-name">Oil & Routine</h3>
+          <p class="service-desc">Protect your investment with regular fluid changes and factory milestone checks.</p>
+          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
+          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
+        </div>
+
+        <div class="service-card fade-in-up delay-2">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M40 12H8a2 2 0 00-2 2v20a2 2 0 002 2h32a2 2 0 002-2V14a2 2 0 00-2-2z"/><path d="M16 20h16M16 28h10"/><circle cx="36" cy="28" r="4"/></svg></div>
+          <h3 class="service-name">Contactless Protocol</h3>
+          <p class="service-desc">Your safety is paramount. We offer a completely touch-free auto repair experience.</p>
+          <ul class="service-features"><li>Digital Wrench booking</li><li>Zero-contact driveway service</li><li>Vehicle sanitization</li></ul>
+          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
         </div>
 
       </div>
@@ -633,9 +594,11 @@
   </section>
 
   <section class="section" style="background: var(--bg-alt); border-top: 1px solid #E2E8F0;">
-    <div class="section-inner fade-in-up" style="text-align: center;">
-      <div class="section-label">Information</div>
-      <h2 class="section-title">What To Expect</h2>
+    <div class="section-inner fade-in-up">
+      <div class="section-header">
+        <p class="section-eyebrow" style="justify-content: center;">Information</p>
+        <h2 class="section-title">What To Expect</h2>
+      </div>
       
       <div class="faq-container">
         <div class="faq-item" onclick="this.classList.toggle('active')">
@@ -652,7 +615,7 @@
 
   <div class="parallax-banner fade-in-up">
     <h2 style="font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2rem; color: #FFF; text-transform: uppercase;">Your Car, Fixed Where It Is.</h2>
-    <button class="btn-primary" style="background: transparent !important; border: 2px solid var(--accent); color: #FFF !important; box-shadow: none !important;" onclick="showPage('contact')">Book via Wrench Today</button>
+    <button class="btn-primary" style="background: transparent !important; border: 2px solid var(--accent) !important; color: #FFF !important; box-shadow: none !important;" onclick="showPage('contact')">Book via Wrench Today</button>
   </div>
 </div>
 
@@ -664,71 +627,25 @@
       
       <p class="section-sub fade-in-up delay-2" style="margin: 0 auto 4rem auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
       
-      <div class="about-container fade-in-up delay-1">
-        <div class="about-img-wrapper">
-          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-img">
-        </div>
-        <div class="about-text text-left">
-          
-          <div class="feature-list">
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>35 Years of Experience</h4>
-                <p>Roberto spent 25 years mastering diagnostics in traditional shops before transitioning to specialized mobile repair for the last decade.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>Gas & Diesel Expertise</h4>
-                <p>Decades of experience tackling everything from basic commuter sedans to heavy-duty diesel engines.</p>
-              </div>
-            </div>
-            
-            <div class="feature-item">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="6.5"></line></svg>
-              </div>
-              <div class="feature-content" style="text-align: left;">
-                <h4>Unassailable Warranty</h4>
-                <p>Complex diagnostics and brake repairs are backed by a solid 1-year guarantee. Routine maintenance carries a 90-day warranty.</p>
-              </div>
-            </div>
+      <div class="owner-spotlight fade-in-up delay-1">
+        <div class="owner-img">
+          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto">
+          <div class="owner-img-label">
+            <strong>Roberto</strong>
+            <span>Lead Master Tech</span>
           </div>
+        </div>
+        <div class="owner-quote" style="text-align: left;">
+          <div class="owner-quote-mark">"</div>
+          <div class="owner-quote-text">We treat every vehicle as if it were our own — precision hands, factory knowledge, and an obsession with perfection that goes well beyond the driveway.</div>
+          <ul class="service-features" style="border:none; padding:0; margin:0;">
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 35 Years Diagnostic Experience</li>
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> Gas & Heavy Diesel Expertise</li>
+            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main);"><strong style="color:var(--accent-hover);">✓</strong> Master ASE Certified</li>
+          </ul>
         </div>
       </div>
-      
-      <div class="about-bottom-bar fade-in-up delay-2">
-        <div class="trust-badges">
-          <div class="badge-card">
-            <div class="badge-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            </div>
-            <div>
-              <div class="badge-title">ASE Certified</div>
-              <div class="badge-sub">Master Technicians</div>
-            </div>
-          </div>
-          <div class="badge-card">
-            <div class="badge-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            </div>
-            <div>
-              <div class="badge-title">1-Year Warranty</div>
-              <div class="badge-sub">Parts & Labor Included</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <button class="btn-outline" style="border-color: var(--text-main); color: var(--text-main);" onclick="showPage('services')" style="padding: 18px 36px; height: 100%;">Explore Our Capabilities</button>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -746,47 +663,43 @@
 <div class="page" id="page-contact">
   <section class="section" style="background: var(--bg-alt); padding-top: 8rem;">
     <div class="section-inner fade-in-up" style="text-align: center;">
-      <div class="section-label">Digital Scheduling</div>
+      <p class="section-eyebrow" style="justify-content: center;">Digital Scheduling</p>
       <h2 class="section-title">Book Your Service</h2>
       <p class="section-sub" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
       
       <div class="contact-wrapper">
         <div class="contact-info text-left">
-          <h3 style="text-align: left;">Wrench Portal</h3>
-          <p style="text-align: left;">Use code <strong>AUSTINSBEST</strong> for 10% off your first service.</p>
+          <p class="section-eyebrow left-aligned">Wrench Portal</p>
+          <h2 style="font-family: var(--font-head); font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #FFF; letter-spacing: -1px; line-height: 1.1;">Secure<br><em style="font-style: italic; color: var(--accent); font-weight: 300;">Booking</em></h2>
+          <p style="color: rgba(255,255,255,0.8); font-weight: 300; line-height: 1.8; margin-bottom: 3rem; font-size: 1.05rem;">Use code <strong>AUSTINSBEST</strong> for 10% off your first service.</p>
           
           <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+            <div class="info-text">
               <h5>Service Area</h5>
-              <p>Cedar Park, Pflugerville, Round Rock, & Austin</p>
+              <p style="color: #FFF;">Cedar Park, Pflugerville, Round Rock, & Austin</p>
             </div>
           </div>
           
           <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            <div class="info-text">
               <h5>Lemon Squad</h5>
-              <p>Certified Inspection Partner</p>
+              <p style="color: #FFF;">Certified Inspection Partner</p>
             </div>
           </div>
 
           <div class="info-row">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </div>
-            <div class="info-text" style="text-align: left;">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+            <div class="info-text">
               <h5>Direct Dispatch</h5>
-              <p><a href="tel:5127467277" style="color:var(--text-main); text-decoration:none;">(512) 746-7277</a></p>
+              <p><a href="tel:5127467277" style="color:#FFF; text-decoration:none;">(512) 746-7277</a></p>
             </div>
           </div>
         </div>
         
-        <div class="form-container" style="text-align: left;">
+        <div class="form-container">
+          <h3 style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; letter-spacing: -0.5px;">Request Booking</h3>
           <div class="form-row">
             <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Your Name" id="fname"/></div>
             <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
@@ -803,13 +716,13 @@
               <option>Lemon Squad Inspection</option>
             </select>
           </div>
-          <button class="btn-primary" style="width:100%; margin-top: 10px;" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
+          <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
           <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
         </div>
       </div>
 
       <div class="map-container fade-in-up delay-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882006.1887372993!2d-98.42398551913166!3d30.347525388046896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1691458925579!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440733.98522649665!2d-98.05312330310243!3d30.30746237887309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1689266650428!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>
@@ -867,9 +780,8 @@
     confirm.style.display = 'block';
   }
 
-  // BULLETPROOF SCROLL TRIGGER
   function checkAnimations() {
-    const elements = document.querySelectorAll('.fade-in-up');
+    const elements = document.querySelectorAll('.page.active .fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top <= window.innerHeight * 0.95) {
@@ -878,10 +790,7 @@
     });
   }
   
-  // Run immediately for first load elements
-  setTimeout(checkAnimations, 50);
-  
-  document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('load', () => {
     setTimeout(checkAnimations, 100);
     
     const counts = document.querySelectorAll('.count');
