@@ -10,12 +10,13 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --accent: #51d0de; 
-    --accent-hover: #3ebbc9;
+    /* RENAMED VARIABLES TO BYPASS WRAPPER INJECTION */
+    --brand-cyan: #51d0de; 
+    --brand-cyan-hover: #3ebbc9;
     --bg-white: #FFFFFF; 
-    --bg-alt: #F7F7F7; /* Neutral light gray */
-    --text-main: #1A1A1A; /* Pure neutral black */
-    --text-gray: #555555; /* Pure neutral gray */
+    --bg-alt: #F7F7F7; 
+    --text-main: #1A1A1A; 
+    --text-gray: #555555; 
     --radius: 14px; 
     --font-display: 'Cormorant Garamond', serif;
     --font-head: 'Montserrat', sans-serif;
@@ -29,7 +30,7 @@
 
   a[href^="tel"], a[href^="http"] { color: inherit; text-decoration: none; transition: opacity 0.3s; }
   a:hover { opacity: 0.8; }
-  .text-accent-link { color: var(--accent-hover) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
+  .text-accent-link { color: var(--brand-cyan-hover) !important; font-weight: 700; cursor: pointer; text-decoration: none;}
 
   /* BULLETPROOF ANIMATIONS */
   .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform;}
@@ -41,7 +42,7 @@
   .delay-3 { transition-delay: 0.34s; }
 
   .promo-banner { background: var(--text-main); color: #FFF; text-align: center; padding: 12px 20px; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; position: relative; z-index: 101; }
-  .promo-banner span { color: var(--accent); font-weight: 800; }
+  .promo-banner span { color: var(--brand-cyan); font-weight: 800; }
 
   /* DESKTOP NAVIGATION */
   nav {
@@ -52,24 +53,24 @@
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-main); cursor: pointer;}
   .nav-logo img { height: 48px; width: auto; border-radius: 6px; }
   .nav-logo-text { font-family: var(--font-head); font-size: 20px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.1; }
-  .nav-logo-text span { color: var(--accent-hover); display: block; font-size: 14px; font-family: var(--font-body); letter-spacing: 2px; margin-top: 2px;}
+  .nav-logo-text span { color: var(--brand-cyan-hover); display: block; font-size: 14px; font-family: var(--font-body); letter-spacing: 2px; margin-top: 2px;}
   
   .nav-links { display: flex; gap: 2.5rem; }
   .nav-links a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-gray); text-decoration: none; cursor: pointer; transition: color 0.2s; position: relative;}
-  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--brand-cyan); transition: width 0.3s ease; }
   .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
   .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
   
   .nav-cta { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; border: none; padding: 14px 32px; cursor: pointer; border-radius: 50px; transition: all 0.3s;}
-  .nav-cta:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
+  .nav-cta:hover { background: var(--brand-cyan); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
 
   /* MOBILE BOTTOM APP BAR */
   .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(224, 224, 224, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08); }
   .mobile-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 0; color: #999999; text-decoration: none; cursor: pointer; transition: color 0.2s;}
   .mobile-nav-item svg { width: 22px; height: 22px; margin-bottom: 4px; }
   .mobile-nav-item span { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;}
-  .mobile-nav-item.active { color: var(--accent-hover); }
-  .mobile-nav-item.active svg { color: var(--accent-hover); }
+  .mobile-nav-item.active { color: var(--brand-cyan-hover); }
+  .mobile-nav-item.active svg { color: var(--brand-cyan-hover); }
 
   .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
   .page.active { display: block; opacity: 1; }
@@ -92,48 +93,45 @@
     position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px; width: 100%;
   }
   
-  /* =========================================
-  NUCLEAR HERO TYPOGRAPHY LOCK 
-  ========================================= */
-  div#page-home section.video-hero div.hero-content .hero-eyebrow { 
+  .hero-eyebrow { 
     font-family: var(--font-body) !important;
     font-size: 0.75rem !important; 
     font-weight: 700 !important; 
     letter-spacing: 0.32em !important; 
     text-transform: uppercase !important; 
-    color: var(--accent) !important; 
+    color: var(--brand-cyan) !important; 
     margin-bottom: 18px !important; 
     display: flex !important; 
     align-items: center !important; 
     justify-content: center !important; 
     gap: 12px !important; 
   }
-  div#page-home section.video-hero div.hero-content .hero-eyebrow::before, 
-  div#page-home section.video-hero div.hero-content .hero-eyebrow::after { 
+  .hero-eyebrow::before, 
+  .hero-eyebrow::after { 
     content: '' !important; 
     display: inline-block !important; 
     width: 28px !important; 
     height: 2px !important; 
-    background: var(--accent) !important; 
+    background: var(--brand-cyan) !important; 
     flex-shrink: 0 !important; 
   }
   
-  div#page-home section.video-hero div.hero-content h1 { 
+  .hero-title { 
     font-family: var(--font-display) !important; 
     font-size: clamp(3.2rem, 8vw, 6.5rem) !important; 
     font-weight: 300 !important; 
     line-height: 1.05 !important; 
     letter-spacing: 0 !important; 
     margin-bottom: 1.5rem !important; 
-    color: #FFFFFF !important; /* PURE WHITE HEADLINE */
+    color: #FFFFFF !important; 
   }
-  div#page-home section.video-hero div.hero-content h1 em { 
-    color: var(--accent) !important; /* CYAN ITALICS */
+  .hero-title em { 
+    color: var(--brand-cyan) !important; 
     font-style: italic !important; 
     font-weight: 300 !important;
   }
   
-  div#page-home section.video-hero div.hero-content .hero-sub { 
+  .hero-sub { 
     font-family: var(--font-body) !important;
     font-size: 1.05rem !important; 
     color: #FFFFFF !important; 
@@ -177,10 +175,10 @@
 
   .btn-solid-accent {
     padding: 15px 36px;
-    background: var(--accent) !important;
-    border: 1px solid var(--accent) !important;
+    background: var(--brand-cyan) !important;
+    border: 1px solid var(--brand-cyan) !important;
     border-radius: 50px;
-    color: #1A1A1A !important; /* NEUTRAL BLACK TEXT */
+    color: #1A1A1A !important; 
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 700;
@@ -192,7 +190,7 @@
     box-shadow: 0 4px 20px rgba(81, 208, 222, 0.25);
   }
   .btn-solid-accent:hover {
-    background: var(--accent-hover) !important;
+    background: var(--brand-cyan-hover) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4);
   }
@@ -206,7 +204,7 @@
 
   /* ─── GENERAL BUTTONS (Used elsewhere) ─── */
   .btn-primary { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px;}
-  .btn-primary:hover { background: var(--accent); color: var(--text-main); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
+  .btn-primary:hover { background: var(--brand-cyan); color: var(--text-main); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
   .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E0E0E0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
   .btn-outline:hover { border-color: var(--text-main); background: #F5F5F5; }
 
@@ -214,7 +212,7 @@
   #stats { background: var(--bg-alt); padding: 50px 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border-bottom: 1px solid #E0E0E0; }
   .stat-item { text-align: center; padding: 20px; border-right: 1px solid #E0E0E0; }
   .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: var(--font-head); font-size: 3.8rem; font-weight: 800; color: var(--accent-hover); line-height: 1; margin-bottom: 8px; letter-spacing: -2px;}
+  .stat-num { font-family: var(--font-head); font-size: 3.8rem; font-weight: 800; color: var(--brand-cyan-hover); line-height: 1; margin-bottom: 8px; letter-spacing: -2px;}
   .stat-num span { color: var(--text-main); font-weight: 300;}
   .stat-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-gray); }
 
@@ -223,612 +221,14 @@
   .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 64px auto; }
   .section-title { font-family: var(--font-head); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
-  .section-title em { font-style: italic; font-weight: 300; color: var(--accent-hover); }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--brand-cyan-hover); }
   .section-sub { font-size: 1.05rem; color: var(--text-gray); line-height: 1.8; font-weight: 300;}
 
   /* ─── APEX 3-COLUMN SERVICE GRID ─── */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .service-card { background: var(--bg-white); border: 1px solid #E0E0E0; border-top: 3px solid var(--accent); border-radius: var(--radius); padding: 40px 36px; box-shadow: var(--shadow-sm); transition: all 0.45s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; text-align: left;}
-  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-top-color: var(--accent-hover); }
-  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent-hover); transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+  .service-card { background: var(--bg-white); border: 1px solid #E0E0E0; border-top: 3px solid var(--brand-cyan); border-radius: var(--radius); padding: 40px 36px; box-shadow: var(--shadow-sm); transition: all 0.45s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; text-align: left;}
+  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-top-color: var(--brand-cyan-hover); }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--brand-cyan-hover); transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
   .service-card:hover::before { transform: scaleX(1); }
   
-  .service-icon { width: 48px; height: 48px; margin-bottom: 24px; color: var(--accent-hover); }
-  .service-icon svg { width: 100%; height: 100%; }
-  .service-name { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.5px; }
-  .service-desc { font-size: 0.95rem; font-weight: 300; color: var(--text-gray); line-height: 1.75; margin-bottom: 1.5rem;}
-  
-  .service-features { list-style: none; margin-bottom: 2rem; border-top: 1px solid #EEEEEE; padding-top: 1.5rem;}
-  .service-features li { font-size: 0.9rem; color: var(--text-gray); padding: 8px 0; display: flex; align-items: center; gap: 10px; }
-  .service-features li::before { content: '✓'; color: var(--accent-hover); font-weight: 700; font-size: 16px; }
-
-  /* ─── APEX SPLIT LAYOUT (About / Reliability) ─── */
-  .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .split-text { text-align: left; }
-  .section-eyebrow.left-aligned { justify-content: flex-start; }
-  .section-eyebrow.left-aligned::after { display: none; }
-  .split-text p { font-size: 1.05rem; font-weight: 300; color: var(--text-gray); line-height: 1.85; margin-bottom: 1.5rem; }
-  
-  .split-img-wrap { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow-lg); }
-  .split-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 6s ease; }
-  .split-img-wrap:hover img { transform: scale(1.04); }
-  
-  /* Apex Floating Badge */
-  .split-badge { position: absolute; bottom: 28px; left: 28px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #E0E0E0; border-left: 3px solid var(--accent); border-radius: 12px; padding: 20px 24px; box-shadow: var(--shadow-md); z-index: 5;}
-  .split-badge-num { font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; color: var(--accent-hover); line-height: 1; letter-spacing: -1px;}
-  .split-badge-num span { color: var(--text-main); font-weight: 300; font-size: 1.4rem; }
-  .split-badge-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-gray); margin-top: 6px; }
-
-  /* ─── APEX OWNER SPOTLIGHT ─── */
-  .owner-spotlight { background: var(--bg-alt); padding: 80px 5%; display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center; border-radius: 24px; border: 1px solid #E0E0E0; margin-top: 2rem;}
-  .owner-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; box-shadow: var(--shadow-lg); border: 1px solid rgba(0,0,0,0.05); }
-  .owner-img img { width: 100%; height: 100%; object-fit: cover; }
-  .owner-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); padding: 30px 20px 20px; }
-  .owner-img-label strong { display: block; font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--bg-white); }
-  .owner-img-label span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-  
-  .owner-quote-mark { font-family: var(--font-head); font-size: 8rem; font-weight: 800; color: var(--accent); line-height: 0.7; margin-bottom: 12px; opacity: 0.2; }
-  .owner-quote-text { font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--text-main); line-height: 1.45; margin-bottom: 28px; }
-  .owner-quote-text em { color: var(--accent-hover); font-style: normal; font-weight: 700; }
-
-  /* ─── APEX PARALLAX BANNER ─── */
-  .parallax-banner { background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed; padding: 120px 5%; text-align: center; }
-  
-  .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
-  .faq-item { border-bottom: 1px solid #E0E0E0; padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
-  .faq-item:hover { background: #F5F5F5; }
-  .faq-question { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-head); font-size: 18px; font-weight: 700; letter-spacing: -0.2px; color: var(--text-main); }
-  .faq-icon { color: var(--accent-hover); font-size: 22px; font-weight: 300; transition: transform 0.3s ease; }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-gray); font-size: 1.05rem; font-weight: 300; line-height: 1.7; }
-  .faq-item.active .faq-answer { max-height: 250px; margin-top: 1rem; }
-  .faq-item.active .faq-icon { transform: rotate(45deg); }
-
-  .press-section { padding: 4rem 5%; background: var(--bg-alt); text-align: center; border-top: 1px solid #E0E0E0; border-bottom: 1px solid #E0E0E0;}
-  .press-title { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 3rem; }
-  .press-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; align-items: center; max-width: 1000px; margin: 0 auto; }
-  .press-logo { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: #999999; letter-spacing: -0.5px; transition: all 0.3s; }
-  .press-logo:hover { color: var(--text-main); }
-
-  /* ─── APEX CONTACT ─── */
-  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
-  .contact-info { text-align: left;}
-  .contact-info .section-eyebrow { justify-content: flex-start; }
-  .contact-info .section-eyebrow::after { display: none; }
-  .contact-info h2 { font-family: var(--font-head); font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); letter-spacing: -1px; line-height: 1.1;}
-  .contact-info h2 em { font-style: italic; color: var(--accent-hover); font-weight: 300;}
-  .contact-info p { color: var(--text-gray); font-weight: 300; line-height: 1.8; margin-bottom: 3rem; font-size: 1.05rem; }
-  
-  .info-row { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 28px; }
-  .info-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--bg-white); border: 1px solid #E0E0E0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent-hover); box-shadow: var(--shadow-sm);}
-  .info-icon svg { width: 20px; height: 20px;}
-  .info-text h5 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-gray); margin-bottom: 6px; }
-  .info-text p { color: var(--text-main); font-size: 1rem; font-weight: 500; margin-bottom: 0; }
-  
-  .form-container { background: var(--bg-white); padding: 48px 44px; border-radius: 20px; box-shadow: var(--shadow-md); border: 1px solid #E0E0E0; text-align: left;}
-  .form-container h3 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; letter-spacing: -0.5px;}
-  .form-group { margin-bottom: 16px; }
-  .form-label { display: block; font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 8px; }
-  .form-input, .form-select, .form-textarea { width: 100%; background: var(--bg-alt); border: 1px solid #E0E0E0; color: var(--text-main); font-family: var(--font-body); font-size: 15px; padding: 16px 20px; outline: none; transition: all 0.3s ease; border-radius: 10px;}
-  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-hover); background: #FFF; box-shadow: 0 0 0 3px rgba(81, 208, 222, 0.15); }
-  .form-textarea { resize: vertical; min-height: 120px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .btn-submit { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px; width: 100%; margin-top: 10px;}
-  .btn-submit:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
-  .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 10px;}
-
-  .map-container { margin-top: 5rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid #E0E0E0;}
-
-  /* FOOTER */
-  footer { background: var(--bg-alt); padding: 5rem 5% 5rem; text-align: center; color: var(--text-gray); border-top: 1px solid #E0E0E0;}
-  .footer-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 1.5rem; cursor: pointer;}
-  .footer-logo img { height: 40px; width: auto; border-radius: 4px;}
-  .footer-logo-text { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--text-main); text-transform: uppercase; text-align: left; line-height: 1.1;}
-  .footer-logo-text span { color: var(--accent-hover); display: block; font-size: 12px; letter-spacing: 2px;}
-  
-  .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; border-top: 1px solid #E0E0E0; padding-top: 3rem; }
-  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: #999999; text-decoration: none; transition: color 0.2s; cursor: pointer;}
-  .footer-nav a:hover { color: var(--text-main); }
-  
-  .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
-  .social-icon { color: var(--text-gray); transition: color 0.2s; }
-  .social-icon:hover { color: var(--accent-hover); transform: translateY(-2px); }
-
-  /* ========================================= */
-  /* BULLETPROOF MOBILE RESPONSIVENESS         */
-  /* ========================================= */
-  @media (max-width: 1000px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .split-layout { grid-template-columns: 1fr; gap: 40px; }
-    .split-text { text-align: center; }
-    .section-eyebrow.left-aligned { justify-content: center; }
-    .section-eyebrow.left-aligned::after { display: inline-block; }
-    .owner-spotlight { grid-template-columns: 1fr; gap: 40px; padding: 60px 5%; text-align: center;}
-    .owner-img { max-width: 400px; margin: 0 auto; }
-    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-  }
-
-  @media (max-width: 768px) {
-    .mobile-bottom-nav { display: flex; }
-    body { padding-bottom: 70px; } 
-
-    nav { background: #FFFFFF; } 
-    .nav-links, .nav-cta { display: none; } 
-    
-    .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
-    div#page-home section.video-hero div.hero-content h1 { font-size: clamp(2.5rem, 10vw, 3.8rem) !important; }
-    div#page-home section.video-hero div.hero-content .hero-sub { margin-bottom: 2rem !important; font-size: 16px !important; margin-left: auto !important; margin-right: auto !important;}
-    .scroll-indicator { display: none; } 
-    
-    #stats { grid-template-columns: repeat(2, 1fr); padding: 2rem 5%; }
-    .stat-item { border-bottom: 1px solid #E0E0E0; padding: 1.5rem 1rem;}
-    .stat-item:nth-child(even) { border-right: none; }
-    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
-    .stat-num { font-size: 2.8rem; }
-    
-    .section { padding: 80px 5%; }
-    .section-title { font-size: 36px; }
-    .section-header { margin-bottom: 3rem; }
-    
-    .services-grid { grid-template-columns: 1fr; gap: 1.5rem;}
-    .service-card { padding: 2.5rem 2rem; }
-    
-    .split-badge { left: 50%; transform: translateX(-50%); bottom: -20px; width: 85%; text-align: center; padding: 15px;}
-    
-    .press-title { margin-bottom: 2.5rem; }
-    .press-grid { flex-direction: column; gap: 1.5rem; }
-    
-    .contact-info h2 { font-size: 38px; }
-    .form-container { padding: 3rem 1.5rem; }
-    .form-row { grid-template-columns: 1fr; gap: 0; }
-  }
-</style>
-</head>
-<body>
-
-<div class="promo-banner">
-  Get 10% Off Your First Service — Use Code: <span>AUSTINSBEST</span>
-</div>
-
-<nav>
-  <a onclick="showPage('home')" class="nav-logo">
-    <img src="https://retrovioletstudios.github.io/client-previews/austinsbestmmlogo.jpeg" alt="Austin's Best Mobile Mechanic Logo">
-    <div class="nav-logo-text">Austin's Best<br><span>Mobile Mechanic</span></div>
-  </a>
-  <div class="nav-links">
-    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
-    <a onclick="showPage('services')" id="nav-services">Services</a>
-    <a onclick="showPage('about')" id="nav-about">Meet Roberto</a>
-    <a onclick="showPage('contact')" id="nav-contact">Book Online</a>
-  </div>
-  <button class="nav-cta" onclick="showPage('contact')">Schedule Service</button>
-</nav>
-
-<div class="mobile-bottom-nav">
-  <a onclick="showPage('home')" class="mobile-nav-item active" id="mob-nav-home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-    <span>Home</span>
-  </a>
-  <a onclick="showPage('services')" class="mobile-nav-item" id="mob-nav-services">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-    <span>Services</span>
-  </a>
-  <a onclick="showPage('about')" class="mobile-nav-item" id="mob-nav-about">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-    <span>Roberto</span>
-  </a>
-  <a onclick="showPage('contact')" class="mobile-nav-item" id="mob-nav-contact">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-    <span>Book</span>
-  </a>
-</div>
-
-<div class="page active" id="page-home">
-  
-  <section class="video-hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="https://retrovioletstudios.github.io/client-previews/mechanic-rolling-tire.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      
-      <div class="hero-eyebrow fade-in-up">The Auto Mechanic That Comes To You</div>
-      <h1 class="hero-title fade-in-up delay-1">Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
-      <p class="hero-sub fade-in-up delay-2">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
-      
-      <div class="hero-btns fade-in-up delay-3">
-        <button class="btn-glass" onclick="showPage('services')">Our Services</button>
-        <button class="btn-solid-accent" onclick="showPage('contact')">Book via Wrench</button>
-      </div>
-      
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <div id="stats">
-    <div class="stat-item fade-in-up delay-1">
-      <div class="stat-num"><span class="count" data-target="35">0</span><span>+</span></div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat-item fade-in-up delay-2">
-      <div class="stat-num"><span class="count" data-target="5">0</span><span>.0</span></div>
-      <div class="stat-label">Star Guarantee</div>
-    </div>
-    <div class="stat-item fade-in-up delay-1">
-      <div class="stat-num"><span class="count" data-target="1">0</span><span> Year</span></div>
-      <div class="stat-label">Repair Warranty</div>
-    </div>
-    <div class="stat-item fade-in-up delay-2">
-      <div class="stat-num"><span class="count" data-target="100">0</span><span>%</span></div>
-      <div class="stat-label">Integrity First</div>
-    </div>
-  </div>
-
-  <section class="section" style="background: var(--bg-alt);">
-    <div class="section-inner">
-      <div class="section-header fade-in-up">
-        <span class="section-eyebrow left-aligned" style="justify-content: center;">Expertise</span>
-        <h2 class="section-title">Premium Diagnostic<br><em>Repair</em></h2>
-        <p class="section-sub" style="margin:0 auto;">Our mobile units cover your vehicle mile after mile, providing dealership-level troubleshooting directly in your driveway.</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card fade-in-up delay-1">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="10"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4M8.69 8.69l2.83 2.83M36.48 36.48l2.83 2.83M8.69 39.31l2.83-2.83M36.48 11.52l2.83-2.83"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
-          </div>
-          <h3 class="service-name">Engine Diagnostics</h3>
-          <p class="service-desc">We accurately diagnose issues without pushing unnecessary predatory repairs.</p>
-          <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li></ul>
-        </div>
-        
-        <div class="service-card fade-in-up delay-2">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 36l8-16 6 8 6-12 8 20"/><rect x="4" y="38" width="40" height="4" rx="2"/><path d="M30 14a4 4 0 100-8 4 4 0 000 8z"/></svg>
-          </div>
-          <h3 class="service-name">Brake & Rotor Service</h3>
-          <p class="service-desc">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
-          <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li></ul>
-        </div>
-
-        <div class="service-card fade-in-up delay-3">
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6C13.5 6 5 14.5 5 25s8.5 19 19 19 19-8.5 19-19S34.5 6 24 6z"/><path d="M24 14v11l7 4"/></svg>
-          </div>
-          <h3 class="service-name">Lemon Squad</h3>
-          <p class="service-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
-          <ul class="service-features"><li>32-point checklist</li><li>Detailed mechanical reports</li></ul>
-        </div>
-      </div>
-      
-      <div style="margin-top: 4rem; text-align: center;" class="fade-in-up">
-        <button class="btn-outline" onclick="showPage('services')">View Full Service Menu</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-inner">
-      <div class="split-layout">
-        <div class="split-text fade-in-up delay-1">
-          <p class="section-eyebrow left-aligned">Why Choose Austin's Best</p>
-          <h2 class="section-title">Reliability &<br><em>Convenience</em></h2>
-          <p>Skip the tow truck and the waiting room. We bring the entire auto shop directly to you, combining master-level expertise with the ultimate convenience of mobile service.</p>
-          
-          <ul class="service-features" style="border:none; padding:0;">
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 35 Yrs Combined Experience</li>
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 1-Year Repair Warranty</li>
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> Seamless Wrench Booking</li>
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main);"><strong style="color:var(--accent-hover);">✓</strong> 100% Contactless Protocol</li>
-          </ul>
-        </div>
-        
-        <div class="split-img-wrap fade-in-up delay-2">
-          <img src="https://retrovioletstudios.github.io/client-previews/luxcarmechanic.jpeg" alt="Mobile mechanic at work">
-          <div class="split-badge">
-            <div class="split-badge-num">100<span>%</span></div>
-            <div class="split-badge-label">Mobile Convenience</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div class="page" id="page-services">
-  <div class="section" style="background: var(--bg-alt); padding-top: 10rem; padding-bottom: 6rem; text-align: center; border-bottom: 1px solid #E0E0E0;">
-    <p class="section-eyebrow left-aligned" style="justify-content: center;">Master Mechanic Capabilities</p>
-    <h2 class="section-title fade-in-up delay-1" style="font-size: clamp(36px,5vw,64px);">Comprehensive Service.<br><em>Uncompromising Quality.</em></h2>
-    <p class="section-sub fade-in-up delay-2" style="margin: 1.5rem auto 0; max-width: 600px;">From gas to diesel, we service all major systems using premium parts and master-level expertise.</p>
-  </div>
-  
-  <section class="section">
-    <div class="section-inner fade-in-up">
-      <div class="services-grid">
-        
-        <div class="service-card fade-in-up">
-          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="10"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4M8.69 8.69l2.83 2.83M36.48 36.48l2.83 2.83M8.69 39.31l2.83-2.83M36.48 11.52l2.83-2.83"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg></div>
-          <h3 class="service-name">Computer Diagnostics</h3>
-          <p class="service-desc">We diagnose complex check engine lights and electrical faults that standard mechanics miss.</p>
-          <ul class="service-features"><li>Dealership-level code scanning</li><li>Electrical system analysis</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-        
-        <div class="service-card fade-in-up delay-1">
-          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 36l8-16 6 8 6-12 8 20"/><rect x="4" y="38" width="40" height="4" rx="2"/><path d="M30 14a4 4 0 100-8 4 4 0 000 8z"/></svg></div>
-          <h3 class="service-name">Brake & Rotor Service</h3>
-          <p class="service-desc">Ensure your vehicle is safe with our complete, squeak-free brake surfacing and replacement.</p>
-          <ul class="service-features"><li>Premium pad replacement</li><li>Rotor surfacing</li><li>1-Year Repair Warranty</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-card fade-in-up delay-2">
-          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36H4V24l6-14h28l6 14v12h-4"/><path d="M20 36h8"/><path d="M10 24h28"/></svg></div>
-          <h3 class="service-name">Diesel Engine Repair</h3>
-          <p class="service-desc">Expert maintenance and repair for diesel trucks and heavy-duty consumer vehicles.</p>
-          <ul class="service-features"><li>Diesel diagnostics</li><li>Fuel system maintenance</li><li>Heavy mechanical repair</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-        
-        <div class="service-card fade-in-up" style="border-top-color: var(--text-main);">
-          <div class="service-icon" style="background: var(--text-main); color: #FFF;"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="16" width="32" height="20" rx="3"/><path d="M14 16V12a10 10 0 0120 0v4"/><circle cx="24" cy="26" r="4"/><path d="M24 30v4"/></svg></div>
-          <h3 class="service-name">Lemon Squad</h3>
-          <p class="service-desc">Don't buy a used car blind. We are verified partners for comprehensive pre-purchase inspections.</p>
-          <ul class="service-features"><li>32-point checklist</li><li>On-site at seller location</li><li>Detailed mechanical report</li></ul>
-          <button class="btn-primary" style="width:100%;" onclick="showPage('contact')">Schedule Inspection</button>
-        </div>
-
-        <div class="service-card fade-in-up delay-1">
-          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6C13.5 6 5 14.5 5 25s8.5 19 19 19 19-8.5 19-19S34.5 6 24 6z"/><path d="M24 14v11l7 4"/></svg></div>
-          <h3 class="service-name">Oil & Routine</h3>
-          <p class="service-desc">Protect your investment with regular fluid changes and factory milestone checks.</p>
-          <ul class="service-features"><li>Synthetic & conventional oil</li><li>Fluid flushes</li><li>90-Day Warranty included</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-        <div class="service-card fade-in-up delay-2">
-          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M40 12H8a2 2 0 00-2 2v20a2 2 0 002 2h32a2 2 0 002-2V14a2 2 0 00-2-2z"/><path d="M16 20h16M16 28h10"/><circle cx="36" cy="28" r="4"/></svg></div>
-          <h3 class="service-name">Contactless Protocol</h3>
-          <p class="service-desc">Your safety is paramount. We offer a completely touch-free auto repair experience.</p>
-          <ul class="service-features"><li>Digital Wrench booking</li><li>Zero-contact driveway service</li><li>Vehicle sanitization</li></ul>
-          <button class="btn-outline" style="width:100%;" onclick="showPage('contact')">Book Service</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background: var(--bg-alt); border-top: 1px solid #E0E0E0;">
-    <div class="section-inner fade-in-up">
-      <div class="section-header">
-        <p class="section-eyebrow" style="justify-content: center;">Information</p>
-        <h2 class="section-title">What To Expect</h2>
-      </div>
-      
-      <div class="faq-container">
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-question">How does the 10% discount work? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">Simply enter the promo code <strong>AUSTINSBEST</strong> when booking your appointment through our scheduling portal. It will automatically apply a 10% discount to the labor costs of your very first service with us.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('active')">
-          <div class="faq-question">What areas do you service? <span class="faq-icon">+</span></div>
-          <div class="faq-answer">We deploy our fully-equipped mobile service units across Cedar Park, Pflugerville, Round Rock, and the greater Austin metropolitan area. We come directly to your home or office.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="parallax-banner fade-in-up">
-    <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 300; letter-spacing: 0; margin-bottom: 2rem; color: #FFF;">Your Car, <em style="font-style: italic; color: var(--accent);">Fixed Where It Is.</em></h2>
-    <button class="btn-primary" style="background: transparent !important; border: 2px solid var(--accent) !important; color: #FFF !important; box-shadow: none !important;" onclick="showPage('contact')">Book via Wrench Today</button>
-  </div>
-</div>
-
-<div class="page" id="page-about">
-  <section class="section" style="padding-top: 8rem;">
-    <div class="section-inner text-center">
-      <p class="section-eyebrow left-aligned fade-in-up" style="justify-content: center;">Master Pedigree</p>
-      <h2 class="section-title fade-in-up delay-1">Meet Master Mechanic<br><em>Roberto.</em></h2>
-      
-      <p class="section-sub fade-in-up delay-2" style="margin: 0 auto 4rem auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
-      
-      <div class="owner-spotlight fade-in-up delay-1">
-        <div class="owner-img">
-          <img src="https://retrovioletstudios.github.io/client-previews/austinsbestroberto.jpeg" alt="Master Mechanic Roberto" class="about-img">
-          <div class="owner-img-label">
-            <strong>Roberto</strong>
-            <span>Lead Master Tech</span>
-          </div>
-        </div>
-        <div class="owner-quote" style="text-align: left;">
-          <div class="owner-quote-mark">"</div>
-          <div class="owner-quote-text">We treat every vehicle as if it were our own — precision hands, factory knowledge, and an obsession with perfection that goes well beyond the driveway.</div>
-          <ul class="service-features" style="border:none; padding:0; margin:0;">
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> 35 Years Diagnostic Experience</li>
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main); margin-bottom:10px;"><strong style="color:var(--accent-hover);">✓</strong> Gas & Heavy Diesel Expertise</li>
-            <li style="font-size: 1.05rem; font-weight: 500; color: var(--text-main);"><strong style="color:var(--accent-hover);">✓</strong> Master ASE Certified</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="press-section fade-in-up">
-    <div class="press-title">Recognized & Trusted Across the Web</div>
-    <div class="press-grid">
-      <div class="press-logo">YELP TOP RATED</div>
-      <div class="press-logo">AUSTIN AUTO NEWS</div>
-      <div class="press-logo">MOBILE REPAIR PROS</div>
-      <div class="press-logo">LEMON SQUAD VERIFIED</div>
-    </div>
-  </section>
-</div>
-
-<div class="page" id="page-contact">
-  <section class="section" style="background: var(--bg-alt); padding-top: 8rem;">
-    <div class="section-inner fade-in-up" style="text-align: center;">
-      <p class="section-eyebrow left-aligned" style="justify-content: center;">Digital Scheduling</p>
-      <h2 class="section-title">Book Your Service</h2>
-      <p class="section-sub" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
-      
-      <div class="contact-wrapper">
-        <div class="contact-info text-left">
-          <p class="section-eyebrow left-aligned">Wrench Portal</p>
-          <h2 style="font-family: var(--font-head); font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #FFF; letter-spacing: -1px; line-height: 1.1;">Secure<br><em style="font-style: italic; color: var(--accent); font-weight: 300;">Booking</em></h2>
-          <p style="color: rgba(255,255,255,0.8); font-weight: 300; line-height: 1.8; margin-bottom: 3rem; font-size: 1.05rem;">Use code <strong>AUSTINSBEST</strong> for 10% off your first service.</p>
-          
-          <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-            <div class="info-text">
-              <h5>Service Area</h5>
-              <p style="color: #FFF;">Cedar Park, Pflugerville, Round Rock, & Austin</p>
-            </div>
-          </div>
-          
-          <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-            <div class="info-text">
-              <h5>Lemon Squad</h5>
-              <p style="color: #FFF;">Certified Inspection Partner</p>
-            </div>
-          </div>
-
-          <div class="info-row">
-            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
-            <div class="info-text">
-              <h5>Direct Dispatch</h5>
-              <p><a href="tel:5127467277" style="color:#FFF; text-decoration:none;">(512) 746-7277</a></p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-container">
-          <h3 style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 24px; letter-spacing: -0.5px;">Request Booking</h3>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Your Name" id="fname"/></div>
-            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(512) 555-0000" id="phone"/></div>
-          </div>
-          <div class="form-group"><label class="form-label">Vehicle Location (City / Zip)</label><input class="form-input" type="text" placeholder="e.g. Cedar Park, 78613" id="location"/></div>
-          <div class="form-group"><label class="form-label">Vehicle Make, Model & Year</label><input class="form-input" type="text" placeholder="e.g. 2019 Ford F-250 Diesel" id="vehicle"/></div>
-          <div class="form-group"><label class="form-label">Required Service</label>
-            <select class="form-select" id="service-select">
-              <option>Engine Diagnostics</option>
-              <option>Brake Service</option>
-              <option>Routine Maintenance</option>
-              <option>A/C & Heating Repair</option>
-              <option>Electrical System Repair</option>
-              <option>Lemon Squad Inspection</option>
-            </select>
-          </div>
-          <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
-          <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
-        </div>
-      </div>
-
-      <div class="map-container fade-in-up delay-1">
-        <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      
-    </div>
-  </section>
-</div>
-
-<footer>
-  <a onclick="showPage('home')" class="footer-logo">
-    <img src="https://retrovioletstudios.github.io/client-previews/austinsbestmmlogo.jpeg" alt="Austin's Best Mobile Mechanic Logo">
-    <div class="footer-logo-text">Austin's Best<br><span>Mobile Mechanic</span></div>
-  </a>
-  <div class="footer-address">Master Mobile Service Units · Serving the Greater Austin Area</div>
-  
-  <div class="social-links">
-    <a href="https://www.facebook.com/Austins-Best-Mobile-Mechanic-1993067160750533" target="_blank" class="social-icon" aria-label="Facebook">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-    </a>
-  </div>
-  
-  <div class="footer-nav">
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('services')">Services</a>
-    <a onclick="showPage('about')">Meet Roberto</a>
-    <a onclick="showPage('contact')">Book Online</a>
-  </div>
-</footer>
-
-<script>
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); });
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    document.querySelectorAll('.mobile-nav-item').forEach(a => a.classList.remove('active'));
-    
-    setTimeout(() => {
-      document.getElementById('page-' + name).classList.add('active');
-      
-      const desktopLink = document.getElementById('nav-' + name);
-      if(desktopLink) desktopLink.classList.add('active');
-      
-      const mobileLink = document.getElementById('mob-nav-' + name);
-      if(mobileLink) mobileLink.classList.add('active');
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      // Reset classes immediately so they re-trigger on scroll
-      document.querySelectorAll('.fade-in-up, .reveal').forEach(el => el.classList.remove('in-view', 'visible'));
-      setTimeout(checkAnimations, 50);
-    }, 10);
-  }
-
-  function submitForm() {
-    const fname = document.getElementById('fname').value.trim();
-    if (!fname) { alert('Please fill in your name.'); return; }
-    const confirm = document.getElementById('form-confirm');
-    confirm.style.display = 'block';
-  }
-
-  function checkAnimations() {
-    const elements = document.querySelectorAll('.page.active .fade-in-up, .page.active .reveal');
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= window.innerHeight * 0.95) {
-        if(el.classList.contains('fade-in-up')) el.classList.add('in-view');
-        if(el.classList.contains('reveal')) el.classList.add('visible');
-      }
-    });
-  }
-  
-  // Run immediately for first load elements
-  setTimeout(checkAnimations, 50);
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(checkAnimations, 100);
-    
-    const counts = document.querySelectorAll('.count');
-    const countObs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { 
-          animateCount(e.target); 
-          observer.unobserve(e.target); 
-        }
-      });
-    }, { threshold: 0.5 });
-    counts.forEach(c => countObs.observe(c));
-  });
-
-  window.addEventListener('scroll', checkAnimations, { passive: true });
-
-  function animateCount(el) {
-    const target = +el.dataset.target;
-    const duration = 1800;
-    const start = performance.now();
-    const easeOut = t => 1 - Math.pow(1 - t, 3);
-    (function tick(now) {
-      const pct = Math.min((now - start) / duration, 1);
-      el.textContent = Math.round(easeOut(pct) * target).toLocaleString();
-      if (pct < 1) requestAnimationFrame(tick);
-    })(start);
-  }
-</script>
-</body>
-</html>
+  .service-icon { width: 48px; height: 48px; margin-bottom: 24px
