@@ -14,15 +14,15 @@
     --accent-hover: #3ebbc9;
     --bg-white: #FFFFFF; 
     --bg-alt: #F4F8FA; 
-    --text-main: #0F172A; 
-    --text-gray: #475569; 
+    --text-main: #1A1B1E; /* True neutral dark gray/black - NO NAVY */
+    --text-gray: #5A6478; /* Neutral gray */
     --radius: 14px; 
     --font-display: 'Cormorant Garamond', serif;
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
-    --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.04);
-    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.05);
-    --shadow-lg: 0 24px 80px rgba(15, 23, 42, 0.08);
+    --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.08);
   }
   html, body { overflow-x: hidden; width: 100%; }
   body { font-family: var(--font-body); background: var(--bg-white); color: var(--text-main); -webkit-font-smoothing: antialiased; }
@@ -34,6 +34,8 @@
   /* BULLETPROOF ANIMATIONS */
   .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform;}
   .fade-in-up.in-view { opacity: 1; transform: translateY(0); }
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); will-change: opacity, transform;}
+  .reveal.visible { opacity: 1; transform: translateY(0); }
   .delay-1 { transition-delay: 0.1s; }
   .delay-2 { transition-delay: 0.22s; }
   .delay-3 { transition-delay: 0.34s; }
@@ -62,7 +64,7 @@
   .nav-cta:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(81, 208, 222, 0.4); }
 
   /* MOBILE BOTTOM APP BAR */
-  .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226, 232, 240, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(15, 23, 42, 0.08); }
+  .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(226, 232, 240, 0.6); z-index: 999; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08); }
   .mobile-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 0; color: #94A3B8; text-decoration: none; cursor: pointer; transition: color 0.2s;}
   .mobile-nav-item svg { width: 22px; height: 22px; margin-bottom: 4px; }
   .mobile-nav-item span { font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;}
@@ -84,57 +86,64 @@
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 50%, rgba(15, 23, 42, 0.75) 100%);
+    background: linear-gradient(160deg, rgba(10, 10, 14, 0.85) 0%, rgba(10, 10, 14, 0.5) 50%, rgba(10, 10, 14, 0.75) 100%);
   }
   .hero-content {
     position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px; width: 100%;
   }
   
-  .hero-eyebrow { 
-    font-family: var(--font-body);
-    font-size: 0.75rem; 
-    font-weight: 600; 
-    letter-spacing: 0.32em; 
-    text-transform: uppercase; 
-    margin-bottom: 22px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 12px; 
+  /* APEX TYPOGRAPHY RECREATION */
+  body #page-home .video-hero .hero-content .hero-eyebrow { 
+    font-family: var(--font-body) !important;
+    font-size: 0.72rem !important; 
+    font-weight: 600 !important; 
+    letter-spacing: 0.32em !important; 
+    text-transform: uppercase !important; 
+    color: var(--accent) !important; 
+    margin-bottom: 22px !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important; 
+    gap: 12px !important; 
   }
-  .hero-eyebrow::before, .hero-eyebrow::after { 
-    content: ''; 
-    display: inline-block; 
-    width: 28px; 
-    height: 2px; 
+  body #page-home .video-hero .hero-content .hero-eyebrow::before, 
+  body #page-home .video-hero .hero-content .hero-eyebrow::after { 
+    content: '' !important; 
+    display: inline-block !important; 
+    width: 28px !important; 
+    height: 2px !important; 
     background: var(--accent) !important; 
-    flex-shrink: 0; 
+    flex-shrink: 0 !important; 
   }
   
-  .hero-title { 
-    font-family: var(--font-display); 
-    font-size: clamp(3.2rem, 8vw, 6.5rem); 
-    font-weight: 300; 
-    line-height: 1.05; 
-    letter-spacing: 0; 
-    margin-bottom: 1.5rem; 
+  body #page-home .video-hero .hero-content h1 { 
+    font-family: var(--font-display) !important; 
+    font-size: clamp(3.2rem, 8vw, 6.5rem) !important; 
+    font-weight: 300 !important; 
+    line-height: 1.05 !important; 
+    letter-spacing: 0 !important; 
+    margin-bottom: 1.5rem !important; 
+    color: #FFFFFF !important; 
   }
-  .hero-title em { 
-    font-style: italic; 
-    font-weight: 300;
-  }
-  
-  .hero-sub { 
-    font-family: var(--font-body);
-    font-size: 1.05rem; 
-    line-height: 1.8; 
-    margin-bottom: 42px; 
-    font-weight: 300; 
-    max-width: 520px; 
-    margin-left: auto; 
-    margin-right: auto;
+  body #page-home .video-hero .hero-content h1 em { 
+    color: var(--accent) !important; 
+    font-style: italic !important; 
+    font-weight: 300 !important;
   }
   
+  body #page-home .video-hero .hero-content .hero-sub { 
+    font-family: var(--font-body) !important;
+    font-size: 1.05rem !important; 
+    color: rgba(255,255,255,0.85) !important; 
+    line-height: 1.8 !important; 
+    margin-bottom: 42px !important; 
+    font-weight: 300 !important; 
+    max-width: 520px !important; 
+    margin-left: auto !important; 
+    margin-right: auto !important;
+  }
+  
+  /* EXACT APEX BUTTON STYLES */
   .hero-btns { 
     display: flex; 
     gap: 16px; 
@@ -170,7 +179,7 @@
     background: var(--accent) !important;
     border: 1px solid var(--accent) !important;
     border-radius: 50px;
-    color: #0F172A !important;
+    color: var(--text-main) !important;
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 700;
@@ -208,7 +217,7 @@
   .stat-num span { color: var(--text-main); font-weight: 300;}
   .stat-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-gray); }
 
-  /* ─── GENERAL SECTIONS ─── */
+  /* ─── GENERAL APEX SECTIONS ─── */
   .section { padding: 120px 5%; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 64px auto; }
@@ -216,6 +225,7 @@
   .section-title em { font-style: italic; font-weight: 300; color: var(--accent-hover); }
   .section-sub { font-size: 1.05rem; color: var(--text-gray); line-height: 1.8; font-weight: 300;}
 
+  /* ─── APEX 3-COLUMN SERVICE GRID ─── */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .service-card { background: var(--bg-white); border: 1px solid #E2E8F0; border-top: 3px solid var(--accent); border-radius: var(--radius); padding: 40px 36px; box-shadow: var(--shadow-sm); transition: all 0.45s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; text-align: left;}
   .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-top-color: var(--accent-hover); }
@@ -231,7 +241,7 @@
   .service-features li { font-size: 0.9rem; color: var(--text-gray); padding: 8px 0; display: flex; align-items: center; gap: 10px; }
   .service-features li::before { content: '✓'; color: var(--accent-hover); font-weight: 700; font-size: 16px; }
 
-  /* ─── SPLIT LAYOUT ─── */
+  /* ─── APEX SPLIT LAYOUT (About / Reliability) ─── */
   .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .split-text { text-align: left; }
   .section-eyebrow.left-aligned { justify-content: flex-start; }
@@ -242,16 +252,17 @@
   .split-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 6s ease; }
   .split-img-wrap:hover img { transform: scale(1.04); }
   
+  /* Apex Floating Badge */
   .split-badge { position: absolute; bottom: 28px; left: 28px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid #E2E8F0; border-left: 3px solid var(--accent); border-radius: 12px; padding: 20px 24px; box-shadow: var(--shadow-md); z-index: 5;}
   .split-badge-num { font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; color: var(--accent-hover); line-height: 1; letter-spacing: -1px;}
   .split-badge-num span { color: var(--text-main); font-weight: 300; font-size: 1.4rem; }
   .split-badge-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-gray); margin-top: 6px; }
 
-  /* ─── OWNER SPOTLIGHT ─── */
+  /* ─── APEX OWNER SPOTLIGHT ─── */
   .owner-spotlight { background: var(--bg-alt); padding: 80px 5%; display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: center; border-radius: 24px; border: 1px solid #E2E8F0; margin-top: 2rem;}
   .owner-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; box-shadow: var(--shadow-lg); border: 1px solid rgba(0,0,0,0.05); }
   .owner-img img { width: 100%; height: 100%; object-fit: cover; }
-  .owner-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 100%); padding: 30px 20px 20px; }
+  .owner-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(26,27,30,0.9) 0%, transparent 100%); padding: 30px 20px 20px; }
   .owner-img-label strong { display: block; font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--bg-white); }
   .owner-img-label span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
   
@@ -259,8 +270,8 @@
   .owner-quote-text { font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--text-main); line-height: 1.45; margin-bottom: 28px; }
   .owner-quote-text em { color: var(--accent-hover); font-style: normal; font-weight: 700; }
 
-  /* ─── PARALLAX BANNER ─── */
-  .parallax-banner { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed; padding: 120px 5%; text-align: center; }
+  /* ─── APEX PARALLAX BANNER ─── */
+  .parallax-banner { background: linear-gradient(rgba(26, 27, 30, 0.85), rgba(26, 27, 30, 0.85)), url('https://retrovioletstudios.github.io/client-previews/rollingtirebright.jpeg') center/cover fixed; padding: 120px 5%; text-align: center; }
   
   .faq-container { max-width: 800px; margin: 4rem auto 0; text-align: left; }
   .faq-item { border-bottom: 1px solid #E2E8F0; padding: 1.75rem 0; cursor: pointer; transition: background 0.3s; }
@@ -277,7 +288,7 @@
   .press-logo { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: #94A3B8; letter-spacing: -0.5px; transition: all 0.3s; }
   .press-logo:hover { color: var(--text-main); }
 
-  /* ─── CONTACT ─── */
+  /* ─── APEX CONTACT ─── */
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
   .contact-info { text-align: left;}
   .contact-info .section-eyebrow { justify-content: flex-start; }
@@ -301,7 +312,7 @@
   .form-textarea { resize: vertical; min-height: 120px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .btn-submit { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px; width: 100%; margin-top: 10px;}
-  .btn-submit:hover { background: var(--accent); color: #0F172A; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
+  .btn-submit:hover { background: var(--accent); color: var(--text-main); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.3); }
   .submit-confirm { background: #DCFCE7; border: 1px solid #86EFAC; color: #166534; padding: 1.25rem; font-family: var(--font-body); font-weight: 500; font-size: 15px; margin-top: 1.5rem; display: none; text-align: center; border-radius: 10px;}
 
   .map-container { margin-top: 5rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid #E2E8F0;}
@@ -314,7 +325,7 @@
   .footer-logo-text span { color: var(--accent-hover); display: block; font-size: 12px; letter-spacing: 2px;}
   
   .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; border-top: 1px solid #E2E8F0; padding-top: 3rem; }
-  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
+  .footer-nav a { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: #94A3B8; text-decoration: none; transition: color 0.2s; cursor: pointer;}
   .footer-nav a:hover { color: var(--text-main); }
   
   .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
@@ -343,8 +354,8 @@
     .nav-links, .nav-cta { display: none; } 
     
     .video-hero { height: auto; min-height: 80vh; padding: 6rem 5% 5rem; }
-    .hero-title { font-size: clamp(2.5rem, 10vw, 3.8rem) !important; }
-    .hero-sub { margin-bottom: 2rem !important; font-size: 16px !important; margin-left: auto !important; margin-right: auto !important;}
+    div#page-home section.video-hero div.hero-content h1 { font-size: clamp(2.5rem, 10vw, 3.8rem) !important; }
+    div#page-home section.video-hero div.hero-content .hero-sub { margin-bottom: 2rem !important; font-size: 16px !important; margin-left: auto !important; margin-right: auto !important;}
     .scroll-indicator { display: none; } 
     
     #stats { grid-template-columns: repeat(2, 1fr); padding: 2rem 5%; }
@@ -417,18 +428,12 @@
       <source src="https://retrovioletstudios.github.io/client-previews/mechanic-rolling-tire.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
-    <div class="hero-content fade-in-up">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-in-up">The Auto Mechanic That Comes To You</div>
+      <h1 class="hero-title fade-in-up delay-1">Master Craftsmanship.<br><em>In Your Driveway.</em></h1>
+      <p class="hero-sub fade-in-up delay-2">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
-      <div class="hero-eyebrow" style="color: var(--accent) !important;">The Auto Mechanic That Comes To You</div>
-      
-      <h1 class="hero-title" style="color: #FFFFFF !important;">
-        Master Craftsmanship.<br>
-        <em style="color: var(--accent) !important; font-style: italic;">In Your Driveway.</em>
-      </h1>
-      
-      <p class="hero-sub" style="color: #FFFFFF !important;">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
-      
-      <div class="hero-btns">
+      <div class="hero-btns fade-in-up delay-3">
         <button class="btn-glass" onclick="showPage('services')">Our Services</button>
         <button class="btn-solid-accent" onclick="showPage('contact')">Book via Wrench</button>
       </div>
@@ -461,7 +466,7 @@
   <section class="section" style="background: var(--bg-alt);">
     <div class="section-inner">
       <div class="section-header fade-in-up">
-        <span class="section-eyebrow" style="justify-content: center;">Expertise</span>
+        <span class="section-eyebrow left-aligned" style="justify-content: center;">Expertise</span>
         <h2 class="section-title">Premium Diagnostic<br><em>Repair</em></h2>
         <p class="section-sub" style="margin:0 auto;">Our mobile units cover your vehicle mile after mile, providing dealership-level troubleshooting directly in your driveway.</p>
       </div>
@@ -472,7 +477,7 @@
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="10"/><path d="M24 4v4M24 40v4M4 24h4M40 24h4M8.69 8.69l2.83 2.83M36.48 36.48l2.83 2.83M8.69 39.31l2.83-2.83M36.48 11.52l2.83-2.83"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
           </div>
           <h3 class="service-name">Engine Diagnostics</h3>
-          <p class="service-desc">We accurately diagnose issues without pushing unnecessary predatory repairs.</p>
+          <p class="service-desc">We accurately diagnose issues without pushing unassailable predatory repairs.</p>
           <ul class="service-features"><li>Dealership-level code scanning</li><li>100% Integrity Guarantee</li></ul>
         </div>
         
@@ -531,13 +536,13 @@
 
 <div class="page" id="page-services">
   <div class="section" style="background: var(--bg-alt); padding-top: 10rem; padding-bottom: 6rem; text-align: center; border-bottom: 1px solid #E2E8F0;">
-    <p class="section-eyebrow fade-in-up" style="justify-content: center;">Master Mechanic Capabilities</p>
+    <p class="section-eyebrow left-aligned" style="justify-content: center;">Master Mechanic Capabilities</p>
     <h2 class="section-title fade-in-up delay-1" style="font-size: clamp(36px,5vw,64px);">Comprehensive Service.<br><em>Uncompromising Quality.</em></h2>
     <p class="section-sub fade-in-up delay-2" style="margin: 1.5rem auto 0; max-width: 600px;">From gas to diesel, we service all major systems using premium parts and master-level expertise.</p>
   </div>
   
   <section class="section">
-    <div class="section-inner">
+    <div class="section-inner fade-in-up">
       <div class="services-grid">
         
         <div class="service-card fade-in-up">
@@ -593,13 +598,13 @@
   </section>
 
   <section class="section" style="background: var(--bg-alt); border-top: 1px solid #E2E8F0;">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <p class="section-eyebrow" style="justify-content: center;">Information</p>
+    <div class="section-inner fade-in-up">
+      <div class="section-header">
+        <p class="section-eyebrow left-aligned" style="justify-content: center;">Information</p>
         <h2 class="section-title">What To Expect</h2>
       </div>
       
-      <div class="faq-container reveal reveal-delay-1">
+      <div class="faq-container">
         <div class="faq-item" onclick="this.classList.toggle('active')">
           <div class="faq-question">How does the 10% discount work? <span class="faq-icon">+</span></div>
           <div class="faq-answer">Simply enter the promo code <strong>AUSTINSBEST</strong> when booking your appointment through our scheduling portal. It will automatically apply a 10% discount to the labor costs of your very first service with us.</div>
@@ -612,16 +617,16 @@
     </div>
   </section>
 
-  <div class="parallax-banner reveal">
-    <h2 style="font-family: var(--font-head); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 2rem; color: #FFF; text-transform: uppercase;">Your Car, Fixed Where It Is.</h2>
-    <button class="btn-primary" style="background: transparent !important; border: 2px solid var(--accent); color: #FFF !important; box-shadow: none !important;" onclick="showPage('contact')">Book via Wrench Today</button>
+  <div class="parallax-banner fade-in-up">
+    <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 300; letter-spacing: 0; margin-bottom: 2rem; color: #FFF;">Your Car, <em style="font-style: italic; color: var(--accent);">Fixed Where It Is.</em></h2>
+    <button class="btn-primary" style="background: transparent; border: 2px solid var(--accent); color: #FFF;" onclick="showPage('contact')">Book via Wrench Today</button>
   </div>
 </div>
 
 <div class="page" id="page-about">
   <section class="section" style="padding-top: 8rem;">
     <div class="section-inner text-center">
-      <p class="section-eyebrow fade-in-up" style="justify-content: center;">Master Pedigree</p>
+      <p class="section-eyebrow left-aligned fade-in-up" style="justify-content: center;">Master Pedigree</p>
       <h2 class="section-title fade-in-up delay-1">Meet Master Mechanic<br><em>Roberto.</em></h2>
       
       <p class="section-sub fade-in-up delay-2" style="margin: 0 auto 4rem auto; max-width: 700px;">Unlike dispatch platforms that send random contractors, Austin's Best Mobile Mechanic guarantees that a true master technician is working on your vehicle.</p>
@@ -662,7 +667,7 @@
 <div class="page" id="page-contact">
   <section class="section" style="background: var(--bg-alt); padding-top: 8rem;">
     <div class="section-inner fade-in-up" style="text-align: center;">
-      <p class="section-eyebrow" style="justify-content: center;">Digital Scheduling</p>
+      <p class="section-eyebrow left-aligned" style="justify-content: center;">Digital Scheduling</p>
       <h2 class="section-title">Book Your Service</h2>
       <p class="section-sub" style="margin: 0 auto 4rem auto; max-width: 600px;">Austin's Best utilizes the Wrench scheduling platform to ensure seamless, contactless booking. Secure your spot in our queue today.</p>
       
@@ -715,13 +720,13 @@
               <option>Lemon Squad Inspection</option>
             </select>
           </div>
-          <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
+          <button class="btn-primary" style="width:100%; margin-top: 10px;" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
           <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
         </div>
       </div>
 
       <div class="map-container fade-in-up delay-1">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440733.98522649665!2d-98.05312330310243!3d30.30746237887309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1689266650428!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="http://googleusercontent.com/maps.google.com/3" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       
     </div>
@@ -766,8 +771,7 @@
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
-      // Reset classes immediately so they re-trigger on scroll
-      document.querySelectorAll('.fade-in-up').forEach(el => el.classList.remove('in-view'));
+      document.querySelectorAll('.fade-in-up, .reveal').forEach(el => el.classList.remove('in-view', 'visible'));
       setTimeout(checkAnimations, 50);
     }, 10);
   }
@@ -780,11 +784,12 @@
   }
 
   function checkAnimations() {
-    const elements = document.querySelectorAll('.page.active .fade-in-up');
+    const elements = document.querySelectorAll('.page.active .fade-in-up, .page.active .reveal');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top <= window.innerHeight * 0.95) {
-        el.classList.add('in-view');
+        if(el.classList.contains('fade-in-up')) el.classList.add('in-view');
+        if(el.classList.contains('reveal')) el.classList.add('visible');
       }
     });
   }
