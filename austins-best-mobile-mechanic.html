@@ -6,7 +6,7 @@
 <meta name="format-detection" content="telephone=no"/>
 <title>Austin's Best Mobile Mechanic | Master Auto Repair</title>
 <meta name="description" content="We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, 100% integrity, and zero predatory upsells."/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -17,6 +17,7 @@
     --text-main: #0F172A; 
     --text-gray: #475569; 
     --radius: 14px; 
+    --font-display: 'Cormorant Garamond', serif;
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
@@ -68,7 +69,7 @@
 
   .hero-content, .hero-img-container, .bento-card, .service-big-card, .feature-content, .contact-wrapper, .badge-card { min-width: 0; word-wrap: break-word; }
 
-  /* VIDEO HERO SECTION */
+  /* ─── 100vh APEX-STYLE VIDEO HERO ─── */
   .video-hero { 
     position: relative;
     height: 100vh; min-height: 600px;
@@ -80,97 +81,106 @@
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.6) 50%, rgba(15, 23, 42, 0.8) 100%);
+    background: linear-gradient(160deg, rgba(10,10,14,0.75) 0%, rgba(10,10,14,0.45) 50%, rgba(10,10,14,0.65) 100%);
   }
   .hero-content {
     position: relative; z-index: 2; text-align: center; padding: 0 5%; max-width: 900px; width: 100%;
   }
   
-  /* =========================================
-  HARD-LOCKED HERO TYPOGRAPHY & BUTTONS
-  ========================================= */
+  /* PERFECT APEX TYPOGRAPHY RECREATION */
   body #page-home .video-hero .hero-content .hero-eyebrow { 
     font-family: var(--font-body) !important;
-    font-size: 0.75rem !important; 
-    font-weight: 700 !important; 
-    letter-spacing: 0.32em !important; 
+    font-size: 0.72rem !important; 
+    font-weight: 500 !important; 
+    letter-spacing: 0.28em !important; 
     text-transform: uppercase !important; 
-    color: #FFFFFF !important; 
-    margin-bottom: 18px !important; 
-    display: flex !important; 
-    align-items: center !important; 
-    justify-content: center !important; 
-    gap: 12px !important; 
-  }
-  body #page-home .video-hero .hero-content .hero-eyebrow::before, 
-  body #page-home .video-hero .hero-content .hero-eyebrow::after { 
-    content: '' !important; 
-    display: inline-block !important; 
-    width: 28px !important; 
-    height: 2px !important; 
-    background: var(--accent) !important; 
-    flex-shrink: 0 !important; 
+    color: var(--accent) !important; 
+    margin-bottom: 22px !important; 
+    display: block !important; 
+    background: transparent !important;
+    border: none !important;
   }
   
   body #page-home .video-hero .hero-content h1 { 
-    font-family: var(--font-head) !important; 
-    font-size: clamp(2.8rem, 8vw, 5.5rem) !important; 
+    font-family: var(--font-display) !important; 
+    font-size: clamp(3.2rem, 8vw, 6rem) !important; 
     font-weight: 300 !important; 
-    line-height: 1.1 !important; 
-    letter-spacing: -1px !important; 
-    margin-bottom: 1.5rem !important; 
+    line-height: 1.06 !important; 
+    letter-spacing: 0 !important; 
+    margin-bottom: 26px !important; 
     color: #FFFFFF !important; 
   }
+  
   body #page-home .video-hero .hero-content h1 em { 
-    color: var(--accent) !important; 
+    color: rgba(255,255,255,0.7) !important; 
     font-style: italic !important; 
     font-weight: 300 !important;
   }
   
   body #page-home .video-hero .hero-content .hero-sub { 
-    font-size: 1.1rem !important; 
-    color: rgba(255,255,255,0.85) !important; 
-    line-height: 1.8 !important; 
-    margin-bottom: 3rem !important; 
-    font-weight: 300 !important; 
-    max-width: 650px !important; 
+    font-family: var(--font-body) !important;
+    font-size: 1rem !important; 
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.7) !important; 
+    line-height: 1.7 !important; 
+    margin-bottom: 42px !important; 
+    max-width: 520px !important; 
     margin-left: auto !important; 
     margin-right: auto !important;
   }
   
+  /* EXACT APEX BUTTON STYLES WITH CYAN ACCENT */
   .hero-btns { 
     display: flex; 
-    gap: 1rem; 
+    gap: 16px; 
     flex-wrap: wrap; 
     justify-content: center;
   }
   
-  body #page-home .video-hero .hero-content .btn-primary { 
-    background: var(--accent) !important; 
-    color: #0F172A !important; 
-    font-family: var(--font-body) !important; 
-    font-weight: 800 !important; 
-    font-size: 16px !important; 
-    border: none !important; 
-    padding: 18px 40px !important; 
-    cursor: pointer !important; 
-    transition: all 0.3s !important; 
-    border-radius: 50px !important; 
-    text-transform: uppercase !important; 
-    letter-spacing: 1px !important;
+  .btn-glass {
+    padding: 15px 36px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(200,200,210,0.1) 100%) !important;
+    border: 1px solid rgba(255,255,255,0.5) !important;
+    border-radius: 50px !important;
+    color: var(--bg-white) !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    transition: all 0.35s ease !important;
   }
-  body #page-home .video-hero .hero-content .btn-primary:hover { 
-    background: #FFFFFF !important; 
-    color: #0F172A !important; 
-    transform: translateY(-3px) !important; 
-    box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4) !important; 
+  .btn-glass:hover {
+    background: rgba(255,255,255,0.3) !important;
+    border-color: #FFF !important;
+    transform: translateY(-2px) !important;
   }
 
-  /* ─── SITE BUTTONS (Non-Hero) ─── */
-  .btn-primary { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px;}
-  .btn-primary:hover { background: var(--accent); color: #0F172A; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
-  .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E2E8F0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
-  .btn-outline:hover { border-color: var(--text-main); background: #F8FAFC; }
+  .btn-solid-accent {
+    padding: 15px 36px !important;
+    background: var(--accent) !important;
+    border: 1px solid var(--accent) !important;
+    border-radius: 50px !important;
+    color: #0F172A !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.35s ease !important;
+    box-shadow: 0 4px 24px rgba(81, 208, 222, 0.35) !important;
+  }
+  .btn-solid-accent:hover {
+    background: var(--accent-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 40px rgba(81, 208, 222, 0.5) !important;
+  }
 
   .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s ease 1.5s forwards; }
   .scroll-indicator span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
@@ -178,6 +188,12 @@
   
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes scrollPulse { 0%, 100% { opacity: 0.3; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.3); } }
+
+  /* ─── SITE BUTTONS (Non-Hero) ─── */
+  .btn-primary { background: var(--text-main); color: #FFF; font-family: var(--font-body); font-weight: 700; font-size: 16px; border: none; padding: 18px 40px; cursor: pointer; transition: all 0.3s; border-radius: 50px;}
+  .btn-primary:hover { background: var(--accent); color: #0F172A; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(81, 208, 222, 0.4); }
+  .btn-outline { background: transparent; color: var(--text-main); font-family: var(--font-body); font-weight: 600; font-size: 16px; border: 2px solid #E2E8F0; padding: 16px 40px; cursor: pointer; transition: all 0.2s; border-radius: 50px;}
+  .btn-outline:hover { border-color: var(--text-main); background: #F8FAFC; }
 
   /* ─── STATS BAR ─── */
   #stats { background: var(--bg-alt); padding: 50px 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border-bottom: 1px solid #E2E8F0; }
@@ -244,8 +260,8 @@
     margin-top: 5rem;
   }
   
-  .parallax-banner .btn-primary { border: 2px solid var(--accent); background: transparent; color: #FFF; box-shadow: none;}
-  .parallax-banner .btn-primary:hover { background: var(--accent); color: #0F172A;}
+  .parallax-banner .btn-primary { border: 2px solid var(--accent); background: transparent; color: #FFF !important; box-shadow: none;}
+  .parallax-banner .btn-primary:hover { background: var(--accent) !important; color: #0F172A !important;}
 
   /* ABOUT PAGE WITH FLOATING BADGE */
   .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -431,7 +447,8 @@
       <p class="hero-sub">We give you an honest assessment of what your vehicle needs today. Dealership-level diagnostics, a 5.0-star rating guarantee, and a commitment to 100% integrity with zero predatory upsells.</p>
       
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showPage('contact')">Book via Wrench</button>
+        <button class="btn-glass" onclick="showPage('services')">Our Services</button>
+        <button class="btn-solid-accent" onclick="showPage('contact')">Book via Wrench</button>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -631,7 +648,7 @@
 
   <div class="parallax-banner fade-in-up">
     <h2 style="font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2rem; color: #FFF; text-transform: uppercase;">Your Car, Fixed Where It Is.</h2>
-    <button class="btn-primary" style="background: var(--accent) !important; color: #0F172A !important;" onclick="showPage('contact')">Book via Wrench Today</button>
+    <button class="btn-primary" style="background: transparent !important; border: 2px solid var(--accent); color: #FFF !important; box-shadow: none !important;" onclick="showPage('contact')">Book via Wrench Today</button>
   </div>
 </div>
 
@@ -782,7 +799,7 @@
               <option>Lemon Squad Inspection</option>
             </select>
           </div>
-          <button class="btn-primary" style="width:100%; margin-top: 10px;" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
+          <button class="btn-submit" onclick="submitForm()">Proceed to Wrench Scheduling →</button>
           <div class="submit-confirm" id="form-confirm">Request captured! Redirecting to Wrench API...</div>
         </div>
       </div>
@@ -846,10 +863,12 @@
     confirm.style.display = 'block';
   }
 
+  // BULLETPROOF SCROLL TRIGGER
   function checkAnimations() {
     const elements = document.querySelectorAll('.page.active .fade-in-up');
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
+      // If the top of the element is within the viewport (with a small buffer)
       if (rect.top <= window.innerHeight * 0.95) {
         el.classList.add('in-view');
       }
@@ -871,6 +890,7 @@
     counts.forEach(c => countObs.observe(c));
   });
 
+  // Attach strictly to scroll
   window.addEventListener('scroll', checkAnimations, { passive: true });
 
   function animateCount(el) {
